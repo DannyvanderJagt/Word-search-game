@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Word-search-game", "Word-search-game", "{94FAFD2B-8EDA-4143-8C28-232C66B7A50F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Word-search-game.Shared", "Word-search-game\Word-search-game.Shared\Word-search-game.Shared.shproj", "{EFDEB008-7BD8-423A-8D0D-B1432CC2F504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Word-search-game.Windows", "Word-search-game\Word-search-game.Windows\Word-search-game.Windows.csproj", "{18814066-9030-419A-9355-F2621DDA25E0}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Word-search-game\Word-search-game.Shared\Word-search-game.Shared.projitems*{efdeb008-7bd8-423a-8d0d-b1432cc2f504}*SharedItemsImports = 13
+		Word-search-game\Word-search-game.Shared\Word-search-game.Shared.projitems*{18814066-9030-419a-9355-f2621dda25e0}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|ARM.ActiveCfg = Debug|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|ARM.Build.0 = Debug|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|ARM.Deploy.0 = Debug|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x64.ActiveCfg = Debug|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x64.Build.0 = Debug|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x64.Deploy.0 = Debug|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x86.ActiveCfg = Debug|x86
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x86.Build.0 = Debug|x86
+		{18814066-9030-419A-9355-F2621DDA25E0}.Debug|x86.Deploy.0 = Debug|x86
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|ARM.ActiveCfg = Release|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|ARM.Build.0 = Release|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|ARM.Deploy.0 = Release|ARM
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x64.ActiveCfg = Release|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x64.Build.0 = Release|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x64.Deploy.0 = Release|x64
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x86.ActiveCfg = Release|x86
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x86.Build.0 = Release|x86
+		{18814066-9030-419A-9355-F2621DDA25E0}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFDEB008-7BD8-423A-8D0D-B1432CC2F504} = {94FAFD2B-8EDA-4143-8C28-232C66B7A50F}
+		{18814066-9030-419A-9355-F2621DDA25E0} = {94FAFD2B-8EDA-4143-8C28-232C66B7A50F}
+	EndGlobalSection
+EndGlobal
