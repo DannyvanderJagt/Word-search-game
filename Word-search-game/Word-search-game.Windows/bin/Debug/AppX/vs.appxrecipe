@@ -7,7 +7,7 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>bc9463f7-bb36-4b8c-8d40-7b7a5748d9f3</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\obj\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>306BD31B1F2686A416A6495E658C7E1A67232B37EBA56A2A8BB230B85C0118B6</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>bc9463f7-bb36-4b8c-8d40-7b7a5748d9f3_1.0.0.0_neutral__e53vgc1r5ec0t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>bc9463f7-bb36-4b8c-8d40-7b7a5748d9f3_e53vgc1r5ec0t!App</RegisteredUserModeAppID>
@@ -17,52 +17,52 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-05-15T14:14:17.070</Modified>
+      <Modified>2014-05-17T11:56:36.460</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
       <PackagePath>Word-search-game.Windows.exe</PackagePath>
-      <Modified>2014-05-15T14:14:16.758</Modified>
+      <Modified>2014-05-17T12:31:42.449</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-12T19:06:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-12T19:06:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-12T19:06:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-12T19:06:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
       <Modified>2014-05-15T14:14:16.570</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-05-15T14:14:16.570</Modified>
+      <Modified>2014-05-15T16:13:27.652</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
-      <Modified>2014-05-15T14:14:16.492</Modified>
+      <Modified>2014-05-15T14:27:17.575</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-05-15T14:14:16.945</Modified>
+      <Modified>2014-05-17T11:56:36.321</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

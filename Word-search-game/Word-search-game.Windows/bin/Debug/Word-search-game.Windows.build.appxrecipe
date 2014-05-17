@@ -7,44 +7,44 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>bc9463f7-bb36-4b8c-8d40-7b7a5748d9f3</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
       <PackagePath>Word-search-game.Windows.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
