@@ -106,6 +106,10 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Boggle.cs" />
+    <Compile Include="Classes\Levels.cs" />
+    <Compile Include="Classes\Word.cs" />
+    <Compile Include="Classes\WordList.cs" />
     <Compile Include="Classes\Tile.cs" />
     <Compile Include="Classes\Board.cs" />
     <Compile Include="MainPage.xaml.cs">

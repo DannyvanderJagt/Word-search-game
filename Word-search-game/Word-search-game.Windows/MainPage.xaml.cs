@@ -26,10 +26,7 @@ namespace Word_search_game
         public MainPage()
         {
             this.InitializeComponent();
-
-            Board board = new Board(8,8);
-            boardStackPanel.Children.Add(board.getGrid());
-
+            Boggle boggle = new Boggle("easy", 1, boardStackPanel);
 
         }
     }

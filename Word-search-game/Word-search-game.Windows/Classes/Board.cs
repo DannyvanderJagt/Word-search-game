@@ -20,6 +20,7 @@ namespace Word_search_game.Classes
         private int columns = 0;
         private int height = 75; // The width and height of a tile when it is displayed.
         private int width = 75;
+        private StackPanel panel;
         private Tile[,] tiles; // This will hold all the boxes that the board will contain.
 
         // Display element.
@@ -29,15 +30,16 @@ namespace Word_search_game.Classes
          * Constructor.
          * @param int rows - The number of rows the board needs to be. (y-axis, height)
          * @param int columns - The number of columns the board needs to be. (x-axis, width)
-         * @savedAt this.rows, this.colums
+         * @savedAt this.rows, this.colums, this.panel
          */
-        public Board(int rows, int columns)
+        public Board(int rows, int columns, StackPanel panel)
         {
             if (rows > 0 && columns > 0)
             {
                 // Set the data.
                 this.rows = rows;
                 this.columns = columns;
+                this.panel = panel;
                 // Initialize the array.
                 this.tiles = new Tile[rows, columns];
                 // Create the tiles.
@@ -124,8 +126,9 @@ namespace Word_search_game.Classes
                     grid.Children.Add(background);
                     grid.Children.Add(text);
                 }
-            
             }
+            // Show.
+            this.panel.Children.Add(grid);
         }
 
         /*
