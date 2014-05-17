@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Boggle.cs" />
+    <Compile Include="Classes\Char.cs" />
     <Compile Include="Classes\Levels.cs" />
     <Compile Include="Classes\Word.cs" />
     <Compile Include="Classes\WordList.cs" />

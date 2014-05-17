@@ -23,12 +23,12 @@ namespace Word_search_game.Classes
         private int x = -1;
         private int y = -1;
         private String value = "a".ToString();
+        private HashSet<Char> chars = new HashSet<Char>();
 
         public Tile(int x, int y)
         {
             this.x = x;
             this.y = y;
-            this.value = (x + "" + y).ToString();
         }
 
         /*
@@ -75,7 +75,20 @@ namespace Word_search_game.Classes
         }
 
 
-        
+        public Tile place(Char character)
+        {
+            this.chars.Add(character);
+            // TODO: Do some more awesome stuff.
+            this.value = character.value;
+            System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value+":"+this.value);
+            return this;
+        }
+
+        public Boolean unplace(Char character)
+        {
+            this.value = "";
+            return true;
+        }
 
 
 

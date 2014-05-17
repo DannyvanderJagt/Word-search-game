@@ -16,12 +16,12 @@ namespace Word_search_game.Classes
     class Board
     {
         // Some variables.
-        private int rows = 0;
-        private int columns = 0;
+        public int rows = 0;
+        public int columns = 0;
         private int height = 75; // The width and height of a tile when it is displayed.
         private int width = 75;
         private StackPanel panel;
-        private Tile[,] tiles; // This will hold all the boxes that the board will contain.
+        public Tile[,] tiles; // This will hold all the boxes that the board will contain.
 
         // Display element.
         private Grid grid;
@@ -40,14 +40,11 @@ namespace Word_search_game.Classes
                 this.rows = rows;
                 this.columns = columns;
                 this.panel = panel;
+                System.Diagnostics.Debug.WriteLine("Board"+this.rows+""+this.columns);
                 // Initialize the array.
                 this.tiles = new Tile[rows, columns];
                 // Create the tiles.
                 this.createTiles();
-                // Create the board elements.
-                this.createGrid();
-                this.show();
-
             }
         }
 
@@ -113,12 +110,14 @@ namespace Word_search_game.Classes
          * Fill and show the grid.
          * @used this.background, this.text
          */
-        private void show()
+        public void show()
         {
+            // Create the board elements.
+            this.createGrid();
             for (int xi = 0; xi < this.columns; xi++) {
                 for (int yi = 0; yi < this.rows; yi++)
                 {
-                    Tile tile = new Tile(xi, yi);
+                    Tile tile = this.tiles[xi, yi];
                     Grid background = tile.getBackground();
                     background.Tapped += clicked;
                     TextBlock text = tile.getText();

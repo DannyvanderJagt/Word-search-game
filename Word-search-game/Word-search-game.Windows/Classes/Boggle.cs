@@ -16,7 +16,7 @@ namespace Word_search_game.Classes
     class Boggle
     {
         // Static board for overall access.
-        private static Board board;
+        public static Board board;
 
         // Normal variables.
         public Word[] words; // All the words that are placed in the board.
@@ -42,6 +42,12 @@ namespace Word_search_game.Classes
 
                 // Create the board.
                 createBoard(this.settings.columns, this.settings.rows, panel);
+
+                // Place the first word.
+                Boolean first = this.placeFirstWord();
+   
+                // Show the board to the user.
+                board.show();
             }
             else
             {
@@ -73,9 +79,39 @@ namespace Word_search_game.Classes
             {
                 int randomPos = random.Next(0, WordList.words.Length-1);
                 String value = WordList.words[randomPos];
-                words[i] = new Word(value, i);
+                words[i] = new Word(value);
             }
 
+        }
+
+        /*
+         * Try to place to first word.
+         * @var int firstWordTrys - Count to number of tries.
+         */
+        private int firstWordTrys = 0;
+        private Boolean placeFirstWord()
+        {
+            Word word = this.words[0];
+            int rx = new Random().Next(0, board.columns);
+            int ry = new Random().Next(0, board.rows);
+            int rpos = new Random().Next(0, word.length);
+            // Try to place this word.
+            Boolean result = word.place(rx, ry, rpos);
+            // Check if the placing was successful.
+            this.firstWordTrys++;
+            if (!result)
+            {
+                if (this.firstWordTrys < 5)
+                {
+                    this.placeFirstWord();
+                }
+                else
+                {
+                    // The word can't be placed after 5 trys.
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
