@@ -45,6 +45,9 @@ namespace Word_search_game.Classes
 
                 // Place the first word.
                 Boolean first = this.placeFirstWord();
+
+                // Place the other words to.
+                this.placeOtherWords();
    
                 // Show the board to the user.
                 board.show();
@@ -113,6 +116,71 @@ namespace Word_search_game.Classes
                 }
             }
             return true;
+        }
+
+        /*
+         * Try to place as many words.
+         */
+        private void placeOtherWords()
+        {
+            List<int> placedTotal = new List<int>();
+            List<int> notPlacedTotal = new List<int>();
+            placedTotal.Add(0);
+
+            // Add the positions of all the words to the notPlacedTotal list, except the first word because that is already placed.
+            for (int i = 1, len = this.words.Length; i < len; i++)
+            {
+                notPlacedTotal.Add(i);
+            }
+
+            // Loop!
+            for (int turn = 0; turn < 3; turn++)
+            {
+                List<int> placed = new List<int>();
+                List<int> notPlaced = new List<int>();
+
+                foreach (int i in notPlacedTotal)
+                {
+                    Boolean result = this.placeWord(i);
+                    if (result)
+                    {
+                        placedTotal.Add(i);
+                    }
+                    else
+                    {
+                        notPlaced.Add(i);
+                    }
+                }
+                // Swap the not placed word and try again.
+                notPlacedTotal = notPlaced;
+            }
+            System.Diagnostics.Debug.WriteLine(placedTotal.Count + " : " + this.words.Length);
+
+
+        }
+
+
+        // Try to place a word.
+        private Boolean placeWord(int pos)
+        {
+            Word word = this.words[pos];
+            List<int[]> spaces = board.search(word.value);
+
+            if (spaces.Count > 0)
+            {
+                // Loop throught the spaces and try to fit the word there.
+                for (int i = 0, len = spaces.Count; i < len; i++)
+                {
+                    int[] space = spaces[i];
+                    // Try to place the word.
+                    Boolean result = word.place(space[0], space[1], space[2]);
+                    if (result)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

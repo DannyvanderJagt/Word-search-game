@@ -149,6 +149,27 @@ namespace Word_search_game.Classes
             System.Diagnostics.Debug.WriteLine("clicked!"+sender);
         }
 
+        // Search.
+        // Search for all the letters from the word.
+        // Output: List<int[]> -> int[]{x,y,indexOf}
+        public List<int[]> search(String letters)
+        {
+            List<int[]> positions = new List<int[]>();
+
+            for (int xi = 0, xlen = this.columns; xi < xlen; xi++)
+            {
+                for (int yi = 0, ylen = this.rows; yi < ylen; yi++)
+                {
+                    Tile box = this.tiles[xi, yi];
+                    // Check if there are letters that match!
+                    if (box.value != null && letters.IndexOf(box.value) != -1)
+                    {
+                        positions.Add(new int[3] { xi, yi, letters.IndexOf(box.value) });
+                    }
+                }
+            };
+            return positions;
+        }
 
     }
 }

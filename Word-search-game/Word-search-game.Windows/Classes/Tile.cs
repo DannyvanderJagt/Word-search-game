@@ -23,8 +23,7 @@ namespace Word_search_game.Classes
         private int x = -1;
         private int y = -1;
         public String value = null;
-        private HashSet<Char> chars = new HashSet<Char>();
-
+        private Dictionary<String, Char> chars = new Dictionary<String, Char>();
         public Tile(int x, int y)
         {
             this.x = x;
@@ -77,16 +76,55 @@ namespace Word_search_game.Classes
 
         public Tile place(Char character)
         {
-            this.chars.Add(character);
-            // TODO: Do some more awesome stuff.
-            this.value = character.value;
-            System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value+":"+this.value);
-            return this;
+            if (this.value == null)
+            {
+                this.value = character.value;
+                System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
+                if (!this.chars.ContainsKey(character.word.value))
+                {
+                    this.chars.Add(character.word.value, character);
+                }
+                else
+                {
+                    return null;
+                }
+                return this;
+            }else if(character.value == this.value)
+            {
+                System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
+                if (!this.chars.ContainsKey(character.word.value))
+                {
+                    this.chars.Add(character.word.value, character);
+                }
+                else
+                {
+                    return null;
+                }
+                return this;
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public Boolean unplace(Char character)
+        public Boolean unplace(String value)
         {
-            this.value = "";
+            System.Diagnostics.Debug.WriteLine("unplace value"+this.chars.Count);
+            if (this.chars.Count > 0)
+            {
+                /*if (this.chars.ContainsKey(character.word.value))
+                {
+                //    this.chars.Remove(character.word.value);
+                }*/
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("SOmethings wrong!"+value);
+            }
+            if (this.chars.Count <= 0) {
+                this.value = "";
+            }
             return true;
         }
 

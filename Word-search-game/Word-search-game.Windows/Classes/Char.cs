@@ -8,7 +8,7 @@ namespace Word_search_game.Classes
 {
     class Char
     {
-        private Word word;
+        public Word word;
         private int position = -1;
         public String value;
         public int x = -1;
@@ -40,7 +40,12 @@ namespace Word_search_game.Classes
 
         public Boolean unplace()
         {
-            this.tile.unplace(this);
+            this.x = -1;
+            this.y = -1;
+            if (this.tile != null)
+            {
+                this.tile.unplace(this.word.value);
+            }
             return true;
         }
     }
