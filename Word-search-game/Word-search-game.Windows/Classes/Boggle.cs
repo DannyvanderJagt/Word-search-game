@@ -20,7 +20,7 @@ namespace Word_search_game.Classes
 
         // Normal variables.
         public Word[] words; // All the words that are placed in the board.
-        public Level settings;
+        public static Level settings;
 
         /*
          * Constructor.
@@ -35,13 +35,13 @@ namespace Word_search_game.Classes
             if (Array.IndexOf(Levels.types, difficulty) != -1)
             {
                 // Get the settings for this type of difficulty and this level.
-                this.settings = Levels.easy[0];
+                settings = Levels.easy[0];
 
                 // Select some words.
                 this.selectWords();
 
                 // Create the board.
-                createBoard(this.settings.columns, this.settings.rows, panel);
+                createBoard(settings.columns, settings.rows, panel);
 
                 // Place the first word.
                 Boolean first = this.placeFirstWord();
@@ -74,8 +74,8 @@ namespace Word_search_game.Classes
         public void selectWords()
         {
             Random random = new Random();
-            this.words = new Word[this.settings.words];
-            for (int i = 0, len = this.settings.words; i < len; i++)
+            this.words = new Word[settings.words];
+            for (int i = 0, len = settings.words; i < len; i++)
             {
                 int randomPos = random.Next(0, WordList.words.Length-1);
                 String value = WordList.words[randomPos];
@@ -92,6 +92,7 @@ namespace Word_search_game.Classes
         private Boolean placeFirstWord()
         {
             Word word = this.words[0];
+            System.Diagnostics.Debug.WriteLine("FIRST:"+word.value);
             int rx = new Random().Next(0, board.columns);
             int ry = new Random().Next(0, board.rows);
             int rpos = new Random().Next(0, word.length);

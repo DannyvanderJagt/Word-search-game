@@ -14,14 +14,14 @@ namespace Word_search_game.Classes
                 5,
                 5,
                 10,
-                new String[]{"left","right","top","bottom"},
+                new int[]{0,1,2,3},
                 60
             ),
             new Level(
                 6,
                 6,
                 12,
-                new String[]{"left","right","top","bottom"},
+                new int[]{0,1,2,3},
                 60
             )
         };
@@ -32,10 +32,10 @@ namespace Word_search_game.Classes
         public int columns = 0;
         public int rows = 0;
         public int words = 0;
-        public String[] directions;
+        public int[] directions;
         public int time = 0;
 
-        public Level(int columns, int rows, int words, String[] directions, int time)
+        public Level(int columns, int rows, int words, int[] directions, int time)
         {
             this.columns = columns;
             this.rows = rows;

@@ -22,7 +22,7 @@ namespace Word_search_game.Classes
         // Class instance data.
         private int x = -1;
         private int y = -1;
-        private String value = "a".ToString();
+        public String value = null;
         private HashSet<Char> chars = new HashSet<Char>();
 
         public Tile(int x, int y)
@@ -60,7 +60,7 @@ namespace Word_search_game.Classes
         {
             TextBlock textBlock = new TextBlock();
             textBlock.Name = "textBlock_" + this.x + "_" + this.y;
-            textBlock.Text = this.value;
+            textBlock.Text = this.value == null ? "".ToString(): this.value;
             textBlock.HorizontalAlignment = HorizontalAlignment.Center;
             textBlock.VerticalAlignment = VerticalAlignment.Center;
             textBlock.MinWidth = background.ActualWidth;

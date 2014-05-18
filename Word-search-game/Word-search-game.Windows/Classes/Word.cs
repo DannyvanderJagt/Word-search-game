@@ -11,6 +11,7 @@ namespace Word_search_game.Classes
         public String value = null;
         public int length = -1;
         public Char[] chars;
+        private int direction = 0;
 
         /* 
          * Constructor.
@@ -37,13 +38,14 @@ namespace Word_search_game.Classes
             }
         }
 
-
+        // Place the word.
         public Boolean place(int x, int y, int pos)
         {
             Boolean result;
+            
             // Place the first letter.
             Boolean first = this.chars[pos].place(x, y);
-
+            
             if (first)
             {
                 if (pos == 0)
@@ -71,7 +73,6 @@ namespace Word_search_game.Classes
             }
             return false;
         }
-
 
         // UnplaceAll.
         public Boolean unplaceAll()
@@ -101,7 +102,8 @@ namespace Word_search_game.Classes
         // Try to place all the letters of the word after a predefined position.
         public Boolean placeForward(int pos)
         {
-            for (int i = pos + 1, len = this.chars.Length; i < len; i++)
+            // this.chars.Length
+            for (int i = pos + 1, len = this.chars.Length ; i < len; i++)
             {
                 Boolean run = true;
                 while (run)
@@ -172,20 +174,63 @@ namespace Word_search_game.Classes
         public int[] findSpace(Char character, int x, int y)
         {
             // Directions;
-            int[,] directions = new int[,]{
-                {x+1,y}, // Right.
-                {x-1,y}, // Left.
-                {x,y-1}, // Top.
-                {x,y+1}, // Bottom.
-                {x-1,y-1}, // Topleft.
-                {x+1,y-1}, // Topright.
-                {x-1,y+1}, // Bottomleft.
-                {x+1,y+1}  // Bottomright.
+            int[][] directions = new int[][]{
+                new int[]{x+1,y}, // Right.
+                new int[]{x-1,y}, // Left.
+                new int[]{x,y-1}, // Top.
+                new int[]{x,y+1}, // Bottom.
+                new int[]{x-1,y-1}, // Topleft.
+                new int[]{x+1,y-1}, // Topright.
+                new int[]{x-1,y+1}, // Bottomleft.
+                new int[]{x+1,y+1}  // Bottomright.
             };
 
-            return new int[] { 1,1 };
+            // Directions that can be used. (From the settings).
+            int[] dirs = Boggle.settings.directions;
+            int[] result =  find(this.direction, dirs, directions, character);
+            return result;
         }
 
+
+        private int[] find(int dir, int[] dirs, int[][] directions, Char character)
+        {
+            int[] vd = directions[dirs[dir]];
+
+            Tile tile = Boggle.board.tiles[0, 0];
+            Boolean inbound = false;
+            if (vd[0] >= 0 && vd[0] <= Boggle.board.columns-1 && vd[1] >= 0 && vd[1] <= Boggle.board.rows-1)
+            {
+                inbound = true;
+                tile = Boggle.board.tiles[vd[0], vd[1]];
+            }
+            if (inbound != false)
+            {
+                if (tile.value == character.value || tile.value == null)
+                {
+                    return vd;
+                }
+                else
+                {
+                    // Find for next dir.
+                    dir++;
+                    if (dir >= dirs.Length)
+                    {
+                        return null;
+                    }
+                    return find(dir, dirs, directions, character);
+                }
+            }
+            else
+            {
+                // Find for next dir.
+                dir++;
+                if (dir >= dirs.Length)
+                {
+                    return null;
+                }
+                return find(dir, dirs, directions, character);
+            }
+        }
 
     }
 }
