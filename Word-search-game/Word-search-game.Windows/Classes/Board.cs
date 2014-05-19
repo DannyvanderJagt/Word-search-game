@@ -15,31 +15,33 @@ namespace Word_search_game.Classes
 {
     class Board
     {
+        #region Varibales
         // Some variables.
         public int rows = 0;
         public int columns = 0;
         private int height = 75; // The width and height of a tile when it is displayed.
         private int width = 75;
-        private StackPanel panel;
         public Tile[,] tiles; // This will hold all the boxes that the board will contain.
 
         // Display element.
         private Grid grid;
-        
+
+        #endregion
+
+        #region Constructor
         /*
          * Constructor.
          * @param int rows - The number of rows the board needs to be. (y-axis, height)
          * @param int columns - The number of columns the board needs to be. (x-axis, width)
          * @savedAt this.rows, this.colums, this.panel
          */
-        public Board(int rows, int columns, StackPanel panel)
+        public Board(int rows, int columns)
         {
             if (rows > 0 && columns > 0)
             {
                 // Set the data.
                 this.rows = rows;
                 this.columns = columns;
-                this.panel = panel;
                 System.Diagnostics.Debug.WriteLine("Board"+this.rows+""+this.columns);
                 // Initialize the array.
                 this.tiles = new Tile[rows, columns];
@@ -47,9 +49,11 @@ namespace Word_search_game.Classes
                 this.createTiles();
             }
         }
+        #endregion
 
+        #region Create
         /*
-         * Create all the tiles.
+         * Create all the empty tiles.
          * @savedAt this.tiles.
          */
         private void createTiles()
@@ -64,7 +68,9 @@ namespace Word_search_game.Classes
                 }
             }
         }
+        #endregion
 
+        #region Display
         /*
          * Create the grid. 
          * @savedAt this.grid
@@ -110,7 +116,7 @@ namespace Word_search_game.Classes
          * Fill and show the grid.
          * @used this.background, this.text
          */
-        public void show()
+        public Grid show()
         {
             // Create the board elements.
             this.createGrid();
@@ -126,8 +132,7 @@ namespace Word_search_game.Classes
                     grid.Children.Add(text);
                 }
             }
-            // Show.
-            this.panel.Children.Add(grid);
+            return grid;
         }
 
         /*
@@ -139,7 +144,9 @@ namespace Word_search_game.Classes
         {
             return grid;
         }
+        #endregion
 
+        #region Events
         /*
          * Click handler for when an tile is clicked.
          * TODO: Make this work!
@@ -148,11 +155,14 @@ namespace Word_search_game.Classes
         {
             System.Diagnostics.Debug.WriteLine("clicked!"+sender);
         }
+        
+#endregion
 
+        #region Search
         // Search.
         // Search for all the letters from the word.
         // Output: List<int[]> -> int[]{x,y,indexOf}
-        public List<int[]> search(String letters, Boolean searchForEmpty)
+        public List<int[]> search(String letters)
         {
             List<int[]> positionsFilled = new List<int[]>();
             List<int[]> positionEmpty = new List<int[]>();
@@ -173,15 +183,7 @@ namespace Word_search_game.Classes
                     }
                 }
             };
-            /*if (positionsFilled.Count > 0 && searchForEmpty == false)
-            {
-                return positionsFilled;
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Empty"+positionEmpty.Count);
-                return positionEmpty;
-            }*/
+
             // Combine.
             for (int i = 0, len = positionEmpty.Count; i < len; i++)
             {
@@ -190,6 +192,35 @@ namespace Word_search_game.Classes
             return positionsFilled;
 
         }
+        #endregion
 
+        #region Check
+        // Check if the tile is availible for the requested char.
+        public Boolean check(int x, int y, Char character)
+        {
+            if (this.tiles[x, y].value == character.value || String.IsNullOrEmpty(this.tiles[x,y].value))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Space
+        // Posibile directions.
+
+
+
+        public int[,] space(int x, int y, String value)
+        {
+            
+
+
+
+
+
+            return new int[,]{{0,0}};
+        #endregion
     }
 }

@@ -15,6 +15,7 @@ namespace Word_search_game.Classes
 {
     class Tile
     {
+        #region Variables
         // Display element.
         private Grid background;
         private TextBlock text;
@@ -24,12 +25,17 @@ namespace Word_search_game.Classes
         private int y = -1;
         public String value;
         private Dictionary<String, Char> chars = new Dictionary<String, Char>();
+        #endregion
+
+        #region Constructor
         public Tile(int x, int y)
         {
             this.x = x;
             this.y = y;
         }
+        #endregion
 
+        #region Display
         /*
          * Create the display element: background.
          * @used this.x, this.y
@@ -47,7 +53,6 @@ namespace Word_search_game.Classes
             this.background = background;
             return this.background;
         }
-
 
         /*
          * Create the display element: text.
@@ -73,68 +78,46 @@ namespace Word_search_game.Classes
             return this.text;
         }
 
+        #endregion
 
-        public Tile place(Char character)
+        #region Place
+
+        // Done.
+        public Boolean place(Char character)
         {
-            if (this.value == null)
-            {
-                
-               // System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
-                if (!this.chars.ContainsKey(character.word.value))
-                {
-                    this.chars.Add(character.word.value, character);
-                    System.Diagnostics.Debug.WriteLine("Place:"+character.x+":"+character.y+":"+ this.value+":"+character.value);
-                    this.value = character.value;
-                }
-                else
-                {
-                    return null;
-                }
-                return this;
-            }else if(character.value == this.value)
-            {
-               // System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
-                if (!this.chars.ContainsKey(character.word.value))
-                {
-                    this.chars.Add(character.word.value, character);
-                    System.Diagnostics.Debug.WriteLine("Place:" + character.x + ":" + character.y + ":" + this.value + ":" + character.value);
-                }
-                else
-                {
-                    return null;
-                }
-                return this;
+            if(this.value == character.value || String.IsNullOrEmpty(this.value)){
+                // The character can be placed.
+                return  this.addChar(character);
             }
-            else
-            {
-                return null;
-            }
+            return false;
         }
 
         public Boolean unplace(String value)
         {
-           // System.Diagnostics.Debug.WriteLine("unplace value"+this.chars.Count);
-            if (this.chars.Count > 0)
-            {
-                if (this.chars.ContainsKey(value))
+               /* if (this.chars.ContainsKey(value))
                 {
                     this.chars.Remove(value);
-                }
-            }
-            else
+                }*/
+           
+            return false;
+        }
+
+        private Boolean addChar(Char character)
+        {
+            this.chars.Add(character.word.value, character);
+            if (this.chars.Count == 1)
             {
-              //  System.Diagnostics.Debug.WriteLine("SOmethings wrong!"+value);
-            }
-            if (this.chars.Count <= 0) {
-                this.value = "";
+                this.value = character.value;
             }
             return true;
         }
 
+        private Boolean removeChar(Char character)
+        {
+            return false;
+        }
 
-
-
-
+        #endregion
 
     }
 }

@@ -26,7 +26,7 @@ namespace Word_search_game
         public MainPage()
         {
             this.InitializeComponent();
-            Boggle boggle = new Boggle("easy", 1, boardStackPanel);
+            Boggle boggle = new Boggle("easy", 1, tileGrid, wordList); // Difficulty, Level, grid for the tiles Element, grid for the words element.
 
         }
     }

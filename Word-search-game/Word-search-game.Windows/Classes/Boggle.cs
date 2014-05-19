@@ -15,13 +15,19 @@ namespace Word_search_game.Classes
 {
     class Boggle
     {
+        #region Variables
         // Static board for overall access.
         public static Board board;
 
         // Normal variables.
         public Word[] words; // All the words that are placed in the board.
         public static Level settings;
+        private StackPanel gridPanel;
+        private StackPanel wordPanel;
 
+        #endregion
+
+        #region Constructor
         /*
          * Constructor.
          * @param String difficulty - The name of the difficulty.
@@ -29,11 +35,13 @@ namespace Word_search_game.Classes
          * @param Stackpanel panel - The panel from the View.
          * @savedAt this.settings
          */
-        public Boggle(String difficulty, int level, StackPanel panel)
+        public Boggle(String difficulty, int level, StackPanel gridPanel, StackPanel wordPanel)
         {
             // Check if the difficulty exists.
             if (Array.IndexOf(Levels.types, difficulty) != -1)
             {
+                this.gridPanel = gridPanel;
+                this.wordPanel = wordPanel;
                 // Get the settings for this type of difficulty and this level.
                 settings = Levels.easy[0];
 
@@ -41,40 +49,65 @@ namespace Word_search_game.Classes
                 this.selectWords();
 
                 // Create the board.
-                createBoard(settings.columns, settings.rows, panel);
+                this.create(settings.columns, settings.rows);
 
                 // Place the first word.
                 Boolean first = this.placeFirstWord();
 
                 // Place the other words to.
-                this.placeOtherWords();
+                //this.placeOtherWords();
 
                 // Replace this.words with only the words that are placed.
-                this.onlyPlacedWords();
+                //this.onlyPlacedWords();
    
                 // Show the board to the user.
-                board.show();
+                this.display();
             }
             else
             {
                 // This difficulty doens't exist.
             }
         }
+        #endregion
 
-        /*
-         * Create a new board instance.
-         * @param int columns - the number of columns.
-         * @param int rows - the number of rows.
-         * @panel Stackpanel - The panel from the view.
-         * @type Static! <--------
-         */
-        public static void createBoard(int columns, int rows, StackPanel panel)
+        #region Display
+
+        private void display()
         {
-            board = new Board(columns, rows, panel);
+            // Get the grid and show it.
+            Grid grid = board.show();
+            this.gridPanel.Children.Add(grid);
         }
 
+        #endregion
+
+        #region Create
+
         /*
-         * Select a number of random word from the WordList.
+        * Create a new board instance.
+        * @param int columns - the number of columns.
+        * @param int rows - the number of rows.
+        * @panel Stackpanel - The panel from the view.
+        * @type Static! <--------
+        */
+        private void create(int columns, int rows)
+        {
+            board = new Board(columns, rows);
+        }
+
+        #endregion
+
+        #region Place
+
+        #endregion
+
+        #region Select
+
+        /*
+         * Select a number of random word from the WordList
+         * and convert the String into a Word
+         * and add to them this.words array
+         * 
          * @savedAt this.words.
          */
         public void selectWords()
@@ -83,167 +116,33 @@ namespace Word_search_game.Classes
             this.words = new Word[settings.words];
             for (int i = 0, len = settings.words; i < len; i++)
             {
-                int randomPos = random.Next(0, WordList.words.Length-1);
+                int randomPos = random.Next(0, WordList.words.Length - 1);
                 String value = WordList.words[randomPos];
                 words[i] = new Word(value);
             }
 
         }
 
+        #endregion  
+
         /*
          * Try to place to first word.
          * @var int firstWordTrys - Count to number of tries.
          */
-        private int firstWordTrys = 0;
         private Boolean placeFirstWord()
         {
-            Word word = this.words[0];
-            System.Diagnostics.Debug.WriteLine("FIRST:"+word.value);
-            int rx = new Random().Next(0, board.columns);
-            int ry = new Random().Next(0, board.rows);
-            int rpos = new Random().Next(0, word.length);
-            // Try to place this word.
+            Word word = this.words[0]; // The first word.
+            // Find a random spot to put him.
+            Random random = new Random();
+            int rx = random.Next(0, board.columns);
+            int ry = random.Next(0, board.rows);
+            int rpos = random.Next(0, word.length-1);
+            // Try to place to word into the field.
             Boolean result = word.place(rx, ry, rpos);
-            // Check if the placing was successful.
-            this.firstWordTrys++;
-            if (!result)
-            {
-                if (this.firstWordTrys < 5)
-                {
-                    this.placeFirstWord();
-                }
-                else
-                {
-                    // The word can't be placed after 5 trys.
-                    return false;
-                }
-            }
-            return true;
-        }
 
-        /*
-         * Try to place as many words.
-         */
-        private void placeOtherWords()
-        {
-            List<int> placedTotal = new List<int>();
-            List<int> notPlacedTotal = new List<int>();
-            placedTotal.Add(0);
-
-            // Add the positions of all the words to the notPlacedTotal list, except the first word because that is already placed.
-            for (int i = 1, len = this.words.Length; i < len; i++)
-            {
-                notPlacedTotal.Add(i);
-            }
-
-            // Loop!
-            for (int turn = 0, len = 1; turn < len; turn++)
-            {
-                List<int> placed = new List<int>();
-                List<int> notPlaced = new List<int>();
-                Boolean searchForEmpty = false;
-                if (turn >= 2)
-                {
-                    searchForEmpty = true;
-                }
-                foreach (int i in notPlacedTotal)
-                {
-                    Boolean result = this.placeWord(i, searchForEmpty);
-                    if (result)
-                    {
-                        placedTotal.Add(i);
-                    }
-                    else
-                    {
-                        notPlaced.Add(i);
-                    }
-                }
-                // Swap the not placed word and try again.
-                notPlacedTotal = notPlaced;
-            }
-            System.Diagnostics.Debug.WriteLine(placedTotal.Count + " : " + this.words.Length);
-            // Check which words are placed.
-            for (var i = 0; i < this.words.Length; i++)
-            {
-                if (this.words[i].chars[0].x != -1)
-                {
-                    System.Diagnostics.Debug.WriteLine(this.words[i].value);
-                }
-            }
-
-            // Check which words are not placed.
-            for (var i = 0; i < this.words.Length; i++)
-            {
-                if (this.words[i].chars[0].x == -1)
-                {
-                    System.Diagnostics.Debug.WriteLine("not: " + this.words[i].value);
-                }
-            }
-            // Check if all the letters are placed.
-            for (var i = 0; i < this.words.Length; i++)
-            {
-
-                Char[] cars = this.words[i].chars;
-                for (int ci = 0, clen = cars.Length; ci < clen; ci++)
-                {
-                    if (cars[ci].x == -1)
-                    {
-                        System.Diagnostics.Debug.WriteLine("WRONG!!!!:"+this.words[i].value + " : " + cars[ci].value);
-                    }
-                   
-                }
-            }
-        }
-
-        // Try to place a word.
-        private Boolean placeWord(int pos, Boolean searchForEmpty)
-        {
-            Word word = this.words[pos];
-            List<int[]> spaces = board.search(word.value, searchForEmpty);
-            System.Diagnostics.Debug.WriteLine("spaced" + spaces.Count + " : " + word.value);
-            if (spaces.Count > 0)
-            {
-                // Loop throught the spaces and try to fit the word there.
-                for (int i = 0, len = spaces.Count; i < len; i++)
-                {
-                    int[] space = spaces[i];
-                    // Try to place the word.
-                    System.Diagnostics.Debug.WriteLine(space[0]+":"+space[1]+":"+space[2]+"+"+ board.tiles[space[0],space[1]].value);
-                    Boolean result = word.place(space[0], space[1], space[2]);
-                    //System.Diagnostics.Debug.WriteLine("spaced result" + result + " : " + space[0] + " : " + space[1] + " : " + space[2]);
-                    if (result)
-                    {
-                        return true;
-                    }
-                }
-            }
+            System.Diagnostics.Debug.WriteLine("Place first word result:" + result + " : " + word.value);
             return false;
         }
 
-        // A little inefficient! 
-        private void onlyPlacedWords()
-        {
-            int count = 0;
-             // Check which words are placed.
-            for (var i = 0; i < this.words.Length; i++)
-            {
-                if (this.words[i].chars[0].x != -1)
-                {
-                    count++;
-                }
-            }
-            Word[] placedWords = new Word[count];
-            int ci = 0;
-            // Check which words are placed.
-            for (var i = 0; i < this.words.Length; i++)
-            {
-                if (this.words[i].chars[0].x != -1)
-                {
-                    placedWords[ci] = this.words[i];
-                    ci++;
-                }
-            }
-
-        }
     }
 }

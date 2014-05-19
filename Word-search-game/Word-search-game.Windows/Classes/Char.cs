@@ -29,24 +29,20 @@ namespace Word_search_game.Classes
         }
 
 
-        public Boolean place(int x, int y)
+        public Boolean place(Tile tile)
         {
-            this.x = x;
-            this.y = y;
-            // Assign a tile.
-            this.tile = Boggle.board.tiles[x, y].place(this);
-            return true;
+            Boolean result = tile.place(this);
+            if (result == true)
+            {
+                this.tile = tile;
+                return true;
+            }
+            return false;
         }
 
         public Boolean unplace()
         {
-            this.x = -1;
-            this.y = -1;
-            if (this.tile != null)
-            {
-                this.tile.unplace(this.word.value);
-            }
-            return true;
+            return false;
         }
     }
 }
