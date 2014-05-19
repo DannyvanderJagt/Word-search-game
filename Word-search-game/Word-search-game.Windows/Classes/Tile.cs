@@ -86,8 +86,10 @@ namespace Word_search_game.Classes
         public Boolean place(Char character)
         {
             if(this.value == character.value || String.IsNullOrEmpty(this.value)){
-                // The character can be placed.
-                return  this.addChar(character);
+                if(this.chars.ContainsKey(character.word.value) == false){
+                    // The character can be placed.
+                     return  this.addChar(character);
+                }
             }
             return false;
         }

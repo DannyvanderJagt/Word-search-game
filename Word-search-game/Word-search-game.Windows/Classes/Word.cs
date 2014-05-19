@@ -58,6 +58,7 @@ namespace Word_search_game.Classes
 
             // Place the first character.
             Boolean placed = this.chars[pos].place(Boggle.board.tiles[x,y]);
+            System.Diagnostics.Debug.WriteLine("First placed at:"+x+":"+y);
 
             // Current x and y pos.
             int curX = x;
@@ -66,24 +67,71 @@ namespace Word_search_game.Classes
             // ---- Place the other characters ---- //
             for (int fi = pos - 1, flen = 0; fi >= flen; fi--)
             {
-                System.Diagnostics.Debug.WriteLine(this.chars[fi].value);
-                // Get char.
-                Char character = this.chars[fi];
-                // Find space.
-                Boggle.board.space(curX, curY, character.value);
-                // Check.
-                // Place.
-                // Next.
+                System.Diagnostics.Debug.WriteLine("Back");
+                int[] result = this.placeChar(curX, curY, this.chars[fi]);
+                if (result != null)
+                {
+                    curX = result[0];
+                    curY = result[1];
+                }
+                else
+                {
+                    return false;
+                }
             }
+            curX = x;
+            curY = y;
 
             for (int bi = pos + 1, blen = this.chars.Length; bi < blen; bi++)
             {
-                System.Diagnostics.Debug.WriteLine(this.chars[bi].value);
+                System.Diagnostics.Debug.WriteLine("Front");
+                int[] result = this.placeChar(curX, curY, this.chars[bi]);
+                if (result != null)
+                {
+                    curX = result[0];
+                    curY = result[1];
+                }
+                else
+                {
+                    return false;
+                }
             }
             System.Diagnostics.Debug.WriteLine("Placed: " + placed);
 
             return false;
         }
+
+
+        private int[] placeChar(int curX, int curY, Char character)
+        {
+            System.Diagnostics.Debug.WriteLine(character.value);
+            // Find space.
+            System.Diagnostics.Debug.WriteLine("CurX:" + curX + ": CurY" + curY);
+            List<int[]> spaces = Boggle.board.space(curX, curY, character);
+            System.Diagnostics.Debug.WriteLine("Spaces: " + spaces.Count);
+            // Check.
+            for (int si = 0, slen = spaces.Count; si < slen; si++)
+            {
+                Boolean result = Boggle.board.check(spaces[si][0], spaces[si][1], character);
+                if (result == true)
+                {
+                    // Place
+                    System.Diagnostics.Debug.WriteLine("Placed ---> " + character.value);
+                    character.place(Boggle.board.tiles[spaces[si][0], spaces[si][1]]);
+                    curX = spaces[si][0];
+                    curY = spaces[si][1];
+                    slen = spaces.Count;
+                    return new int[]{curX, curY}; // Same as return true.
+                    break;
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Spaces FALSE");
+                }
+            }
+            return null; // Same as return false.
+        }
+
 
         // UnplaceAll.
         public Boolean unplaceAll()

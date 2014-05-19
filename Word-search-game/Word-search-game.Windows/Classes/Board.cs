@@ -208,19 +208,43 @@ namespace Word_search_game.Classes
         #endregion
 
         #region Space
-        // Posibile directions.
 
-
-
-        public int[,] space(int x, int y, String value)
+        public List<int[]> space(int x, int y, Char character)
         {
-            
+            // Posible directions.
+            int[][] directions = new int[][]{
+                new int[]{x+1,y}, // Right.
+                new int[]{x-1,y}, // Left.
+                new int[]{x,y-1}, // Top.
+                new int[]{x,y+1}, // Bottom.
+                new int[]{x-1,y-1}, // Topleft.
+                new int[]{x+1,y-1}, // Topright.
+                new int[]{x-1,y+1}, // Bottomleft.
+                new int[]{x+1,y+1}  // Bottomright.
+            };
 
+            // Get the directions from the settings.
+            int[] settingsDirections = Boggle.settings.directions;
+            List<int[]> possibilities = new List<int[]>();
 
+            // Find the tiles that can be a fit.
+            for (int i = 0, len = settingsDirections.Length; i < len; i++)
+            {
+                // Check if this tile is a fit.
+                int[] dir = directions[i];
 
+                // Check if the x and y are wihtin the boards boundries.
+                if (dir[0] >= 0 && dir[0] < this.columns && dir[1] >= 0 && dir[1] < this.rows)
+                {
+                    if (this.check(dir[0], dir[1], character) == true)
+                    {
+                        possibilities.Add(new int[] { dir[0], dir[1] });
+                    }
+                }
+            }
 
-
-            return new int[,]{{0,0}};
+            return possibilities;
+        }
         #endregion
     }
 }
