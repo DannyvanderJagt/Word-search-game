@@ -48,6 +48,9 @@ namespace Word_search_game.Classes
 
                 // Place the other words to.
                 this.placeOtherWords();
+
+                // Replace this.words with only the words that are placed.
+                this.onlyPlacedWords();
    
                 // Show the board to the user.
                 board.show();
@@ -134,14 +137,18 @@ namespace Word_search_game.Classes
             }
 
             // Loop!
-            for (int turn = 0; turn < 3; turn++)
+            for (int turn = 0, len = 1; turn < len; turn++)
             {
                 List<int> placed = new List<int>();
                 List<int> notPlaced = new List<int>();
-
+                Boolean searchForEmpty = false;
+                if (turn >= 2)
+                {
+                    searchForEmpty = true;
+                }
                 foreach (int i in notPlacedTotal)
                 {
-                    Boolean result = this.placeWord(i);
+                    Boolean result = this.placeWord(i, searchForEmpty);
                     if (result)
                     {
                         placedTotal.Add(i);
@@ -155,17 +162,45 @@ namespace Word_search_game.Classes
                 notPlacedTotal = notPlaced;
             }
             System.Diagnostics.Debug.WriteLine(placedTotal.Count + " : " + this.words.Length);
+            // Check which words are placed.
+            for (var i = 0; i < this.words.Length; i++)
+            {
+                if (this.words[i].chars[0].x != -1)
+                {
+                    System.Diagnostics.Debug.WriteLine(this.words[i].value);
+                }
+            }
 
+            // Check which words are not placed.
+            for (var i = 0; i < this.words.Length; i++)
+            {
+                if (this.words[i].chars[0].x == -1)
+                {
+                    System.Diagnostics.Debug.WriteLine("not: " + this.words[i].value);
+                }
+            }
+            // Check if all the letters are placed.
+            for (var i = 0; i < this.words.Length; i++)
+            {
 
+                Char[] cars = this.words[i].chars;
+                for (int ci = 0, clen = cars.Length; ci < clen; ci++)
+                {
+                    if (cars[ci].x == -1)
+                    {
+                        System.Diagnostics.Debug.WriteLine("WRONG!!!!:"+this.words[i].value + " : " + cars[ci].value);
+                    }
+                   
+                }
+            }
         }
 
-
         // Try to place a word.
-        private Boolean placeWord(int pos)
+        private Boolean placeWord(int pos, Boolean searchForEmpty)
         {
             Word word = this.words[pos];
-            List<int[]> spaces = board.search(word.value);
-
+            List<int[]> spaces = board.search(word.value, searchForEmpty);
+            System.Diagnostics.Debug.WriteLine("spaced" + spaces.Count + " : " + word.value);
             if (spaces.Count > 0)
             {
                 // Loop throught the spaces and try to fit the word there.
@@ -173,7 +208,9 @@ namespace Word_search_game.Classes
                 {
                     int[] space = spaces[i];
                     // Try to place the word.
+                    System.Diagnostics.Debug.WriteLine(space[0]+":"+space[1]+":"+space[2]+"+"+ board.tiles[space[0],space[1]].value);
                     Boolean result = word.place(space[0], space[1], space[2]);
+                    //System.Diagnostics.Debug.WriteLine("spaced result" + result + " : " + space[0] + " : " + space[1] + " : " + space[2]);
                     if (result)
                     {
                         return true;
@@ -181,6 +218,32 @@ namespace Word_search_game.Classes
                 }
             }
             return false;
+        }
+
+        // A little inefficient! 
+        private void onlyPlacedWords()
+        {
+            int count = 0;
+             // Check which words are placed.
+            for (var i = 0; i < this.words.Length; i++)
+            {
+                if (this.words[i].chars[0].x != -1)
+                {
+                    count++;
+                }
+            }
+            Word[] placedWords = new Word[count];
+            int ci = 0;
+            // Check which words are placed.
+            for (var i = 0; i < this.words.Length; i++)
+            {
+                if (this.words[i].chars[0].x != -1)
+                {
+                    placedWords[ci] = this.words[i];
+                    ci++;
+                }
+            }
+
         }
     }
 }

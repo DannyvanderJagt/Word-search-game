@@ -45,6 +45,7 @@ namespace Word_search_game.Classes
             
             // Place the first letter.
             Boolean first = this.chars[pos].place(x, y);
+            System.Diagnostics.Debug.WriteLine("first"+first+"pos"+pos);
             
             if (first)
             {
@@ -77,37 +78,41 @@ namespace Word_search_game.Classes
         // UnplaceAll.
         public Boolean unplaceAll()
         {
-            int count = 0;
+            //int count = 0;
             for (int i = 0, len = this.chars.Length; i < len; i++)
             {
                 Char l = this.chars[i];
+                l.unplace();
+              /*  Char l = this.chars[i];
                 if (l.x != -1 && l.y != -1)
                 {
                     if (l.unplace())
                     {
                         count++;
                     }
-                }
+                }*/
             }
-            if (count == this.chars.Length)
+            /*if (count == this.chars.Length)
             {
                 return true;
             }
             else
             {
                 return false;
-            }
+            }*/
+            return true;
         }
 
         // Try to place all the letters of the word after a predefined position.
         public Boolean placeForward(int pos)
         {
             // this.chars.Length
-            for (int i = pos + 1, len = this.chars.Length ; i < len; i++)
+            for (int i = pos + 1, len = this.chars.Length; i < len; i++)
             {
                 Boolean run = true;
-                while (run)
-                {
+                System.Diagnostics.Debug.WriteLine("Try to place" + this.chars[i].value);
+                //while (run)
+                //{
                     Char lcurrent = this.chars[i];
                     Char lback = this.chars[i - 1];
                     int[] space = this.findSpace(lback, lback.x, lback.y);
@@ -123,7 +128,7 @@ namespace Word_search_game.Classes
                     {
                         return false;
                     }
-                }
+               // }
             }
             return true;
         }
@@ -170,7 +175,7 @@ namespace Word_search_game.Classes
             return false;
         }
 
-        // Findspace. (WATCH OUT COULD BE AN ERROR HERE!).
+        // Findspace.
         public int[] findSpace(Char character, int x, int y)
         {
             // Directions;

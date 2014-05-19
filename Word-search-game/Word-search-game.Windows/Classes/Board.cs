@@ -152,9 +152,10 @@ namespace Word_search_game.Classes
         // Search.
         // Search for all the letters from the word.
         // Output: List<int[]> -> int[]{x,y,indexOf}
-        public List<int[]> search(String letters)
+        public List<int[]> search(String letters, Boolean searchForEmpty)
         {
-            List<int[]> positions = new List<int[]>();
+            List<int[]> positionsFilled = new List<int[]>();
+            List<int[]> positionEmpty = new List<int[]>();
 
             for (int xi = 0, xlen = this.columns; xi < xlen; xi++)
             {
@@ -162,13 +163,32 @@ namespace Word_search_game.Classes
                 {
                     Tile box = this.tiles[xi, yi];
                     // Check if there are letters that match!
-                    if (box.value != null && letters.IndexOf(box.value) != -1)
+                    if (!String.IsNullOrEmpty(box.value) && letters.IndexOf(box.value) != -1)
                     {
-                        positions.Add(new int[3] { xi, yi, letters.IndexOf(box.value) });
+                        positionsFilled.Add(new int[3] { xi, yi, letters.IndexOf(box.value) });
+                    }
+                    else if (String.IsNullOrEmpty(box.value))
+                    {
+                        positionEmpty.Add(new int[3] { xi, yi, 0});
                     }
                 }
             };
-            return positions;
+            /*if (positionsFilled.Count > 0 && searchForEmpty == false)
+            {
+                return positionsFilled;
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Empty"+positionEmpty.Count);
+                return positionEmpty;
+            }*/
+            // Combine.
+            for (int i = 0, len = positionEmpty.Count; i < len; i++)
+            {
+                positionsFilled[positionsFilled.Count-1] = positionEmpty[i];
+            }
+            return positionsFilled;
+
         }
 
     }

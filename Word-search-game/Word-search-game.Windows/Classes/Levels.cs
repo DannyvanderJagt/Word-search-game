@@ -11,9 +11,9 @@ namespace Word_search_game.Classes
         public static String[] types = new String[]{"easy","medium","hard","expert"};
         public static Level[] easy = new Level[]{
             new Level(
-                5,
-                5,
-                10,
+                8,
+                8,
+                20,
                 new int[]{0,1,2,3},
                 60
             ),

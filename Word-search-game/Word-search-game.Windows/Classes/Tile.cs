@@ -22,7 +22,7 @@ namespace Word_search_game.Classes
         // Class instance data.
         private int x = -1;
         private int y = -1;
-        public String value = null;
+        public String value;
         private Dictionary<String, Char> chars = new Dictionary<String, Char>();
         public Tile(int x, int y)
         {
@@ -78,11 +78,13 @@ namespace Word_search_game.Classes
         {
             if (this.value == null)
             {
-                this.value = character.value;
-                System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
+                
+               // System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
                 if (!this.chars.ContainsKey(character.word.value))
                 {
                     this.chars.Add(character.word.value, character);
+                    System.Diagnostics.Debug.WriteLine("Place:"+character.x+":"+character.y+":"+ this.value+":"+character.value);
+                    this.value = character.value;
                 }
                 else
                 {
@@ -91,10 +93,11 @@ namespace Word_search_game.Classes
                 return this;
             }else if(character.value == this.value)
             {
-                System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
+               // System.Diagnostics.Debug.WriteLine("Place on Tile" + this.x + "" + this.y + "" + character.value + ":" + this.value);
                 if (!this.chars.ContainsKey(character.word.value))
                 {
                     this.chars.Add(character.word.value, character);
+                    System.Diagnostics.Debug.WriteLine("Place:" + character.x + ":" + character.y + ":" + this.value + ":" + character.value);
                 }
                 else
                 {
@@ -110,17 +113,17 @@ namespace Word_search_game.Classes
 
         public Boolean unplace(String value)
         {
-            System.Diagnostics.Debug.WriteLine("unplace value"+this.chars.Count);
+           // System.Diagnostics.Debug.WriteLine("unplace value"+this.chars.Count);
             if (this.chars.Count > 0)
             {
-                /*if (this.chars.ContainsKey(character.word.value))
+                if (this.chars.ContainsKey(value))
                 {
-                //    this.chars.Remove(character.word.value);
-                }*/
+                    this.chars.Remove(value);
+                }
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("SOmethings wrong!"+value);
+              //  System.Diagnostics.Debug.WriteLine("SOmethings wrong!"+value);
             }
             if (this.chars.Count <= 0) {
                 this.value = "";
