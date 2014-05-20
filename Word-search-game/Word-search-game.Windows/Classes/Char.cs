@@ -13,7 +13,7 @@ namespace Word_search_game.Classes
         public String value;
         public int x = -1;
         public int y = -1;
-        public Tile tile;
+        public Tile tile = null;
 
         /*
          * Constructor
@@ -42,9 +42,11 @@ namespace Word_search_game.Classes
 
         public Boolean unplace()
         {
-            System.Diagnostics.Debug.WriteLine("unplace");
-            this.tile.unplace(this);
-            this.tile = null;
+            if (this.tile != null)
+            {
+                this.tile.unplace(this);
+                this.tile = null;
+            }
             return false;
         }
     }

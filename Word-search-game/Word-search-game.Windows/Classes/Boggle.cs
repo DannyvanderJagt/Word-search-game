@@ -24,6 +24,7 @@ namespace Word_search_game.Classes
         public static Level settings;
         private StackPanel gridPanel;
         private StackPanel wordPanel;
+        private int placedWordCount = 0;
 
         #endregion
 
@@ -57,11 +58,12 @@ namespace Word_search_game.Classes
                 // Place the other words to.
                 if (first.Equals(true))
                 {
-                 //   this.placeOtherWords();
+                    this.placedWordCount++;
+                    this.placeOtherWords();
                 }
 
                 // Replace this.words with only the words that are placed.
-                //this.onlyPlacedWords();
+                 this.onlyPlacedWords();
    
                 // Show the board to the user.
                 this.display();
@@ -80,6 +82,17 @@ namespace Word_search_game.Classes
             // Get the grid and show it.
             Grid grid = board.show();
             this.gridPanel.Children.Add(grid);
+            // Display the words.
+            ItemsControl wordControl = new ItemsControl();
+            List<String> wordValues = new List<String>();
+           // System.Diagnostics.Debug.WriteLine("Length"+this.words.Length);
+            for (int i = 0, len = this.words.Length; i < len; i++)
+            {
+                System.Diagnostics.Debug.WriteLine("i"+i+" - "+this.words[i].value);
+                wordValues.Add(this.words.ElementAt(i).value);
+            }
+            wordControl.ItemsSource = wordValues;
+            this.wordPanel.Children.Add(wordControl);
         }
 
         #endregion
@@ -100,10 +113,6 @@ namespace Word_search_game.Classes
 
         #endregion
 
-        #region Place
-
-        #endregion
-
         #region Select
 
         /*
@@ -114,7 +123,7 @@ namespace Word_search_game.Classes
          * @savedAt this.words.
          * //27375
          */
-        public void selectWords()
+        private void selectWords()
         {
             Random random = new Random();
             this.words = new Word[settings.words];
@@ -128,8 +137,28 @@ namespace Word_search_game.Classes
 
         }
 
+        private void onlyPlacedWords()
+        {
+            Word[] placedWords = new Word[this.placedWordCount];
+            int count = 0;
+            for (int i = 0, len = this.words.Length; i < len; i++)
+            {
+                Word w = this.words[i];
+              
+                if (w.chars[0].tile != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("Only:" + w.value);
+                    placedWords[count] = this.words[i];
+                    count++;
+                }
+            }
+            this.words = placedWords;
+        }
+
+
         #endregion  
 
+        #region Place
         /*
          * Try to place to first word.
          * @var int firstWordTrys - Count to number of tries.
@@ -168,11 +197,15 @@ namespace Word_search_game.Classes
                     Boolean result = word.place(space[0], space[1], space[2]);
                     if (result.Equals(false))
                     {
-                        // Try again.
+                        // Unplace all the characters.
+                        word.unplaceAll();
+                        // Try again with a different space.
                     }
                     else
                     {
                         // Go to the next word.
+                        System.Diagnostics.Debug.WriteLine("Word placed: "+word.value + " : " + word.value.Length);
+                        this.placedWordCount++;
                         break;
                     }
 
@@ -181,5 +214,6 @@ namespace Word_search_game.Classes
             return false;
         }
 
+        #endregion
     }
 }

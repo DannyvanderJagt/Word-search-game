@@ -12,8 +12,6 @@ namespace Word_search_game.Classes
         public String value = null;
         public int length = -1;
         public Char[] chars;
-        private int direction = 0;
-        public Tile tile;
         #endregion 
 
         #region Constructor
@@ -101,11 +99,8 @@ namespace Word_search_game.Classes
 
         private int[] placeChar(int curX, int curY, Char character)
         {
-            System.Diagnostics.Debug.WriteLine(character.value);
             // Find space.
-            System.Diagnostics.Debug.WriteLine("CurX:" + curX + ": CurY" + curY);
             List<int[]> spaces = Boggle.board.space(curX, curY, character);
-            System.Diagnostics.Debug.WriteLine("Spaces: " + spaces.Count);
             // Check.
             for (int si = 0, slen = spaces.Count; si < slen; si++)
             {
@@ -113,7 +108,6 @@ namespace Word_search_game.Classes
                 if (result == true)
                 {
                     // Place
-                    System.Diagnostics.Debug.WriteLine("Placed ---> " + character.value);
                     character.place(Boggle.board.tiles[spaces[si][0], spaces[si][1]]);
                     curX = spaces[si][0];
                     curY = spaces[si][1];
