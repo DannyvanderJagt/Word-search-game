@@ -49,16 +49,16 @@ namespace Word_search_game.Classes
         // Place the word.
         public Boolean place(int x, int y, int pos)
         {
-            System.Diagnostics.Debug.WriteLine("Place"+x+":"+y+":"+pos);
+            //System.Diagnostics.Debug.WriteLine("Place"+x+":"+y+":"+pos);
            
             // ---- Place the first character ---- //
             // Check if the requested tile is suitable.
             Boolean space = Boggle.board.check(x,y,this.chars[pos]);
-            System.Diagnostics.Debug.WriteLine("Space"+space);
+           // System.Diagnostics.Debug.WriteLine("Space"+space);
 
             // Place the first character.
             Boolean placed = this.chars[pos].place(Boggle.board.tiles[x,y]);
-            System.Diagnostics.Debug.WriteLine("First placed at:"+x+":"+y);
+            //System.Diagnostics.Debug.WriteLine("First placed at:"+x+":"+y);
 
             // Current x and y pos.
             int curX = x;
@@ -67,7 +67,6 @@ namespace Word_search_game.Classes
             // ---- Place the other characters ---- //
             for (int fi = pos - 1, flen = 0; fi >= flen; fi--)
             {
-                System.Diagnostics.Debug.WriteLine("Back");
                 int[] result = this.placeChar(curX, curY, this.chars[fi]);
                 if (result != null)
                 {
@@ -84,7 +83,6 @@ namespace Word_search_game.Classes
 
             for (int bi = pos + 1, blen = this.chars.Length; bi < blen; bi++)
             {
-                System.Diagnostics.Debug.WriteLine("Front");
                 int[] result = this.placeChar(curX, curY, this.chars[bi]);
                 if (result != null)
                 {
@@ -96,9 +94,8 @@ namespace Word_search_game.Classes
                     return false;
                 }
             }
-            System.Diagnostics.Debug.WriteLine("Placed: " + placed);
-
-            return false;
+            //System.Diagnostics.Debug.WriteLine("Placed: " + placed);
+            return true;
         }
 
 
@@ -122,26 +119,19 @@ namespace Word_search_game.Classes
                     curY = spaces[si][1];
                     slen = spaces.Count;
                     return new int[]{curX, curY}; // Same as return true.
-                    break;
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("Spaces FALSE");
                 }
             }
             return null; // Same as return false.
         }
 
-
         // UnplaceAll.
         public Boolean unplaceAll()
         {
-            //int count = 0;
-           /* for (int i = 0, len = this.chars.Length; i < len; i++)
+            for (int i = 0, len = this.chars.Length; i < len; i++)
             {
                 Char l = this.chars[i];
                 l.unplace();
-            }*/
+            }
             return false;
         }
         #endregion

@@ -55,7 +55,10 @@ namespace Word_search_game.Classes
                 Boolean first = this.placeFirstWord();
 
                 // Place the other words to.
-                //this.placeOtherWords();
+                if (first.Equals(true))
+                {
+                 //   this.placeOtherWords();
+                }
 
                 // Replace this.words with only the words that are placed.
                 //this.onlyPlacedWords();
@@ -109,6 +112,7 @@ namespace Word_search_game.Classes
          * and add to them this.words array
          * 
          * @savedAt this.words.
+         * //27375
          */
         public void selectWords()
         {
@@ -118,6 +122,7 @@ namespace Word_search_game.Classes
             {
                 int randomPos = random.Next(0, WordList.words.Length - 1);
                 String value = WordList.words[randomPos];
+                System.Diagnostics.Debug.WriteLine(randomPos);
                 words[i] = new Word(value);
             }
 
@@ -139,8 +144,40 @@ namespace Word_search_game.Classes
             int rpos = random.Next(0, word.length-1);
             // Try to place to word into the field.
             Boolean result = word.place(rx, ry, rpos);
-
             System.Diagnostics.Debug.WriteLine("Place first word result:" + result + " : " + word.value);
+            return result;
+        }
+
+
+        private Boolean placeOtherWords()
+        {
+            // Loop through the word and try to place them one by one.
+            for (int ci = 1, clen = this.words.Length - 1; ci < clen; ci++)
+            {
+                // 
+                Word word = this.words[ci];
+
+                // Search for some pace.
+                List<int[]> searchSpaces = Boggle.board.search(word.value);
+
+                // Try to place the word accourding to the spaces.
+                for (int si = 0, slen = searchSpaces.Count; si < slen; si++)
+                {
+                    int[] space = searchSpaces[si];       
+                    // Try to place the word at this space.
+                    Boolean result = word.place(space[0], space[1], space[2]);
+                    if (result.Equals(false))
+                    {
+                        // Try again.
+                    }
+                    else
+                    {
+                        // Go to the next word.
+                        break;
+                    }
+
+                }
+            }
             return false;
         }
 

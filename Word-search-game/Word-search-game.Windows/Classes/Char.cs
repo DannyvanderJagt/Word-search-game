@@ -42,6 +42,9 @@ namespace Word_search_game.Classes
 
         public Boolean unplace()
         {
+            System.Diagnostics.Debug.WriteLine("unplace");
+            this.tile.unplace(this);
+            this.tile = null;
             return false;
         }
     }
