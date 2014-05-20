@@ -17,7 +17,7 @@ namespace Word_search_game.Classes
     {
         #region Variables
         // Display element.
-        private Grid background;
+        public Grid background;
         private TextBlock text;
 
         // Class instance data.
@@ -25,6 +25,7 @@ namespace Word_search_game.Classes
         private int y = -1;
         public String value;
         private Dictionary<String, Char> chars = new Dictionary<String, Char>();
+        private Boolean active = false;
         #endregion
 
         #region Constructor
@@ -45,7 +46,7 @@ namespace Word_search_game.Classes
         public Grid getBackground(){
             Grid background = new Grid();
             background.Name = this.x + "," + this.y;
-            background.Background = new SolidColorBrush(Color.FromArgb(255, 215, 208, 94));
+            background.Background = Colors.green;
             background.Margin = new Thickness(6);
             Grid.SetColumn(background, this.x);
             Grid.SetRow(background, this.y);
@@ -116,8 +117,13 @@ namespace Word_search_game.Classes
             return true;
         }
 
-        private Boolean removeChar(Char character)
+        public Boolean removeChar(Char character)
         {
+            if (this.chars.ContainsKey(character.word.value))
+            {
+                this.chars.Remove(character.word.value);
+                return true;
+            }
             return false;
         }
 
@@ -128,8 +134,29 @@ namespace Word_search_game.Classes
         // Comes from the board class.
         public void clicked()
         {
-            this.background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+            System.Diagnostics.Debug.WriteLine("Active"+this.active);
+            if (this.active.Equals(false))
+            {
+                this.background.Background = Colors.yellow;
+                foreach(String s in chars.Keys){
+                    this.chars[s].setActive();
+                }
+                this.active = true;
+                // Change the color.
+                
+            }
+            else
+            {
+                this.background.Background = Colors.green;
+                // Alert the words that this tile is deselected.
+                foreach (String s in chars.Keys)
+                {
+                    this.chars[s].setInactive();
+                }
+                this.active = false;
+            }
         }
+
         #endregion
 
     }

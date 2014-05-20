@@ -179,7 +179,48 @@ namespace Word_search_game.Classes
         private void clicked(object sender, TappedRoutedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("A word is tapped" + this.value);
-            this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+            if (this.chars[0].tile.background.Background == Colors.green)
+            {
+                this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+                foreach (Char c in this.chars)
+                {
+                    c.tile.background.Background = Colors.red;
+                }
+            }
+            else
+            {
+                this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+                foreach (Char c in this.chars)
+                {
+                    c.tile.background.Background = Colors.green;
+                }
+            }
+        }
+
+        public Boolean stateChange()
+        {
+            int activeCount = 0;
+            // Check if all the characters are active.
+            foreach(Char c in this.chars){
+                if (c.active.Equals(true))
+                {
+                    activeCount++;
+                }
+            }
+            if(activeCount == this.chars.Length){
+                System.Diagnostics.Debug.WriteLine("Word " + this.value + " is completed!");
+                this.background.Background = Colors.blue;
+                // Remove this word from all the tiles.
+                foreach (Char c in this.chars)
+                {
+                    //c.tile.removeChar(c);
+                    c.tile.background.Background = Colors.red;
+                    Boggle.board.resetClicked();
+                }
+                
+                return true;
+            }
+            return false;
         }
 
         #endregion

@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-05-19T08:00:13.921</Modified>
+      <Modified>2014-05-20T11:18:26.149</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
       <PackagePath>Word-search-game.Windows.exe</PackagePath>
-      <Modified>2014-05-20T10:12:38.590</Modified>
+      <Modified>2014-05-20T11:54:01.832</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -66,7 +66,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Desktop\Word-Search-Game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-05-19T08:00:13.774</Modified>
+      <Modified>2014-05-20T11:18:25.937</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -166,17 +166,50 @@ namespace Word_search_game.Classes
             }
             // Split the name and get the positions.
             string[] positions = name.Split(',');
-            System.Diagnostics.Debug.WriteLine(positions[0] + " : " + positions[1]);
             int x = Convert.ToInt32(positions[0]);
             int y = Convert.ToInt32(positions[1]);
+
             // Get the tile.
             Tile tile = this.tiles[x, y];
-            tile.clicked();
-
-
+            if (canBeClicked(x, y).Equals(true))
+            {
+                System.Diagnostics.Debug.WriteLine("X:"+x+":"+y);
+                tile.clicked();
+                
+            }
         }
+
+        private int lastX = -1;
+        private int lastY = -1;
+
         
-#endregion
+        public void resetClicked()
+        {
+            this.lastX = -1;
+            this.lastY = -1;
+        }
+
+        private Boolean canBeClicked(int x, int y)
+        {
+            if (lastX == -1 && lastY == -1)
+            {
+                // First time
+                lastX = x;
+                lastY = y;
+                return true;
+            }
+            else 
+            { 
+                if((x == lastX || x == lastX - 1 || x == lastX +1) && (y == lastY || y == lastY -1 || y == lastY+1)){
+                    lastX = x;
+                    lastY = y;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        #endregion
 
         #region Search
         // Search.
