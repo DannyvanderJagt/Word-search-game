@@ -83,17 +83,42 @@ namespace Word_search_game.Classes
             Grid grid = board.show();
             this.gridPanel.Children.Add(grid);
             // Display the words.
-            ItemsControl wordControl = new ItemsControl();
-            List<String> wordValues = new List<String>();
-           // System.Diagnostics.Debug.WriteLine("Length"+this.words.Length);
+            grid = this.createWordGrid();
             for (int i = 0, len = this.words.Length; i < len; i++)
             {
-                System.Diagnostics.Debug.WriteLine("i"+i+" - "+this.words[i].value);
-                wordValues.Add(this.words.ElementAt(i).value);
+                // Create the board elements.
+                Grid background = this.words[i].getBackground(i);
+                //background.Tapped += clicked;
+                TextBlock text = this.words[i].getText(i);
+                //text.Tapped += clicked;
+                grid.Children.Add(background);
+                grid.Children.Add(text);
             }
-            wordControl.ItemsSource = wordValues;
-            this.wordPanel.Children.Add(wordControl);
+            this.wordPanel.Children.Add(grid);
         }
+
+        private Grid createWordGrid()
+        {
+
+            Grid grid = new Grid();
+
+            for (int i = 0; i < this.words.Length; i++)
+            {
+                RowDefinition rowDefinition = new RowDefinition();
+                rowDefinition.MinHeight = 50;
+                rowDefinition.Height = GridLength.Auto;
+                grid.RowDefinitions.Add(rowDefinition);
+
+                ColumnDefinition columnDefinition = new ColumnDefinition();
+                columnDefinition.MinWidth = 200;
+                columnDefinition.Width = GridLength.Auto;
+                grid.ColumnDefinitions.Add(columnDefinition);
+            }
+
+            return grid;
+        }
+
+       
 
         #endregion
 

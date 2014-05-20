@@ -44,10 +44,9 @@ namespace Word_search_game.Classes
          */
         public Grid getBackground(){
             Grid background = new Grid();
-            background.Name = "grid_" + this.x + "," + this.y;
+            background.Name = this.x + "," + this.y;
             background.Background = new SolidColorBrush(Color.FromArgb(255, 215, 208, 94));
             background.Margin = new Thickness(6);
-            //subGrid.Tapped += textBlock_subGrid_Tapped;
             Grid.SetColumn(background, this.x);
             Grid.SetRow(background, this.y);
             this.background = background;
@@ -63,7 +62,7 @@ namespace Word_search_game.Classes
         public TextBlock getText()
         {
             TextBlock textBlock = new TextBlock();
-            textBlock.Name = "textBlock_" + this.x + "_" + this.y;
+            textBlock.Name = this.x + "," + this.y;
             textBlock.Text = this.value == null ? "".ToString(): this.value;
             textBlock.HorizontalAlignment = HorizontalAlignment.Center;
             textBlock.VerticalAlignment = VerticalAlignment.Center;
@@ -71,7 +70,6 @@ namespace Word_search_game.Classes
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 24;
             // Click handler!
-           // textBlock.Tapped += clicked;
             Grid.SetColumn(textBlock, this.x);
             Grid.SetRow(textBlock, this.y);
             this.text = textBlock;
@@ -123,6 +121,15 @@ namespace Word_search_game.Classes
             return false;
         }
 
+        #endregion
+
+        #region Events
+
+        // Comes from the board class.
+        public void clicked()
+        {
+            this.background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+        }
         #endregion
 
     }

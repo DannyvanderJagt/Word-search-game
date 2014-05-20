@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Shapes;
+using Windows.UI.Xaml.Input;
 
 namespace Word_search_game.Classes
 {
@@ -12,6 +19,8 @@ namespace Word_search_game.Classes
         public String value = null;
         public int length = -1;
         public Char[] chars;
+        private Grid background;
+        private TextBlock text;
         #endregion 
 
         #region Constructor
@@ -129,5 +138,51 @@ namespace Word_search_game.Classes
             return false;
         }
         #endregion
+
+        #region Display
+
+        public Grid getBackground(int number)
+        {
+            Grid background = new Grid();
+            background.Name = "grid_" + this.value;
+            background.Background = new SolidColorBrush(Color.FromArgb(255, 215, 208, 94));
+            background.Margin = new Thickness(6);
+            background.Tapped += clicked;
+            Grid.SetColumn(background, 0);
+            Grid.SetRow(background, number);
+            this.background = background;
+            return background;
+        }
+
+        public TextBlock getText(int number)
+        {
+            TextBlock textBlock = new TextBlock();
+            textBlock.Name = "textBlock_" + this.value;
+            textBlock.Text = this.value;
+            textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+            textBlock.VerticalAlignment = VerticalAlignment.Center;
+            textBlock.MinWidth = background.ActualWidth;
+            textBlock.MinHeight = background.ActualHeight;
+            textBlock.FontSize = 20;
+            // Click handler!
+            textBlock.Tapped += clicked;
+            Grid.SetColumn(textBlock, 0);
+            Grid.SetRow(textBlock, number);
+            this.text = textBlock;
+            return this.text;
+        }
+
+        #endregion
+
+        #region Events
+
+        private void clicked(object sender, TappedRoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("A word is tapped" + this.value);
+            this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
+        }
+
+        #endregion
+
     }
 }

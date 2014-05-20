@@ -153,7 +153,27 @@ namespace Word_search_game.Classes
          */
         public void clicked(object sender, TappedRoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("clicked!"+sender);
+            String name;
+            if (sender as Grid != null)
+            {
+                Grid elem = (Grid)sender;
+                name = elem.Name;
+            }
+            else
+            {
+                TextBlock elem = (TextBlock)sender;
+                name = elem.Name;
+            }
+            // Split the name and get the positions.
+            string[] positions = name.Split(',');
+            System.Diagnostics.Debug.WriteLine(positions[0] + " : " + positions[1]);
+            int x = Convert.ToInt32(positions[0]);
+            int y = Convert.ToInt32(positions[1]);
+            // Get the tile.
+            Tile tile = this.tiles[x, y];
+            tile.clicked();
+
+
         }
         
 #endregion
