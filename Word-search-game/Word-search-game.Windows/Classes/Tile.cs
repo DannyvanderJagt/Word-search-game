@@ -25,7 +25,8 @@ namespace Word_search_game.Classes
         private int y = -1;
         public String value;
         private Dictionary<String, Char> chars = new Dictionary<String, Char>();
-        private Boolean active = false;
+        public Boolean active = false;
+        public Boolean completed = false;
         #endregion
 
         #region Constructor
@@ -59,6 +60,7 @@ namespace Word_search_game.Classes
          * @used this.background, this.x, this.y
          * @savedAt this.text
          * @return TextBlock this.text - The text element.
+         * @alert! -> The click handler is added at board.cs
          */
         public TextBlock getText()
         {
@@ -70,7 +72,6 @@ namespace Word_search_game.Classes
             textBlock.MinWidth = background.ActualWidth;
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 24;
-            // Click handler!
             Grid.SetColumn(textBlock, this.x);
             Grid.SetRow(textBlock, this.y);
             this.text = textBlock;
@@ -134,28 +135,36 @@ namespace Word_search_game.Classes
         // Comes from the board class.
         public void clicked()
         {
-            System.Diagnostics.Debug.WriteLine("Active"+this.active);
             if (this.active.Equals(false))
             {
-                this.background.Background = Colors.yellow;
+                this.active = true;
                 foreach(String s in chars.Keys){
                     this.chars[s].setActive();
                 }
-                this.active = true;
-                // Change the color.
-                
+               
             }
             else
             {
-                this.background.Background = Colors.green;
+                this.active = false;
                 // Alert the words that this tile is deselected.
                 foreach (String s in chars.Keys)
                 {
                     this.chars[s].setInactive();
                 }
-                this.active = false;
             }
         }
+
+        public void reset()
+        {
+            // Reset all this tile for all the words.
+            foreach(String key in this.chars.Keys)
+            {
+                this.chars[key].active = false; // Needs some more actions I think !
+                this.chars[key].tile.active = false;
+                this.chars[key].tile.completed = true;
+            }
+        }
+
 
         #endregion
 

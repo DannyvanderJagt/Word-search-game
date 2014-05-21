@@ -173,20 +173,40 @@ namespace Word_search_game.Classes
             Tile tile = this.tiles[x, y];
             if (canBeClicked(x, y).Equals(true))
             {
-                System.Diagnostics.Debug.WriteLine("X:"+x+":"+y);
                 tile.clicked();
-                
+                this.setColor(tile);
             }
         }
 
         private int lastX = -1;
         private int lastY = -1;
-
         
-        public void resetClicked()
+        public void resetClicked(Word word)
         {
             this.lastX = -1;
             this.lastY = -1;
+            // Reset all the other words.
+            foreach(Char c in word.chars)
+            {
+                this.setColor(c.tile);
+            }
+        }
+
+        private void setColor(Tile tile)
+        {
+            System.Diagnostics.Debug.WriteLine("active"+tile.active+":"+tile.completed);
+            if (tile.active.Equals(true))
+            {
+                tile.background.Background = Colors.yellow;
+            }
+            else if (tile.completed.Equals(true))
+            {
+                tile.background.Background = Colors.blue;
+            }
+            else
+            {
+                tile.background.Background = Colors.green;
+            }
         }
 
         private Boolean canBeClicked(int x, int y)

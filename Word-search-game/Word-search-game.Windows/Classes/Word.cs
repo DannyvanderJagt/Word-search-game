@@ -21,6 +21,7 @@ namespace Word_search_game.Classes
         public Char[] chars;
         private Grid background;
         private TextBlock text;
+        private Boolean founded = false;
         #endregion 
 
         #region Constructor
@@ -176,15 +177,18 @@ namespace Word_search_game.Classes
 
         #region Events
 
+        // Only for development!
         private void clicked(object sender, TappedRoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("A word is tapped" + this.value);
             if (this.chars[0].tile.background.Background == Colors.green)
             {
                 this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
                 foreach (Char c in this.chars)
                 {
-                    c.tile.background.Background = Colors.red;
+                    if (c.tile != null)
+                    {
+                        c.tile.background.Background = Colors.blue;
+                    }
                 }
             }
             else
@@ -197,6 +201,7 @@ namespace Word_search_game.Classes
             }
         }
 
+
         public Boolean stateChange()
         {
             int activeCount = 0;
@@ -208,16 +213,20 @@ namespace Word_search_game.Classes
                 }
             }
             if(activeCount == this.chars.Length){
-                System.Diagnostics.Debug.WriteLine("Word " + this.value + " is completed!");
-                this.background.Background = Colors.blue;
+                System.Diagnostics.Debug.WriteLine("Word " + this.value + " is founded!");
+                this.founded = true;
                 // Remove this word from all the tiles.
                 foreach (Char c in this.chars)
                 {
-                    //c.tile.removeChar(c);
-                    c.tile.background.Background = Colors.red;
-                    Boggle.board.resetClicked();
+                    // c.tile.removeChar(c);
+                    // TODO: Alert the tiles.
+                    c.tile.completed = true;
+                    c.tile.active = false;
+                    System.Diagnostics.Debug.WriteLine("loop" + c.tile.active + " : " + c.tile.active + " + " + c.value);
                 }
-                
+                // TODO: Alert the other words that using these tiles to.
+                Boggle.board.resetClicked(this);
+                this.background.Background = Colors.blue;
                 return true;
             }
             return false;
