@@ -159,7 +159,7 @@ namespace Word_search_game.Classes
             // Reset all this tile for all the words.
             foreach(String key in this.chars.Keys)
             {
-                this.chars[key].active = false; // Needs some more actions I think !
+                this.chars[key].active = false; // Needs some more actions I think!
                 this.chars[key].tile.active = false;
                 this.chars[key].tile.completed = true;
             }

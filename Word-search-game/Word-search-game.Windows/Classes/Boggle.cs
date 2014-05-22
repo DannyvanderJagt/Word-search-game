@@ -88,9 +88,7 @@ namespace Word_search_game.Classes
             {
                 // Create the board elements.
                 Grid background = this.words[i].getBackground(i);
-                //background.Tapped += clicked;
                 TextBlock text = this.words[i].getText(i);
-                //text.Tapped += clicked;
                 grid.Children.Add(background);
                 grid.Children.Add(text);
             }
@@ -184,6 +182,7 @@ namespace Word_search_game.Classes
         #endregion  
 
         #region Place
+        
         /*
          * Try to place to first word.
          * @var int firstWordTrys - Count to number of tries.
@@ -198,7 +197,11 @@ namespace Word_search_game.Classes
             int rpos = random.Next(0, word.length-1);
             // Try to place to word into the field.
             Boolean result = word.place(rx, ry, rpos);
-            System.Diagnostics.Debug.WriteLine("Place first word result:" + result + " : " + word.value);
+            if (result.Equals(false))
+            {
+                // Retry to place the first word.
+                this.placeFirstWord();
+            }
             return result;
         }
 
@@ -224,12 +227,10 @@ namespace Word_search_game.Classes
                     {
                         // Unplace all the characters.
                         word.unplaceAll();
-                        // Try again with a different space.
                     }
                     else
                     {
                         // Go to the next word.
-                        System.Diagnostics.Debug.WriteLine("Word placed: "+word.value + " : " + word.value.Length);
                         this.placedWordCount++;
                         break;
                     }

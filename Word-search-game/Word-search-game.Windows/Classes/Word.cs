@@ -57,16 +57,12 @@ namespace Word_search_game.Classes
         // Place the word.
         public Boolean place(int x, int y, int pos)
         {
-            //System.Diagnostics.Debug.WriteLine("Place"+x+":"+y+":"+pos);
-           
             // ---- Place the first character ---- //
             // Check if the requested tile is suitable.
             Boolean space = Boggle.board.check(x,y,this.chars[pos]);
-           // System.Diagnostics.Debug.WriteLine("Space"+space);
 
             // Place the first character.
             Boolean placed = this.chars[pos].place(Boggle.board.tiles[x,y]);
-            //System.Diagnostics.Debug.WriteLine("First placed at:"+x+":"+y);
 
             // Current x and y pos.
             int curX = x;
@@ -102,7 +98,6 @@ namespace Word_search_game.Classes
                     return false;
                 }
             }
-            //System.Diagnostics.Debug.WriteLine("Placed: " + placed);
             return true;
         }
 
@@ -146,7 +141,7 @@ namespace Word_search_game.Classes
         {
             Grid background = new Grid();
             background.Name = "grid_" + this.value;
-            background.Background = new SolidColorBrush(Color.FromArgb(255, 215, 208, 94));
+            background.Background = Colors.green;
             background.Margin = new Thickness(6);
             background.Tapped += clicked;
             Grid.SetColumn(background, 0);
@@ -165,7 +160,6 @@ namespace Word_search_game.Classes
             textBlock.MinWidth = background.ActualWidth;
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 20;
-            // Click handler!
             textBlock.Tapped += clicked;
             Grid.SetColumn(textBlock, 0);
             Grid.SetRow(textBlock, number);
@@ -196,7 +190,10 @@ namespace Word_search_game.Classes
                 this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
                 foreach (Char c in this.chars)
                 {
-                    c.tile.background.Background = Colors.green;
+                    if (c.tile != null)
+                    {
+                        c.tile.background.Background = Colors.green;
+                    }
                 }
             }
         }
@@ -213,16 +210,13 @@ namespace Word_search_game.Classes
                 }
             }
             if(activeCount == this.chars.Length){
-                System.Diagnostics.Debug.WriteLine("Word " + this.value + " is founded!");
                 this.founded = true;
                 // Remove this word from all the tiles.
                 foreach (Char c in this.chars)
                 {
-                    // c.tile.removeChar(c);
                     // TODO: Alert the tiles.
                     c.tile.completed = true;
                     c.tile.active = false;
-                    System.Diagnostics.Debug.WriteLine("loop" + c.tile.active + " : " + c.tile.active + " + " + c.value);
                 }
                 // TODO: Alert the other words that using these tiles to.
                 Boggle.board.resetClicked(this);

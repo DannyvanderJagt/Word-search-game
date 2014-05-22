@@ -188,13 +188,14 @@ namespace Word_search_game.Classes
             // Reset all the other words.
             foreach(Char c in word.chars)
             {
+                // Reset all the other words.
+                c.tile.reset();
                 this.setColor(c.tile);
             }
         }
 
         private void setColor(Tile tile)
         {
-            System.Diagnostics.Debug.WriteLine("active"+tile.active+":"+tile.completed);
             if (tile.active.Equals(true))
             {
                 tile.background.Background = Colors.yellow;
