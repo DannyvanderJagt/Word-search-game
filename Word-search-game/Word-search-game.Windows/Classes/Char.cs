@@ -9,13 +9,13 @@ namespace Word_search_game.Classes
     class Char
     {
         #region Variables
-        public Word word;
-        private int position = -1;
-        public String value;
-        public int x = -1;
-        public int y = -1;
-        public Tile tile = null;
-        public Boolean active = false;
+        public Word word; // The base word where this character is from.
+        private int position = -1; // The position of this charcter within the value of the base word.
+        public String value; // The value of this character. ! Only 1 character long!
+       // public int x = -1;
+       // public int y = -1;
+        public Tile tile = null; // The tile where this character is placed at in the UI.
+        public Boolean active = false; // Store if the user has clicked/selected the tile with this character.
         #endregion
 
         #region Constuctor
@@ -34,6 +34,10 @@ namespace Word_search_game.Classes
         #endregion
 
         #region Place
+        /*
+         * Place the word into the board/tile.
+         * @param Tile tile - The tile where this character must be placed at.
+         */
         public Boolean place(Tile tile)
         {
             Boolean result = tile.place(this);
@@ -45,6 +49,9 @@ namespace Word_search_game.Classes
             return false;
         }
 
+        /*
+         * Unplace the word from the board/tile.
+         */
         public Boolean unplace()
         {
             if (this.tile != null)
@@ -58,10 +65,17 @@ namespace Word_search_game.Classes
 
         #region Events
 
+        /*
+         * Make this character active. (The user has clicked the tile with this character)
+         */
         public Boolean setActive(){
             this.active = true;
             return this.word.stateChange();
         }
+
+        /*
+         * Make this character inactive. (The user has been clicked again)
+         */
         public Boolean setInactive()
         {
             this.active = false;

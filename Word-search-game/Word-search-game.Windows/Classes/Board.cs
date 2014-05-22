@@ -178,9 +178,13 @@ namespace Word_search_game.Classes
             }
         }
 
-        private int lastX = -1;
-        private int lastY = -1;
+        private int lastX = -1; // The x position of the latest clicked tile.
+        private int lastY = -1; // The y position of the latest clicked tile.
         
+        /*
+         * When a word is completed reset all the tile and there characters.
+         * @param Word word - The word that is completed. We abstract all the characters and there tile to reset all the other tiles/chars.
+         */
         public void resetClicked(Word word)
         {
             this.lastX = -1;
@@ -194,6 +198,10 @@ namespace Word_search_game.Classes
             }
         }
 
+        /*
+         * Give a tile a color accourding to the active/completed state of the tile.
+         * @param Tile tile - The tile that has to be colored.
+         */
         private void setColor(Tile tile)
         {
             if (tile.active.Equals(true))
@@ -210,6 +218,12 @@ namespace Word_search_game.Classes
             }
         }
 
+        /*
+         * Check if this tile/position can be clicked.
+         * @param int x - The x position that has to be checked.
+         * @param int y - The y position that has to be checked.
+         * TODO: Check the checking according to direction of the selected level.
+         */
         private Boolean canBeClicked(int x, int y)
         {
             if (lastX == -1 && lastY == -1)
@@ -233,9 +247,12 @@ namespace Word_search_game.Classes
         #endregion
 
         #region Search
-        // Search.
-        // Search for all the letters from the word.
-        // Output: List<int[]> -> int[]{x,y,indexOf}
+        /* 
+         * Search the board for spaces where the chars of the word could be placed.
+         * 
+         * @param String letters - The value of a word.
+         * @Output: List<int[]> -> int[]{x,y,indexOf}
+         */
         public List<int[]> search(String letters)
         {
             List<int[]> positionsFilled = new List<int[]>();
@@ -269,7 +286,12 @@ namespace Word_search_game.Classes
         #endregion
 
         #region Check
-        // Check if the tile is availible for the requested char.
+        /*
+         * Check if the tile is availible for the requested char.
+         * 
+         * @param int x - The x position of the place that has to be checked.
+         * @param int y - The y position of the place that has to be checked.
+         */
         public Boolean check(int x, int y, Char character)
         {
             if (this.tiles[x, y].value == character.value || String.IsNullOrEmpty(this.tiles[x,y].value))
@@ -283,6 +305,11 @@ namespace Word_search_game.Classes
 
         #region Space
 
+        /*
+         * Check for spaces/tiles where the character could fit.
+         * @param int x - The x position of the latest placed character.
+         * @param int y - The y position of the latest placed character.
+         */
         public List<int[]> space(int x, int y, Char character)
         {
             // Posible directions.

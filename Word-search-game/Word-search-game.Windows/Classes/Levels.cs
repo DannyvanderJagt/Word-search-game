@@ -8,6 +8,9 @@ namespace Word_search_game.Classes
 {
     static class Levels
     {
+        /*
+         * The level "array" with all the settings.
+         */
         public static String[] types = new String[]{"easy","medium","hard","expert"};
         public static Level[] easy = new Level[]{
             new Level(
@@ -27,6 +30,7 @@ namespace Word_search_game.Classes
         };
     }
 
+    // A format for storing all the settings for each level.
     class Level
     {
         public int columns = 0;

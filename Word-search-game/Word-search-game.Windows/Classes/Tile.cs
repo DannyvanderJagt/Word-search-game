@@ -21,15 +21,20 @@ namespace Word_search_game.Classes
         private TextBlock text;
 
         // Class instance data.
-        private int x = -1;
-        private int y = -1;
-        public String value;
-        private Dictionary<String, Char> chars = new Dictionary<String, Char>();
-        public Boolean active = false;
-        public Boolean completed = false;
+        private int x = -1; // The x position wihtin the board.
+        private int y = -1; // The y position within the board.
+        public String value; // The value of this tile. Only 1 character long!
+        private Dictionary<String, Char> chars = new Dictionary<String, Char>(); // Store all the characters that are placed at this tile.
+        public Boolean active = false; // Store if this tile is active.
+        public Boolean completed = false; // Store if this tile is part of a completed word.
         #endregion
 
         #region Constructor
+        /*
+         * Constuctor
+         * @param int x - The x position of this tile within the board.
+         * @param int y - The y position of this tile within the board.
+         */
         public Tile(int x, int y)
         {
             this.x = x;
@@ -82,7 +87,10 @@ namespace Word_search_game.Classes
 
         #region Place
 
-        // Done.
+        /*
+         * Try to place the character into this tile.
+         * @param Char character - The character that has to be placed.
+         */
         public Boolean place(Char character)
         {
             if(this.value == character.value || String.IsNullOrEmpty(this.value)){
@@ -95,6 +103,11 @@ namespace Word_search_game.Classes
             return false;
         }
 
+        /*
+         * (Try to) unplace the character from this tile.
+         * 
+         * @param Char character - The character has to be unplaced.
+         */
         public Boolean unplace(Char character)
         {
            if (this.chars.ContainsKey(character.word.value))
@@ -108,6 +121,11 @@ namespace Word_search_game.Classes
            return false;
         }
 
+
+        /*
+         * Add a char to this tile. (this.chars array)
+         * @param Char character - The character that has to be placed.
+         */
         private Boolean addChar(Char character)
         {
             this.chars.Add(character.word.value, character);
@@ -118,6 +136,10 @@ namespace Word_search_game.Classes
             return true;
         }
 
+        /*
+         * Remove a character from this tile. (this.chars array)
+         * @param Char character - The character that has to be removed.
+         */
         public Boolean removeChar(Char character)
         {
             if (this.chars.ContainsKey(character.word.value))
@@ -132,19 +154,22 @@ namespace Word_search_game.Classes
 
         #region Events
 
-        // Comes from the board class.
+        /*
+         * When this tile is clicked alert to character that belong to this character.
+         */
         public void clicked()
         {
+            // When this tile not active make it active.
             if (this.active.Equals(false))
             {
                 this.active = true;
                 foreach(String s in chars.Keys){
                     this.chars[s].setActive();
                 }
-               
             }
             else
             {
+                // When this tile is active make it not active.
                 this.active = false;
                 // Alert the words that this tile is deselected.
                 foreach (String s in chars.Keys)
@@ -154,6 +179,9 @@ namespace Word_search_game.Classes
             }
         }
 
+        /*
+         * Reset the character from this tile when a word is completed.
+         */
         public void reset()
         {
             // Reset all this tile for all the words.

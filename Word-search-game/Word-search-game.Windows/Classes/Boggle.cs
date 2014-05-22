@@ -21,10 +21,10 @@ namespace Word_search_game.Classes
 
         // Normal variables.
         public Word[] words; // All the words that are placed in the board.
-        public static Level settings;
-        private StackPanel gridPanel;
-        private StackPanel wordPanel;
-        private int placedWordCount = 0;
+        public static Level settings; // These settings are abstracted from the levels.cs
+        private StackPanel gridPanel; // UI Element to hold all the chars/tiles.
+        private StackPanel wordPanel; // UI Element to hold all the words. (Word list)
+        private int placedWordCount = 0; // Check how many words are placed. *used at this.onlyPlacedWords()
 
         #endregion
 
@@ -71,12 +71,17 @@ namespace Word_search_game.Classes
             else
             {
                 // This difficulty doens't exist.
+                // TODO: Make an error and send the user to the levels page.
             }
         }
         #endregion
 
         #region Display
 
+        /*
+         * Display all the element for the game page.
+         * @alert! Tiles, words and chars must been made before calling this method.
+         */
         private void display()
         {
             // Get the grid and show it.
@@ -87,14 +92,20 @@ namespace Word_search_game.Classes
             for (int i = 0, len = this.words.Length; i < len; i++)
             {
                 // Create the board elements.
-                Grid background = this.words[i].getBackground(i);
-                TextBlock text = this.words[i].getText(i);
-                grid.Children.Add(background);
-                grid.Children.Add(text);
+                if (this.words[i] != null)
+                {
+                    Grid background = this.words[i].getBackground(i);
+                    TextBlock text = this.words[i].getText(i);
+                    grid.Children.Add(background);
+                    grid.Children.Add(text);
+                }
             }
             this.wordPanel.Children.Add(grid);
         }
 
+        /*
+         * Create a grid for the display method above.
+         */
         private Grid createWordGrid()
         {
 
@@ -116,8 +127,6 @@ namespace Word_search_game.Classes
             return grid;
         }
 
-       
-
         #endregion
 
         #region Create
@@ -126,8 +135,6 @@ namespace Word_search_game.Classes
         * Create a new board instance.
         * @param int columns - the number of columns.
         * @param int rows - the number of rows.
-        * @panel Stackpanel - The panel from the view.
-        * @type Static! <--------
         */
         private void create(int columns, int rows)
         {
@@ -144,7 +151,6 @@ namespace Word_search_game.Classes
          * and add to them this.words array
          * 
          * @savedAt this.words.
-         * //27375
          */
         private void selectWords()
         {
@@ -160,6 +166,12 @@ namespace Word_search_game.Classes
 
         }
 
+        /*
+         * Filter the this.word list. 
+         * After this function this list is shortend to 
+         * a list with only the words that are placed into the board.
+         * @alert! - this.words needs to be filled before calling this method.
+         */
         private void onlyPlacedWords()
         {
             Word[] placedWords = new Word[this.placedWordCount];
@@ -170,7 +182,6 @@ namespace Word_search_game.Classes
               
                 if (w.chars[0].tile != null)
                 {
-                    System.Diagnostics.Debug.WriteLine("Only:" + w.value);
                     placedWords[count] = this.words[i];
                     count++;
                 }
@@ -178,13 +189,13 @@ namespace Word_search_game.Classes
             this.words = placedWords;
         }
 
-
         #endregion  
 
         #region Place
         
         /*
-         * Try to place to first word.
+         * Try to place to first word, when this failed we try until it's placed. 
+         * Yes this is an infinite loop but it won't loop more than 4-5 times in real life.
          * @var int firstWordTrys - Count to number of tries.
          */
         private Boolean placeFirstWord()
@@ -205,7 +216,11 @@ namespace Word_search_game.Classes
             return result;
         }
 
-
+        /*
+         * Try to place all the other word into the board.
+         * @alert! - this.words needs to be filled before using this method.
+         * @alert! - this.placedFirstWord needs to be called an be successfull before calling this method.
+         */
         private Boolean placeOtherWords()
         {
             // Loop through the word and try to place them one by one.

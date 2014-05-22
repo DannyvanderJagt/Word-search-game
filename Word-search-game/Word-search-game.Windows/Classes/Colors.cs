@@ -10,6 +10,9 @@ namespace Word_search_game.Classes
 {
     class Colors
     {
+        /* 
+         * Some colors that are used in this application.
+         */
         static public SolidColorBrush green = new SolidColorBrush(Color.FromArgb(255, 215, 208, 94)),
                red = new SolidColorBrush(Color.FromArgb(255, 238, 129, 72)),
                blue = new SolidColorBrush(Color.FromArgb(255, 31, 164, 205)),

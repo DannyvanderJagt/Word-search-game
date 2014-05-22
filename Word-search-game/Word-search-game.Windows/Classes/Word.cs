@@ -16,12 +16,12 @@ namespace Word_search_game.Classes
     class Word
     {
         #region Variables
-        public String value = null;
-        public int length = -1;
-        public Char[] chars;
-        private Grid background;
-        private TextBlock text;
-        private Boolean founded = false;
+        public String value = null; // The value/'String' of this word.
+        public int length = -1; // The length of the value.
+        public Char[] chars; // The value is split up into characters/Char.cs instances.
+        private Grid background; // UI - The colored background of the grid.
+        private TextBlock text; // UI - The "string"/character of the grid.
+        private Boolean founded = false; // Store if the user has founded this word.
         #endregion 
 
         #region Constructor
@@ -54,7 +54,12 @@ namespace Word_search_game.Classes
         #endregion
 
         #region Place
-        // Place the word.
+        /*
+         * Try to place a word.
+         * @param int x - The x value of the character that belong to the given position within the word.
+         * @param int y - The y value of the character that belong to the given position within the word.
+         * @param int pos - The position within the word. (Position of the character within the value of the word).
+         */
         public Boolean place(int x, int y, int pos)
         {
             // ---- Place the first character ---- //
@@ -69,6 +74,7 @@ namespace Word_search_game.Classes
             int curY = y;
 
             // ---- Place the other characters ---- //
+            // Place all the character from the first placed character to the frist character of the word.
             for (int fi = pos - 1, flen = 0; fi >= flen; fi--)
             {
                 int[] result = this.placeChar(curX, curY, this.chars[fi]);
@@ -82,9 +88,11 @@ namespace Word_search_game.Classes
                     return false;
                 }
             }
+            // Reset the x and y to the begin character.
             curX = x;
             curY = y;
 
+            // Place all the characters from the first placed character to the last character.
             for (int bi = pos + 1, blen = this.chars.Length; bi < blen; bi++)
             {
                 int[] result = this.placeChar(curX, curY, this.chars[bi]);
@@ -101,7 +109,13 @@ namespace Word_search_game.Classes
             return true;
         }
 
-
+        /*
+         * Place a char from a word.
+         * 
+         * @param int curX - The x position of the latested placed character.
+         * @param int curY - The y position of the latested placed character.
+         * @param Char character - The character that has to be placed.
+         */
         private int[] placeChar(int curX, int curY, Char character)
         {
             // Find space.
@@ -123,7 +137,10 @@ namespace Word_search_game.Classes
             return null; // Same as return false.
         }
 
-        // UnplaceAll.
+        /*
+         * Unplace all the character from this word.
+         * @used - this.chars
+         */
         public Boolean unplaceAll()
         {
             for (int i = 0, len = this.chars.Length; i < len; i++)
@@ -137,6 +154,10 @@ namespace Word_search_game.Classes
 
         #region Display
 
+        /*
+         * Create a background for the UI grid.
+         * @param int number - the position of the word within the list of words from the Board.cs
+         */
         public Grid getBackground(int number)
         {
             Grid background = new Grid();
@@ -150,6 +171,10 @@ namespace Word_search_game.Classes
             return background;
         }
 
+        /*
+         * Create the text element for the UI.
+         * @param int number - the position of the word within the list of words from the Board.cs
+         */
         public TextBlock getText(int number)
         {
             TextBlock textBlock = new TextBlock();
@@ -198,7 +223,10 @@ namespace Word_search_game.Classes
             }
         }
 
-
+        /*
+         * When the state changed of this word do something to save it.
+         * @called - When the used clicked a tile.
+         */ 
         public Boolean stateChange()
         {
             int activeCount = 0;
