@@ -1,0 +1,19 @@
+- [ ] Complete Game page.
+  - [ ] Add a timer.
+  - [ ] Add time game logic.
+  - [ ] Check if all the words are found.
+  - [ ] Calculate the score
+  - [ ] Send the user to the stats page and save the stats (last is optional).
+- [ ] Make the static page with all the functions.
+  - [ ] Display the stats.
+  - [ ] Add a new score.
+  - [ ] Remove a score.
+- [ ] Make the user page.
+  - [ ] Add a user.
+  - [ ] Remove a user
+  - [ ] Edit a user.
+- [ ] Make the levels page.
+  - [ ] Read the levels.cs and make a list of the levels and difficulties that are available.
+  - [ ] When a level is clicked open and start the game page.
+
+- [ ] I bet i forgot some stuff.
