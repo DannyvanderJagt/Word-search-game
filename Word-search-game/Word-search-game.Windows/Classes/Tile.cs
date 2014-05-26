@@ -150,6 +150,23 @@ namespace Word_search_game.Classes
             return false;
         }
 
+        /*
+         * Check if a char can be placed at this tile.
+         */
+        public Boolean check(Char character)
+        {
+            if (this.value == character.value || String.IsNullOrEmpty(this.value))
+            {
+                if (this.chars.ContainsKey(character.word.value).Equals(false))
+                {
+                    // The character can be placed.
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Events

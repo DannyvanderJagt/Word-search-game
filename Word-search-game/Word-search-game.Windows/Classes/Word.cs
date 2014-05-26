@@ -21,7 +21,7 @@ namespace Word_search_game.Classes
         public Char[] chars; // The value is split up into characters/Char.cs instances.
         private Grid background; // UI - The colored background of the grid.
         private TextBlock text; // UI - The "string"/character of the grid.
-        private Boolean founded = false; // Store if the user has founded this word.
+        public Boolean founded = false; // Store if the user has founded this word.
         #endregion 
 
         #region Constructor

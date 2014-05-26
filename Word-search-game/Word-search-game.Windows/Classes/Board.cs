@@ -22,6 +22,7 @@ namespace Word_search_game.Classes
         private int height = 75; // The width and height of a tile when it is displayed.
         private int width = 75;
         public Tile[,] tiles; // This will hold all the boxes that the board will contain.
+        private Boggle boggle;
 
         // Display element.
         private Grid grid;
@@ -35,11 +36,12 @@ namespace Word_search_game.Classes
          * @param int columns - The number of columns the board needs to be. (x-axis, width)
          * @savedAt this.rows, this.colums, this.panel
          */
-        public Board(int rows, int columns)
+        public Board(int rows, int columns, Boggle boggle)
         {
             if (rows > 0 && columns > 0)
             {
                 // Set the data.
+                this.boggle = boggle;
                 this.rows = rows;
                 this.columns = columns;
                 System.Diagnostics.Debug.WriteLine("Board"+this.rows+""+this.columns);
@@ -173,22 +175,39 @@ namespace Word_search_game.Classes
             Tile tile = this.tiles[x, y];
             if (canBeClicked(x, y).Equals(true))
             {
+                if (tile.active.Equals(true))
+                {
+                    this.totalActive--;
+                }
+                else if(tile.active.Equals(false))
+                {
+                    this.totalActive++;
+                }
                 tile.clicked();
+                if (this.totalActive.Equals(0))
+                {
+                    this.lastX = -1;
+                    this.lastY = -1;
+                }
+
                 this.setColor(tile);
             }
         }
 
         private int lastX = -1; // The x position of the latest clicked tile.
         private int lastY = -1; // The y position of the latest clicked tile.
+        private int totalActive = 0;
         
         /*
          * When a word is completed reset all the tile and there characters.
          * @param Word word - The word that is completed. We abstract all the characters and there tile to reset all the other tiles/chars.
+         * @action - Check if all the words are completed.
          */
         public void resetClicked(Word word)
         {
             this.lastX = -1;
             this.lastY = -1;
+            this.totalActive = 0;
             // Reset all the other words.
             foreach(Char c in word.chars)
             {
@@ -196,7 +215,10 @@ namespace Word_search_game.Classes
                 c.tile.reset();
                 this.setColor(c.tile);
             }
+            // Check if all the words are founded.
+            this.checkCompleted();
         }
+
 
         /*
          * Give a tile a color accourding to the active/completed state of the tile.
@@ -253,8 +275,9 @@ namespace Word_search_game.Classes
          * @param String letters - The value of a word.
          * @Output: List<int[]> -> int[]{x,y,indexOf}
          */
-        public List<int[]> search(String letters)
+        public List<int[]> search(Word word)
         {
+            String letters = word.value;
             List<int[]> positionsFilled = new List<int[]>();
             List<int[]> positionEmpty = new List<int[]>();
 
@@ -262,13 +285,17 @@ namespace Word_search_game.Classes
             {
                 for (int yi = 0, ylen = this.rows; yi < ylen; yi++)
                 {
-                    Tile box = this.tiles[xi, yi];
+                    Tile tile = this.tiles[xi, yi];
                     // Check if there are letters that match!
-                    if (!String.IsNullOrEmpty(box.value) && letters.IndexOf(box.value) != -1)
+                    int indexOf = tile.value != null ? letters.IndexOf(tile.value) : -1;
+                    if (!String.IsNullOrEmpty(tile.value) && indexOf != -1)
                     {
-                        positionsFilled.Add(new int[3] { xi, yi, letters.IndexOf(box.value) });
+                        if (tile.check(word.chars[indexOf]).Equals(true))
+                        {
+                            positionsFilled.Add(new int[3] { xi, yi, letters.IndexOf(tile.value) });
+                        }
                     }
-                    else if (String.IsNullOrEmpty(box.value))
+                    else if (String.IsNullOrEmpty(tile.value))
                     {
                         positionEmpty.Add(new int[3] { xi, yi, 0});
                     }
@@ -276,9 +303,9 @@ namespace Word_search_game.Classes
             };
 
             // Combine.
-            for (int i = 0, len = positionEmpty.Count; i < len; i++)
+            foreach (int[] posEmpty in positionEmpty)
             {
-                positionsFilled[positionsFilled.Count-1] = positionEmpty[i];
+                positionsFilled.Add(posEmpty);
             }
             return positionsFilled;
 
@@ -297,8 +324,26 @@ namespace Word_search_game.Classes
             if (this.tiles[x, y].value == character.value || String.IsNullOrEmpty(this.tiles[x,y].value))
             {
                 return true;
-            }
+            }      
             return false;
+        }
+
+        /*
+         * Check if all the words are completed.
+         */
+        private Boolean checkCompleted()
+        {
+            Word[] words = this.boggle.words;
+            // Loop through the words.
+            foreach (Word word in words)
+            {
+                if (word.founded.Equals(false))
+                {
+                    return false;
+                }
+            }
+            System.Diagnostics.Debug.WriteLine("All the words are found!");
+            return true;
         }
 
         #endregion

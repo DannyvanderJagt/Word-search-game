@@ -62,6 +62,9 @@ namespace Word_search_game.Classes
                     this.placeOtherWords();
                 }
 
+                // Fill the empty gaps.
+               // this.fillGaps();
+
                 // Replace this.words with only the words that are placed.
                  this.onlyPlacedWords();
    
@@ -138,8 +141,34 @@ namespace Word_search_game.Classes
         */
         private void create(int columns, int rows)
         {
-            board = new Board(columns, rows);
+            board = new Board(columns, rows, this);
         }
+
+        /*
+         * Fill all the empty gaps.
+         */
+        private void fillGaps()
+        {
+            // Generate a random int.
+            Random random = new Random();
+            String[] chars = new String[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+            // Loop through the board to search for empty tiles.
+            for (int xi = 0, xlen = Boggle.board.columns; xi < xlen; xi++)
+            {
+                for (int yi = 0, ylen = Boggle.board.rows; yi < ylen; yi++)
+                {
+                    // Get the tile.
+                    Tile tile = Boggle.board.tiles[xi, yi];
+                    if (String.IsNullOrEmpty(tile.value))
+                    {
+                        // Empty tile founded, lets fill it up.
+                        int ri = random.Next(0, 26);
+                        tile.value = chars[ri];
+                    }
+                }   
+            }
+        }
+
 
         #endregion
 
@@ -230,7 +259,7 @@ namespace Word_search_game.Classes
                 Word word = this.words[ci];
 
                 // Search for some pace.
-                List<int[]> searchSpaces = Boggle.board.search(word.value);
+                List<int[]> searchSpaces = Boggle.board.search(word);
 
                 // Try to place the word accourding to the spaces.
                 for (int si = 0, slen = searchSpaces.Count; si < slen; si++)
