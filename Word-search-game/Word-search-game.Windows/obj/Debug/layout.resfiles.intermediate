@@ -4,5 +4,9 @@ Assets\SplashScreen.scale-100.png
 Assets\StoreLogo.scale-100.png
 App.xbf
 MainPage.xbf
+Pages\GamePage.xbf
+Pages\LevelPage.xbf
+Pages\PlayersPage.xbf
+Pages\StatisticsPage.xbf
 Word-search-game.Windows.xr.xml
-Images\background.png
+Images\background.jpg

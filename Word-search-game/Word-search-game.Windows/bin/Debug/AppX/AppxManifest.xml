@@ -27,9 +27,6 @@
       </m2:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
   <build:Metadata>
     <build:Item Name="SharedGUID" Value="efdeb008-7bd8-423a-8d0d-b1432cc2f504" />
     <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />
