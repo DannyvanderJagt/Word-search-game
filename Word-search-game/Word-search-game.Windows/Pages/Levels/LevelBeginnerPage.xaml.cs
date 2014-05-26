@@ -13,16 +13,17 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
-namespace Word_search_game.Pages
+namespace Word_search_game.Pages.Levels
 {
     /// <summary>
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class LevelPage : Page
+    public sealed partial class LevelBeginnerPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -44,7 +45,7 @@ namespace Word_search_game.Pages
             get { return this.navigationHelper; }
         }
 
-        public LevelPage()
+        public LevelBeginnerPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -89,6 +90,17 @@ namespace Word_search_game.Pages
         }
 
         #endregion
+
+        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(sender as RectangleGeometry);
+            Rectangle rec = new Rectangle();
+            if (sender as Rectangle != null)
+            {
+                Rectangle elem = (Rectangle) sender;
+            }
+        }
+
 
     }
 }

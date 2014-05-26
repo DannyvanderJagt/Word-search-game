@@ -5,8 +5,13 @@ Assets\StoreLogo.scale-100.png
 App.xbf
 MainPage.xbf
 Pages\GamePage.xbf
-Pages\LevelPage.xbf
+Pages\Levels\LevelBeginnerPage.xbf
+Pages\LevelsPage.xbf
 Pages\PlayersPage.xbf
 Pages\StatisticsPage.xbf
 Word-search-game.Windows.xr.xml
 Images\background.jpg
+Images\levels.png
+Images\players.png
+Images\settings.png
+Images\stats.png

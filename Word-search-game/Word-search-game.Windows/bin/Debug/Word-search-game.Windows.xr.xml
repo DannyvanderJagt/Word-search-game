@@ -45,9 +45,18 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Stroke" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Name" />
+      <RootEvent Name="Tapped" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Source" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
@@ -76,6 +85,10 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="SelectionHighlightColor" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Word_search_game.MainPage" />
@@ -87,8 +100,11 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="IsSwipeEnabled" />
+      <RootProperty Name="Margin" />
     </RootType>
-    <RootType FullName="Word_search_game.Pages.LevelPage" />
+    <RootType FullName="Word_search_game.Pages.LevelsPage" />
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
+    <RootType FullName="Word_search_game.Pages.Levels.LevelBeginnerPage" />
     <RootType FullName="Word_search_game.Pages.PlayersPage" />
     <RootType FullName="Word_search_game.Pages.StatisticsPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">

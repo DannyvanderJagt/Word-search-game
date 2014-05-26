@@ -49,9 +49,10 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" RequestedTheme="Light"/>
         </Grid>
-        <Rectangle x:ConnectionId='1' Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="301,214,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="100"                       />
-        <Rectangle x:ConnectionId='2' Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="456,214,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="100"                           />
-        <Rectangle x:ConnectionId='3' Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="634,214,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="100"                        />
+        <Rectangle x:ConnectionId='1' Fill="#FFF18241" HorizontalAlignment="Left" Height="498" Margin="361,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="307"                       />
+        <Rectangle x:ConnectionId='2' Fill="#FFF8CB4D" HorizontalAlignment="Left" Height="498" Margin="674,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="307"                           />
+        <Image x:ConnectionId='3' HorizontalAlignment="Left" Height="244" Margin="395,142,0,0" Grid.Row="1" VerticalAlignment="Top" Width="244" Source="Images/levels.png"                       />
+        <Image x:ConnectionId='4' HorizontalAlignment="Left" Height="228" Margin="712,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="228" Source="Images/stats.png"                            />
     </Grid>
 </Page>
 

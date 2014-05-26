@@ -108,7 +108,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LevelPage.xaml">
+    <Page Include="Pages\LevelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Levels\LevelBeginnerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,8 +144,11 @@
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LevelPage.xaml.cs">
-      <DependentUpon>LevelPage.xaml</DependentUpon>
+    <Compile Include="Pages\LevelsPage.xaml.cs">
+      <DependentUpon>LevelsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Levels\LevelBeginnerPage.xaml.cs">
+      <DependentUpon>LevelBeginnerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PlayersPage.xaml.cs">
       <DependentUpon>PlayersPage.xaml</DependentUpon>
@@ -163,6 +170,10 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Images\background.jpg" />
+    <Content Include="Images\levels.png" />
+    <Content Include="Images\players.png" />
+    <Content Include="Images\settings.png" />
+    <Content Include="Images\stats.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\GamePage.xaml">

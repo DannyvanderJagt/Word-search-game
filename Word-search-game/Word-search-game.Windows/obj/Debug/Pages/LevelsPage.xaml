@@ -1,6 +1,6 @@
 ﻿<Page
     x:Name="pageRoot"
-    x:Class="Word_search_game.Pages.LevelPage"
+    x:Class="Word_search_game.Pages.LevelsPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -65,8 +65,9 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" RequestedTheme="Light"/>
         </Grid>
-        <Rectangle Fill="#FFD9D059" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="196,26,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF8CB4D" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="552,26,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="913,26,0,0" Grid.Row="1"/>
+        <Rectangle x:ConnectionId='1' Fill="#FFD9D059" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="196,26,0,0" Grid.Row="1"                         />
+        <Rectangle x:ConnectionId='2' Fill="#FFF8CB4D" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="552,26,0,0" Grid.Row="1"                          />
+        <Rectangle x:ConnectionId='3' Fill="#FFF18241" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="913,26,0,0" Grid.Row="1"                       />
     </Grid>
 </Page>
+
