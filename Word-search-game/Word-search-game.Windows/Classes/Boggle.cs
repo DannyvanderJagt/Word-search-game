@@ -245,6 +245,7 @@ namespace Word_search_game.Classes
             int rx = random.Next(0, board.columns);
             int ry = random.Next(0, board.rows);
             int rpos = random.Next(0, word.length-1);
+
             // Try to place to word into the field.
             Boolean result = word.place(rx, ry, rpos);
             if (result.Equals(false))
@@ -285,6 +286,7 @@ namespace Word_search_game.Classes
                     else
                     {
                         // Go to the next word.
+                        System.Diagnostics.Debug.WriteLine("Placed word:" + word.value + "   pos: " + space[0] + ":" + space[1] + ":" + space[2]);
                         this.placedWordCount++;
                         break;
                     }

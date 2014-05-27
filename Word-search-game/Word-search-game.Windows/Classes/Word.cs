@@ -67,6 +67,12 @@ namespace Word_search_game.Classes
             Boolean space = Boggle.board.check(x,y,this.chars[pos]);
 
             // Place the first character.
+            // Check the first character !!!!
+            if(space.Equals(false)){
+                return false;
+            }
+
+
             Boolean placed = this.chars[pos].place(Boggle.board.tiles[x,y]);
 
             // Current x and y pos.

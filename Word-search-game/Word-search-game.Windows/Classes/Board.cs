@@ -323,11 +323,7 @@ namespace Word_search_game.Classes
          */
         public Boolean check(int x, int y, Char character)
         {
-            if (this.tiles[x, y].value == character.value || String.IsNullOrEmpty(this.tiles[x,y].value))
-            {
-                return true;
-            }      
-            return false;
+            return  this.tiles[x, y].check(character);
         }
 
         /*
