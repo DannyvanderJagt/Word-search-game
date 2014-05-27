@@ -65,38 +65,39 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" RequestedTheme="Light"/>
         </Grid>
-        <Rectangle x:ConnectionId='1' Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="137,79,0,0" Grid.Row="1" Name="Rec1"                          />
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="356,79,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="578,79,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="804,79,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="1032,79,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="137,300,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="356,300,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="578,300,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="804,300,0,0" Grid.Row="1"/>
-        <Rectangle Fill="#FFF18241" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="1032,300,0,0" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="416,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="416,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='1' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="137,79,0,0" Grid.Row="1" Name="level_1"                          />
         <TextBlock HorizontalAlignment="Left" Margin="197,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="197,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='2' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="356,79,0,0" Grid.Row="1" Name="level_2"                          />
+        <TextBlock HorizontalAlignment="Left" Margin="416,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="416,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='3' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="578,79,0,0" Grid.Row="1" Name="level_3"                          />
         <TextBlock HorizontalAlignment="Left" Margin="637,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="637,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='4' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="804,79,0,0" Grid.Row="1" Name="level_4"                          />
         <TextBlock HorizontalAlignment="Left" Margin="862,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="862,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='5' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="1032,79,0,0" Grid.Row="1" Name="level_5"                          />
         <TextBlock HorizontalAlignment="Left" Margin="1092,111,0,0" Grid.Row="1" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="1092,189,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='6' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="137,300,0,0" Grid.Row="1" Name="level_6"                          />
         <TextBlock HorizontalAlignment="Left" Margin="197,330,0,0" Grid.Row="1" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="197,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='7' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="356,300,0,0" Grid.Row="1" Name="level_7"                          />
+
         <TextBlock HorizontalAlignment="Left" Margin="417,332,0,0" Grid.Row="1" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="417,410,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='8' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="578,300,0,0" Grid.Row="1" Name="level_8"                          />
+
         <TextBlock HorizontalAlignment="Left" Margin="637,330,0,0" Grid.Row="1" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="637,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='9' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="804,300,0,0" Grid.Row="1" Name="level_9"                          />
         <TextBlock HorizontalAlignment="Left" Margin="861,330,0,0" Grid.Row="1" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="861,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle x:ConnectionId='10' Fill="#FFD9D059" HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="163" Margin="1032,300,0,0" Grid.Row="1" Name="level_10"                          />
+
         <TextBlock HorizontalAlignment="Left" Margin="1074,332,0,0" Grid.Row="1" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" FontSize="72" Foreground="White" SelectionHighlightColor="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="1091,410,0,0" Grid.Row="1" TextWrapping="Wrap" Text="level" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}"/>
-
-
     </Grid>
 </Page>
 

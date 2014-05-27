@@ -92,6 +92,18 @@
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Word_search_game.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Transitions" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.ContentThemeTransition">
+      <RootProperty Name="HorizontalOffset" />
+    </RootType>
+    <RootType FullName="Word_search_game.Pages.GamePage" />
     <RootType FullName="Windows.UI.Xaml.Data.CollectionViewSource">
       <RootProperty Name="Source" />
     </RootType>
@@ -105,15 +117,10 @@
     <RootType FullName="Word_search_game.Pages.LevelsPage" />
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelBeginnerPage" />
+    <RootType FullName="Word_search_game.Pages.Levels.LevelExpertPage" />
+    <RootType FullName="Word_search_game.Pages.Levels.LevelImmediatePage" />
     <RootType FullName="Word_search_game.Pages.PlayersPage" />
     <RootType FullName="Word_search_game.Pages.StatisticsPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Word_search_game.GamePage" />
+    <RootType FullName="Word_search_game.GamePage2" />
   </Roots.RootTypes>
 </Roots>

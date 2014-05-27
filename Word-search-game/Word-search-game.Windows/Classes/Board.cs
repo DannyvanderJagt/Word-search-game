@@ -370,12 +370,11 @@ namespace Word_search_game.Classes
             };
 
             // Get the directions from the settings.
-            int[] settingsDirections = Boggle.settings.directions;
+            int[] settingsDirections = Boggle.settings.directions; // Ex: 1,2,3,4 or 4,5,6,7 or a combination.
             List<int[]> possibilities = new List<int[]>();
 
             // Find the tiles that can be a fit.
-            for (int i = 0, len = settingsDirections.Length; i < len; i++)
-            {
+            foreach (int i in settingsDirections) {
                 // Check if this tile is a fit.
                 int[] dir = directions[i];
 

@@ -124,7 +124,7 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[13];
+            _typeNameTable = new string[16];
             _typeNameTable[0] = "Word_search_game.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -133,13 +133,16 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
             _typeNameTable[5] = "String";
             _typeNameTable[6] = "Word_search_game.Common.NavigationHelper";
             _typeNameTable[7] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[8] = "Word_search_game.Pages.LevelsPage";
-            _typeNameTable[9] = "Word_search_game.Pages.Levels.LevelBeginnerPage";
-            _typeNameTable[10] = "Word_search_game.Pages.PlayersPage";
-            _typeNameTable[11] = "Word_search_game.Pages.StatisticsPage";
-            _typeNameTable[12] = "Word_search_game.GamePage";
+            _typeNameTable[8] = "Word_search_game.Pages.GamePage";
+            _typeNameTable[9] = "Word_search_game.Pages.LevelsPage";
+            _typeNameTable[10] = "Word_search_game.Pages.Levels.LevelBeginnerPage";
+            _typeNameTable[11] = "Word_search_game.Pages.Levels.LevelExpertPage";
+            _typeNameTable[12] = "Word_search_game.Pages.Levels.LevelImmediatePage";
+            _typeNameTable[13] = "Word_search_game.Pages.PlayersPage";
+            _typeNameTable[14] = "Word_search_game.Pages.StatisticsPage";
+            _typeNameTable[15] = "Word_search_game.GamePage2";
 
-            _typeTable = new global::System.Type[13];
+            _typeTable = new global::System.Type[16];
             _typeTable[0] = typeof(global::Word_search_game.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -148,11 +151,14 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
             _typeTable[5] = typeof(global::System.String);
             _typeTable[6] = typeof(global::Word_search_game.Common.NavigationHelper);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[8] = typeof(global::Word_search_game.Pages.LevelsPage);
-            _typeTable[9] = typeof(global::Word_search_game.Pages.Levels.LevelBeginnerPage);
-            _typeTable[10] = typeof(global::Word_search_game.Pages.PlayersPage);
-            _typeTable[11] = typeof(global::Word_search_game.Pages.StatisticsPage);
-            _typeTable[12] = typeof(global::Word_search_game.GamePage);
+            _typeTable[8] = typeof(global::Word_search_game.Pages.GamePage);
+            _typeTable[9] = typeof(global::Word_search_game.Pages.LevelsPage);
+            _typeTable[10] = typeof(global::Word_search_game.Pages.Levels.LevelBeginnerPage);
+            _typeTable[11] = typeof(global::Word_search_game.Pages.Levels.LevelExpertPage);
+            _typeTable[12] = typeof(global::Word_search_game.Pages.Levels.LevelImmediatePage);
+            _typeTable[13] = typeof(global::Word_search_game.Pages.PlayersPage);
+            _typeTable[14] = typeof(global::Word_search_game.Pages.StatisticsPage);
+            _typeTable[15] = typeof(global::Word_search_game.GamePage2);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -189,11 +195,14 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
 
         private object Activate_0_MainPage() { return new global::Word_search_game.MainPage(); }
         private object Activate_3_ObservableDictionary() { return new global::Word_search_game.Common.ObservableDictionary(); }
-        private object Activate_8_LevelsPage() { return new global::Word_search_game.Pages.LevelsPage(); }
-        private object Activate_9_LevelBeginnerPage() { return new global::Word_search_game.Pages.Levels.LevelBeginnerPage(); }
-        private object Activate_10_PlayersPage() { return new global::Word_search_game.Pages.PlayersPage(); }
-        private object Activate_11_StatisticsPage() { return new global::Word_search_game.Pages.StatisticsPage(); }
-        private object Activate_12_GamePage() { return new global::Word_search_game.GamePage(); }
+        private object Activate_8_GamePage() { return new global::Word_search_game.Pages.GamePage(); }
+        private object Activate_9_LevelsPage() { return new global::Word_search_game.Pages.LevelsPage(); }
+        private object Activate_10_LevelBeginnerPage() { return new global::Word_search_game.Pages.Levels.LevelBeginnerPage(); }
+        private object Activate_11_LevelExpertPage() { return new global::Word_search_game.Pages.Levels.LevelExpertPage(); }
+        private object Activate_12_LevelImmediatePage() { return new global::Word_search_game.Pages.Levels.LevelImmediatePage(); }
+        private object Activate_13_PlayersPage() { return new global::Word_search_game.Pages.PlayersPage(); }
+        private object Activate_14_StatisticsPage() { return new global::Word_search_game.Pages.StatisticsPage(); }
+        private object Activate_15_GamePage2() { return new global::Word_search_game.GamePage2(); }
         private void MapAdd_3_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -256,45 +265,70 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
                 xamlType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Word_search_game.Pages.LevelsPage
+            case 8:   //  Word_search_game.Pages.GamePage
                 userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_LevelsPage;
+                userType.Activator = Activate_8_GamePage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Word_search_game.Pages.LevelsPage
+                userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_LevelsPage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Word_search_game.Pages.Levels.LevelBeginnerPage
+            case 10:   //  Word_search_game.Pages.Levels.LevelBeginnerPage
                 userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_LevelBeginnerPage;
+                userType.Activator = Activate_10_LevelBeginnerPage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Word_search_game.Pages.PlayersPage
+            case 11:   //  Word_search_game.Pages.Levels.LevelExpertPage
                 userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_PlayersPage;
+                userType.Activator = Activate_11_LevelExpertPage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Word_search_game.Pages.StatisticsPage
+            case 12:   //  Word_search_game.Pages.Levels.LevelImmediatePage
                 userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_StatisticsPage;
+                userType.Activator = Activate_12_LevelImmediatePage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Word_search_game.GamePage
+            case 13:   //  Word_search_game.Pages.PlayersPage
                 userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_GamePage;
+                userType.Activator = Activate_13_PlayersPage;
+                userType.AddMemberName("DefaultViewModel");
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Word_search_game.Pages.StatisticsPage
+                userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_StatisticsPage;
+                userType.AddMemberName("DefaultViewModel");
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Word_search_game.GamePage2
+                userType = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_GamePage2;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -333,22 +367,42 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
             var that = (global::Word_search_game.Pages.Levels.LevelBeginnerPage)instance;
             return that.NavigationHelper;
         }
-        private object get_6_PlayersPage_DefaultViewModel(object instance)
+        private object get_6_LevelExpertPage_DefaultViewModel(object instance)
+        {
+            var that = (global::Word_search_game.Pages.Levels.LevelExpertPage)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_7_LevelExpertPage_NavigationHelper(object instance)
+        {
+            var that = (global::Word_search_game.Pages.Levels.LevelExpertPage)instance;
+            return that.NavigationHelper;
+        }
+        private object get_8_LevelImmediatePage_DefaultViewModel(object instance)
+        {
+            var that = (global::Word_search_game.Pages.Levels.LevelImmediatePage)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_9_LevelImmediatePage_NavigationHelper(object instance)
+        {
+            var that = (global::Word_search_game.Pages.Levels.LevelImmediatePage)instance;
+            return that.NavigationHelper;
+        }
+        private object get_10_PlayersPage_DefaultViewModel(object instance)
         {
             var that = (global::Word_search_game.Pages.PlayersPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_7_PlayersPage_NavigationHelper(object instance)
+        private object get_11_PlayersPage_NavigationHelper(object instance)
         {
             var that = (global::Word_search_game.Pages.PlayersPage)instance;
             return that.NavigationHelper;
         }
-        private object get_8_StatisticsPage_DefaultViewModel(object instance)
+        private object get_12_StatisticsPage_DefaultViewModel(object instance)
         {
             var that = (global::Word_search_game.Pages.StatisticsPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_9_StatisticsPage_NavigationHelper(object instance)
+        private object get_13_StatisticsPage_NavigationHelper(object instance)
         {
             var that = (global::Word_search_game.Pages.StatisticsPage)instance;
             return that.NavigationHelper;
@@ -397,28 +451,52 @@ namespace Word_search_game.Word_search_game_Windows_XamlTypeInfo
                 xamlMember.Getter = get_5_LevelBeginnerPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
+            case "Word_search_game.Pages.Levels.LevelExpertPage.DefaultViewModel":
+                userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.Levels.LevelExpertPage");
+                xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Word_search_game.Common.ObservableDictionary");
+                xamlMember.Getter = get_6_LevelExpertPage_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Word_search_game.Pages.Levels.LevelExpertPage.NavigationHelper":
+                userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.Levels.LevelExpertPage");
+                xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Word_search_game.Common.NavigationHelper");
+                xamlMember.Getter = get_7_LevelExpertPage_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Word_search_game.Pages.Levels.LevelImmediatePage.DefaultViewModel":
+                userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.Levels.LevelImmediatePage");
+                xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Word_search_game.Common.ObservableDictionary");
+                xamlMember.Getter = get_8_LevelImmediatePage_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Word_search_game.Pages.Levels.LevelImmediatePage.NavigationHelper":
+                userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.Levels.LevelImmediatePage");
+                xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Word_search_game.Common.NavigationHelper");
+                xamlMember.Getter = get_9_LevelImmediatePage_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
             case "Word_search_game.Pages.PlayersPage.DefaultViewModel":
                 userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.PlayersPage");
                 xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Word_search_game.Common.ObservableDictionary");
-                xamlMember.Getter = get_6_PlayersPage_DefaultViewModel;
+                xamlMember.Getter = get_10_PlayersPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Word_search_game.Pages.PlayersPage.NavigationHelper":
                 userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.PlayersPage");
                 xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Word_search_game.Common.NavigationHelper");
-                xamlMember.Getter = get_7_PlayersPage_NavigationHelper;
+                xamlMember.Getter = get_11_PlayersPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Word_search_game.Pages.StatisticsPage.DefaultViewModel":
                 userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.StatisticsPage");
                 xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Word_search_game.Common.ObservableDictionary");
-                xamlMember.Getter = get_8_StatisticsPage_DefaultViewModel;
+                xamlMember.Getter = get_12_StatisticsPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Word_search_game.Pages.StatisticsPage.NavigationHelper":
                 userType = (global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Word_search_game.Pages.StatisticsPage");
                 xamlMember = new global::Word_search_game.Word_search_game_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Word_search_game.Common.NavigationHelper");
-                xamlMember.Getter = get_9_StatisticsPage_NavigationHelper;
+                xamlMember.Getter = get_13_StatisticsPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             }

@@ -56,11 +56,20 @@
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage.xbf">
+      <PackagePath>Pages\GamePage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\LevelsPage.xbf">
       <PackagePath>Pages\LevelsPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelBeginnerPage.xbf">
       <PackagePath>Pages\Levels\LevelBeginnerPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelExpertPage.xbf">
+      <PackagePath>Pages\Levels\LevelExpertPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelImmediatePage.xbf">
+      <PackagePath>Pages\Levels\LevelImmediatePage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\PlayersPage.xbf">
       <PackagePath>Pages\PlayersPage.xbf</PackagePath>
@@ -68,8 +77,8 @@
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\StatisticsPage.xbf">
       <PackagePath>Pages\StatisticsPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage.xbf">
-      <PackagePath>Pages\GamePage.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage2.xbf">
+      <PackagePath>Pages\GamePage2.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>

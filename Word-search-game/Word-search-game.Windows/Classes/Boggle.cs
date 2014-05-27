@@ -44,8 +44,16 @@ namespace Word_search_game.Classes
                 this.gridPanel = gridPanel;
                 this.wordPanel = wordPanel;
                 // Get the settings for this type of difficulty and this level.
-                settings = Levels.easy[0];
-
+                if(difficulty == "easy"){
+                    settings = Levels.easy[level];
+                }else if(difficulty == "immediate"){
+                    settings = Levels.immediate[level];
+                }
+                else
+                {
+                    settings = Levels.expert[level];
+                }
+               
                 // Select some words.
                 this.selectWords();
 

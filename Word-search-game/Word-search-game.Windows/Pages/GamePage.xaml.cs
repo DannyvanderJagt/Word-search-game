@@ -16,7 +16,7 @@ using Word_search_game.Classes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Word_search_game
+namespace Word_search_game.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,8 +26,9 @@ namespace Word_search_game
         public GamePage()
         {
             this.InitializeComponent();
-            Boggle boggle = new Boggle("easy", 1, tileGrid, wordList); // Difficulty, Level, grid for the tiles Element, grid for the words element.
-
+            System.Diagnostics.Debug.WriteLine("Fire up! Level: "+ Classes.PageSwitcher.level);
+            // Difficulty, Level, grid for the tiles Element, grid for the words element.
+            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList); 
         }
     }
 }

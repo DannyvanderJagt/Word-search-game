@@ -97,11 +97,11 @@ namespace Word_search_game.Pages
 
         private void Immidiate_Tapped(object sender, TappedRoutedEventArgs e)
         {
-           // Frame.Navigate(typeof(Pages.LevelImmediatePage));
+            Frame.Navigate(typeof(Pages.Levels.LevelImmediatePage));
         }
         private void Expert_Tapped(object sender, TappedRoutedEventArgs e)
         {
-           // Frame.Navigate(typeof(Pages.LevelExpertPage));
+            Frame.Navigate(typeof(Pages.Levels.LevelExpertPage));
         }
 
     }

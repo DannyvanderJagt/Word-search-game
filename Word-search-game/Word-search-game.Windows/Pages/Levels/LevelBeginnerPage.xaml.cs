@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
-
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
 namespace Word_search_game.Pages.Levels
@@ -93,11 +92,18 @@ namespace Word_search_game.Pages.Levels
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(sender as RectangleGeometry);
             Rectangle rec = new Rectangle();
             if (sender as Rectangle != null)
             {
                 Rectangle elem = (Rectangle) sender;
+                System.Diagnostics.Debug.WriteLine("Clicked"+elem.Name);
+                // Split the name and get the level number.
+                string[] thunks = elem.Name.Split('_');
+                // Load the right level.
+                // A workaround but it works.
+                Classes.PageSwitcher.Difficulty = "easy";
+                Classes.PageSwitcher.level = Int32.Parse(thunks[1]);
+                Frame.Navigate(typeof(Pages.GamePage));
             }
         }
 

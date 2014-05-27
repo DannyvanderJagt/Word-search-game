@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-05-26T09:03:28.220</Modified>
+      <Modified>2014-05-27T07:17:44.189</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.exe">
       <PackagePath>Word-search-game.Windows.exe</PackagePath>
-      <Modified>2014-05-26T09:47:11.644</Modified>
+      <Modified>2014-05-27T07:30:18.866</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -76,13 +76,25 @@
       <PackagePath>MainPage.xbf</PackagePath>
       <Modified>2014-05-26T09:47:11.181</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage.xbf">
+      <PackagePath>Pages\GamePage.xbf</PackagePath>
+      <Modified>2014-05-27T07:16:16.758</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\LevelsPage.xbf">
       <PackagePath>Pages\LevelsPage.xbf</PackagePath>
       <Modified>2014-05-26T09:47:11.181</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelBeginnerPage.xbf">
       <PackagePath>Pages\Levels\LevelBeginnerPage.xbf</PackagePath>
-      <Modified>2014-05-26T09:47:11.183</Modified>
+      <Modified>2014-05-27T07:19:58.557</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelExpertPage.xbf">
+      <PackagePath>Pages\Levels\LevelExpertPage.xbf</PackagePath>
+      <Modified>2014-05-27T07:19:58.559</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\Levels\LevelImmediatePage.xbf">
+      <PackagePath>Pages\Levels\LevelImmediatePage.xbf</PackagePath>
+      <Modified>2014-05-27T07:23:15.031</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\PlayersPage.xbf">
       <PackagePath>Pages\PlayersPage.xbf</PackagePath>
@@ -92,17 +104,17 @@
       <PackagePath>Pages\StatisticsPage.xbf</PackagePath>
       <Modified>2014-05-26T08:38:44.936</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage.xbf">
-      <PackagePath>Pages\GamePage.xbf</PackagePath>
-      <Modified>2014-05-26T09:47:11.185</Modified>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage2.xbf">
+      <PackagePath>Pages\GamePage2.xbf</PackagePath>
+      <Modified>2014-05-27T07:02:15.376</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
-      <Modified>2014-05-26T09:36:18.958</Modified>
+      <Modified>2014-05-27T07:16:16.732</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-05-26T09:03:28.165</Modified>
+      <Modified>2014-05-27T07:17:44.120</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

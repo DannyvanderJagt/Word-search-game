@@ -1,0 +1,36 @@
+﻿'Word-search-game.Windows.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\AppX\Word-search-game.Windows.exe'. Symbols loaded.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\system32\WinMetadata\Windows.UI.Xaml.winmd'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.InteropServices.WindowsRuntime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.InteropServices.WindowsRuntime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\system32\WinMetadata\Windows.ApplicationModel.winmd'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Diagnostics.Debug\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Diagnostics.Debug.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Collections\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Collections.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\system32\WinMetadata\Windows.Foundation.winmd'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Threading\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Threading.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.WindowsRuntime\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.WindowsRuntime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ObjectModel\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ObjectModel.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\system32\WinMetadata\Windows.UI.winmd'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Clickedlevel_1
+Fire up! Level: 1
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Extensions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Extensions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+10820
+3577
+2395
+7948
+42380
+50033
+6350
+51268
+9629
+37292
+18054
+17792
+Board66
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.WindowsRuntime.UI.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.WindowsRuntime.UI.Xaml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Linq\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Linq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Word-search-game.Windows.exe' (CLR v4.0.30319: Immersive Application Domain): Loaded 'C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The program '[5712] Word-search-game.Windows.exe' has exited with code 0 (0x0).
