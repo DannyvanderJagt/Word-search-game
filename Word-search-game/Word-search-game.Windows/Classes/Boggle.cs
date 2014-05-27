@@ -23,6 +23,8 @@ namespace Word_search_game.Classes
         // Normal variables.
         public Word[] words; // All the words that are placed in the board.
         public static Level settings; // These settings are abstracted from the levels.cs
+        public String difficulty = "easy";
+        public int level = 1;
         private StackPanel gridPanel; // UI Element to hold all the chars/tiles.
         private StackPanel wordPanel; // UI Element to hold all the words. (Word list)
         private TextBlock timerPanel;
@@ -43,19 +45,13 @@ namespace Word_search_game.Classes
             // Check if the difficulty exists.
             if (Array.IndexOf(Levels.types, difficulty) != -1)
             {
+                this.difficulty = difficulty;
+                this.level = level;
                 this.gridPanel = gridPanel;
                 this.wordPanel = wordPanel;
                 this.timerPanel = timerPanel;
                 // Get the settings for this type of difficulty and this level.
-                if(difficulty == "easy"){
-                    settings = Levels.easy[level];
-                }else if(difficulty == "immediate"){
-                    settings = Levels.immediate[level];
-                }
-                else
-                {
-                    settings = Levels.expert[level];
-                }
+                settings = Levels.data[difficulty][level];
                
                 // Select some words.
                 this.selectWords();
@@ -74,7 +70,7 @@ namespace Word_search_game.Classes
                 }
 
                 // Fill the empty gaps.
-               // this.fillGaps();
+                this.fillGaps();
 
                 // Replace this.words with only the words that are placed.
                  this.onlyPlacedWords();
@@ -223,8 +219,11 @@ namespace Word_search_game.Classes
               
                 if (w.chars[0].tile != null)
                 {
-                    placedWords[count] = this.words[i];
-                    count++;
+                    if (this.words[i] != null)
+                    {
+                        placedWords[count] = this.words[i];
+                        count++;
+                    }
                 }
             }
             this.words = placedWords;
@@ -298,7 +297,6 @@ namespace Word_search_game.Classes
 
         #endregion
 
-
         // State of the game.
         #region Start
 
@@ -310,11 +308,11 @@ namespace Word_search_game.Classes
             timer.Start();
         }
 
-        private int counter = 0;
+        public int timer_ticks = 0;
         void timer_Tick(object sender, object e)
         {
-            this.timerPanel.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () => { timerPanel.Text = counter.ToString(); ; });
-            counter++;
+            this.timerPanel.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () => { timerPanel.Text = timer_ticks.ToString(); ; });
+            timer_ticks++;
         }
 
         #endregion

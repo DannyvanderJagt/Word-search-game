@@ -343,6 +343,8 @@ namespace Word_search_game.Classes
                 }
             }
             System.Diagnostics.Debug.WriteLine("All the words are found!");
+            int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks); // TODO : add the time.
+            System.Diagnostics.Debug.WriteLine("Score"+score);
             return true;
         }
 

@@ -155,6 +155,7 @@ namespace Word_search_game.Classes
          */
         public Boolean check(Char character)
         {
+            System.Diagnostics.Debug.WriteLine("Check" + this.value + " : " + character.value);
             if (this.value == character.value || String.IsNullOrEmpty(this.value))
             {
                 if (this.chars.ContainsKey(character.word.value).Equals(false))

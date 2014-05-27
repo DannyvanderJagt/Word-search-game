@@ -25,9 +25,9 @@
                 </TransitionCollection>
             </StackPanel.Transitions>
         </StackPanel>
-        <Rectangle Fill="#FFD9D059" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="192" Margin="250,52,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="342,62,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}" Name="timerPanel"/>
-        <TextBlock HorizontalAlignment="Left" Margin="263,66,0,0" TextWrapping="Wrap" Text="Time left:" VerticalAlignment="Top" FontSize="15" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Rectangle Fill="#FFD9D059" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="192" Margin="250,56,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="342,66,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}" Name="timerPanel"/>
+        <TextBlock HorizontalAlignment="Left" Margin="263,70,0,0" TextWrapping="Wrap" Text="Time left:" VerticalAlignment="Top" FontSize="15" Foreground="White" SelectionHighlightColor="{x:Null}"/>
     </Grid>
 </Page>
 
