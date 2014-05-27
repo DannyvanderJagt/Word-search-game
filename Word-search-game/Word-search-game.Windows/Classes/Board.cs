@@ -10,6 +10,8 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Navigation;
 
 namespace Word_search_game.Classes
 {
@@ -342,10 +344,24 @@ namespace Word_search_game.Classes
                     return false;
                 }
             }
-            System.Diagnostics.Debug.WriteLine("All the words are found!");
-            int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks); // TODO : add the time.
-            System.Diagnostics.Debug.WriteLine("Score"+score);
+   
+            int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
+            MessageDialog msgDialog = new MessageDialog("You have completed this level! Your socre is: "+score, "Completed!");
+
+            //OK Button
+            UICommand okBtn = new UICommand("OK");
+            okBtn.Invoked = OkBtnClick;
+            msgDialog.Commands.Add(okBtn);
+
+            //Show message
+            msgDialog.ShowAsync();
             return true;
+        }
+
+        public void OkBtnClick(IUICommand command)
+        {
+            Page page = new Pages.LevelsPage(); // Bug, but i can fixed it at this moment.
+            Window.Current.Content = page;
         }
 
         #endregion

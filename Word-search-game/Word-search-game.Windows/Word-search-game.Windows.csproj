@@ -158,9 +158,6 @@
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GamePage2.xaml.cs">
-      <DependentUpon>GamePage2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\LevelsPage.xaml.cs">
       <DependentUpon>LevelsPage.xaml</DependentUpon>
     </Compile>
@@ -197,12 +194,6 @@
     <Content Include="Images\players.png" />
     <Content Include="Images\settings.png" />
     <Content Include="Images\stats.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Pages\GamePage2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

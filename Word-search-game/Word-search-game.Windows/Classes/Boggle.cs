@@ -11,7 +11,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Input;
 
-
 namespace Word_search_game.Classes
 {
     class Boggle
@@ -316,5 +315,9 @@ namespace Word_search_game.Classes
         }
 
         #endregion
+
+
+      
+
     }
 }

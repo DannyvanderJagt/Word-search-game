@@ -104,5 +104,11 @@ namespace Word_search_game.Pages
             Frame.Navigate(typeof(Pages.Levels.LevelExpertPage));
         }
 
+        public void completed()
+        {
+
+        }
+
+
     }
 }

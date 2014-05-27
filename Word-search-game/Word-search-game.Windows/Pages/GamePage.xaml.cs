@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Word_search_game.Classes;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,8 +28,26 @@ namespace Word_search_game.Pages
         {
             this.InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Fire up! Level: "+ Classes.PageSwitcher.level);
+
+            
+
             // Difficulty, Level, grid for the tiles Element, grid for the words element.
-            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList, timerPanel); 
+            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList, timerPanel);
+
+
         }
+
+
+
+        
+
+        public void pageHome_SomethingHappened(object sender, EventArgs e){
+            System.Diagnostics.Debug.WriteLine("A");
+        }
+        public void completed()
+        {
+
+        }
+
     }
 }

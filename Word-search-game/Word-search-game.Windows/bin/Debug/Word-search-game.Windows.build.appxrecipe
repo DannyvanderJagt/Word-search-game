@@ -77,9 +77,6 @@
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\StatisticsPage.xbf">
       <PackagePath>Pages\StatisticsPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Pages\GamePage2.xbf">
-      <PackagePath>Pages\GamePage2.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Debug\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
