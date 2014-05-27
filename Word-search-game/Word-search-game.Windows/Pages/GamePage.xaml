@@ -11,19 +11,22 @@
         <Grid.Background>
             <ImageBrush x:Name="backgroundGrid" ImageSource="/Images/background.jpg"/>
         </Grid.Background>
-        <StackPanel x:Name="tileGrid" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="751" Margin="499,52,0,-52">
+        <StackPanel x:Name="tileGrid" HorizontalAlignment="Left" Height="689" VerticalAlignment="Top" Width="751" Margin="499,52,0,0">
             <StackPanel.Transitions>
                 <TransitionCollection>
                     <ContentThemeTransition HorizontalOffset="80"/>
                 </TransitionCollection>
             </StackPanel.Transitions>
         </StackPanel>
-        <StackPanel x:Name="wordList" HorizontalAlignment="Left" Height="768" Margin="247,52,0,-52" VerticalAlignment="Top" Width="252">
+        <StackPanel x:Name="wordList" HorizontalAlignment="Left" Height="581" Margin="247,121,0,0" VerticalAlignment="Top" Width="252">
             <StackPanel.Transitions>
                 <TransitionCollection>
                     <ContentThemeTransition HorizontalOffset="80"/>
                 </TransitionCollection>
             </StackPanel.Transitions>
         </StackPanel>
+        <Rectangle Fill="#FFD9D059" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="192" Margin="250,56,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="342,66,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="20" Foreground="White" SelectionHighlightColor="{x:Null}" Name="timerPanel"/>
+        <TextBlock HorizontalAlignment="Left" Margin="263,70,0,0" TextWrapping="Wrap" Text="Time left:" VerticalAlignment="Top" FontSize="15" Foreground="White" SelectionHighlightColor="{x:Null}"/>
     </Grid>
 </Page>

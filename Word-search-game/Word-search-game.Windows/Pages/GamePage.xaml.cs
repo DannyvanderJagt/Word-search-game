@@ -28,7 +28,7 @@ namespace Word_search_game.Pages
             this.InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Fire up! Level: "+ Classes.PageSwitcher.level);
             // Difficulty, Level, grid for the tiles Element, grid for the words element.
-            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList); 
+            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList, timerPanel); 
         }
     }
 }

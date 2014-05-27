@@ -11,6 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Input;
 
+
 namespace Word_search_game.Classes
 {
     class Boggle
@@ -24,6 +25,7 @@ namespace Word_search_game.Classes
         public static Level settings; // These settings are abstracted from the levels.cs
         private StackPanel gridPanel; // UI Element to hold all the chars/tiles.
         private StackPanel wordPanel; // UI Element to hold all the words. (Word list)
+        private TextBlock timerPanel;
         private int placedWordCount = 0; // Check how many words are placed. *used at this.onlyPlacedWords()
 
         #endregion
@@ -36,13 +38,14 @@ namespace Word_search_game.Classes
          * @param Stackpanel panel - The panel from the View.
          * @savedAt this.settings
          */
-        public Boggle(String difficulty, int level, StackPanel gridPanel, StackPanel wordPanel)
+        public Boggle(String difficulty, int level, StackPanel gridPanel, StackPanel wordPanel, TextBlock timerPanel)
         {
             // Check if the difficulty exists.
             if (Array.IndexOf(Levels.types, difficulty) != -1)
             {
                 this.gridPanel = gridPanel;
                 this.wordPanel = wordPanel;
+                this.timerPanel = timerPanel;
                 // Get the settings for this type of difficulty and this level.
                 if(difficulty == "easy"){
                     settings = Levels.easy[level];
@@ -78,6 +81,7 @@ namespace Word_search_game.Classes
    
                 // Show the board to the user.
                 this.display();
+                this.start();
             }
             else
             {
@@ -290,6 +294,27 @@ namespace Word_search_game.Classes
                 }
             }
             return false;
+        }
+
+        #endregion
+
+
+        // State of the game.
+        #region Start
+
+        private void start()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        private int counter = 0;
+        void timer_Tick(object sender, object e)
+        {
+            this.timerPanel.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () => { timerPanel.Text = counter.ToString(); ; });
+            counter++;
         }
 
         #endregion

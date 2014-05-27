@@ -85,6 +85,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="RequestedTheme" />
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
@@ -100,6 +101,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Transitions" />
     </RootType>
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ContentThemeTransition">
       <RootProperty Name="HorizontalOffset" />
     </RootType>
@@ -115,7 +117,6 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Word_search_game.Pages.LevelsPage" />
-    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelBeginnerPage" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelExpertPage" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelImmediatePage" />
