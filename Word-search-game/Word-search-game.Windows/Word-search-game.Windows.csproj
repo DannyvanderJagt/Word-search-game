@@ -138,6 +138,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Statistics.cs" />
     <Compile Include="Classes\PageSwitcher.cs" />
     <Compile Include="Classes\Score.cs" />
     <Compile Include="MainPage.xaml.cs">

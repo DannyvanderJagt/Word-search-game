@@ -45,10 +45,25 @@
                         VerticalAlignment="Top"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
+                        AutomationProperties.ItemType="Navigation Button" RequestedTheme="Light"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" RequestedTheme="Light"/>
         </Grid>
+        <Popup/>
+        <StackPanel x:Name="namePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="733" Margin="188,57,0,0" Grid.Row="1">
+            <StackPanel.Transitions>
+                <TransitionCollection>
+                    <ContentThemeTransition HorizontalOffset="80"/>
+                </TransitionCollection>
+            </StackPanel.Transitions>
+        </StackPanel>
+        <StackPanel x:Name="scorePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="323" Margin="926,57,0,0" Grid.Row="1">
+            <StackPanel.Transitions>
+                <TransitionCollection>
+                    <ContentThemeTransition HorizontalOffset="80"/>
+                </TransitionCollection>
+            </StackPanel.Transitions>
+        </StackPanel>
     </Grid>
 </Page>
 

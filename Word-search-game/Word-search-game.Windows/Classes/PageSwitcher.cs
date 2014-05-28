@@ -11,5 +11,7 @@ namespace Word_search_game.Classes
         static public int level = -1;
         static public String Difficulty = "easy";
 
+        static public Boolean statistics = false;
+        static public int Score = -1;
     }
 }

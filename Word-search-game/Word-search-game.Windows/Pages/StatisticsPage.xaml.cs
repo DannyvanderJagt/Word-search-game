@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Word_search_game.Classes;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -26,6 +30,8 @@ namespace Word_search_game.Pages
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+
+        private Statistics stats = new Statistics();
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -51,8 +57,110 @@ namespace Word_search_game.Pages
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+
+            showScore();
+
         }
 
+        public void addScore()
+        {
+           
+
+            // Get the name.
+            stats.writeToFile("Danny", 2000);
+            stats.readFile();
+        }
+
+        public void showScore()
+        {
+            // Get the strings.
+            Task getScores = stats.readFile();
+            getScores.Wait();
+
+            String[] scores = stats.scores;
+            if (scores.Length > 0)
+            {
+                System.Diagnostics.Debug.WriteLine(scores.Length);
+                int pos = 0;
+                // Loop and fill the grid.
+                Grid nameGrid = this.createScoreGrid(scores, 800);
+                Grid scoreGrid = this.createScoreGrid(scores, 200);
+                foreach (String s in scores)
+                {
+                    if (String.IsNullOrWhiteSpace(s).Equals(false))
+                    {
+                        String[] split = s.Split(':');
+                        System.Diagnostics.Debug.WriteLine(split[0] + " : " + split[1]);
+                        // Name.
+                        Grid background = getBackground(split[0], pos);
+                        TextBlock text = getText(background, split[0], pos);
+                        nameGrid.Children.Add(background);
+                        nameGrid.Children.Add(text);
+                        // Score
+                        Grid backgroundS = getBackground(split[1], pos);
+                        TextBlock textS = getText(background, split[1], pos);
+                        scoreGrid.Children.Add(backgroundS);
+                        scoreGrid.Children.Add(textS);
+                        pos++;
+                    }
+                }
+                namePanel.Children.Add(nameGrid);
+                scorePanel.Children.Add(scoreGrid);
+            }
+        }
+
+        public Grid getBackground(String value, int pos)
+        {
+            Grid background = new Grid();
+            background.Background = Colors.green;
+            background.Margin = new Thickness(6);
+            Grid.SetColumn(background, 0);
+            Grid.SetRow(background, pos);           
+            return background;
+        }
+
+        /*
+         * Create the text element for the UI.
+         * @param int number - the position of the word within the list of words from the Board.cs
+         */
+        public TextBlock getText(Grid background, String value, int pos)
+        {
+            TextBlock textBlock = new TextBlock();
+
+            textBlock.Text = value;
+            textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+            textBlock.VerticalAlignment = VerticalAlignment.Center;
+            textBlock.MinWidth = background.ActualWidth;
+            textBlock.MinHeight = background.ActualHeight;
+            textBlock.FontSize = 20;
+            Grid.SetColumn(textBlock, 0);
+            Grid.SetRow(textBlock, pos);
+            return textBlock;
+        }
+
+        private Grid createScoreGrid(String[] scores, int width)
+        {
+
+            Grid grid = new Grid();
+
+            for (int i = 0; i < scores.Length; i++)
+            {
+                RowDefinition rowDefinition = new RowDefinition();
+                rowDefinition.MinHeight = 50;
+                rowDefinition.Height = GridLength.Auto;
+                grid.RowDefinitions.Add(rowDefinition);
+
+                ColumnDefinition columnDefinition = new ColumnDefinition();
+                columnDefinition.MinWidth = width;
+                columnDefinition.Width = GridLength.Auto;
+                grid.ColumnDefinitions.Add(columnDefinition);
+            }
+
+            return grid;
+        }
+        
+        
+        
         /// <summary>
         /// Populates the page with content passed during navigation. Any saved state is also
         /// provided when recreating a page from a prior session.
