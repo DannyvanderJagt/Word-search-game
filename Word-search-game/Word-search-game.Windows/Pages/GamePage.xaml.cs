@@ -46,8 +46,10 @@ namespace Word_search_game.Pages
                     Frame.GoBack();
                 }
             }
-            Frame.CacheSize = 0;
-           
+            
+          //  Frame.CacheSize = 0;
+
+            PageSwitcher.statistics = true;
             Frame.Navigate(typeof(Pages.StatisticsPage));
         }
 

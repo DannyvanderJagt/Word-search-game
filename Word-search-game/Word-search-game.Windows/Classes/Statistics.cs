@@ -10,40 +10,86 @@ namespace Word_search_game.Classes
 {
     class Statistics
     {
-        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-        StorageFile storageFile;
-        string storageFileValues;
-        string[] values;
-        string file = "statistics.txt";
-        public String[] scores;
+        // data opslaan in de local folder van de app
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.StorageFolder ScoreFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
+        public String[] scores = new String[]{};
+        private StorageFile sampleFile;
 
-        public async Task readFile()
+        public async Task open()
         {
-            storageFile = await storageFolder.CreateFileAsync(file, CreationCollisionOption.OpenIfExists);
-            storageFileValues = await Windows.Storage.FileIO.ReadTextAsync(storageFile);
-
-            values = storageFileValues.Split(';');
-            scores = values;
-        }
-
-        public async Task writeToFile(string name, int score)
-        {
-            readFile();
-
-            storageFile = await storageFolder.CreateFileAsync("statistics.txt", CreationCollisionOption.OpenIfExists);
-
-            using (IRandomAccessStream randomAccessStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+            System.Diagnostics.Debug.WriteLine("start sample");
+            try
             {
-                using (IOutputStream outputStream = randomAccessStream.GetOutputStreamAt(0))
-                {
-                    DataWriter dataWriter = new Windows.Storage.Streams.DataWriter(outputStream);
-                    dataWriter.WriteString(storageFileValues + name + ":" + score + ";");
-                    await dataWriter.StoreAsync();
-                    dataWriter.DetachStream();
-                    await outputStream.FlushAsync();
-                }
+                this.sampleFile = await ScoreFolder.CreateFileAsync("dataFile.txt", CreationCollisionOption.OpenIfExists);
             }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("open error");
+                System.Diagnostics.Debug.WriteLine(e);
+            }
+            System.Diagnostics.Debug.WriteLine("end stat.sample");
         }
+
+        /// <summary>
+        /// Ophalen van elke score dat in de local folder aanwezig is
+        /// Deze weergeven in listbox
+        /// </summary>
+        public async Task read()
+        {
+            StorageFile sampleFile;
+            String score;
+
+                 //sampleFile  = await ScoreFolder.GetFileAsync("dataFile.txt");
+                 try
+                 {
+                     score = await FileIO.ReadTextAsync(this.sampleFile);
+                     this.scores = score.Split(';');
+                 }
+                 catch (Exception e)
+                 {
+                     System.Diagnostics.Debug.WriteLine("error2");
+                     System.Diagnostics.Debug.WriteLine(e);
+                 }
+                 
+          
+
+         
+            
+        }
+
+        public async Task write(String value)
+        {
+            System.Diagnostics.Debug.WriteLine("start stat.write");
+          
+                try
+                {
+                    await Windows.Storage.FileIO.WriteTextAsync(this.sampleFile, value);
+                    /*if (this.sampleFile != null)
+                    {
+                        await Windows.Storage.FileIO.WriteTextAsync(this.sampleFile, value);
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("Write is niet gelukt!");
+                    }*/
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("error2");
+                    System.Diagnostics.Debug.WriteLine(e);
+                }
+           
+          
+        }
+
+
+
+
+
+
+
+
     }
 }

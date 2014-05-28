@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 
+
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace Word_search_game.Pages
@@ -50,6 +51,7 @@ namespace Word_search_game.Pages
             get { return this.navigationHelper; }
         }
 
+        private Boolean openend = false;
 
         public StatisticsPage()
         {
@@ -58,24 +60,52 @@ namespace Word_search_game.Pages
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
-            showScore();
+            if (openend.Equals(false))
+            {
+                this.stats.open();
+            }
 
+            if (PageSwitcher.statistics.Equals(true))
+            {
+                popup.IsOpen = true;
+                scoreTextBlock.Text = PageSwitcher.score.ToString();
+                PageSwitcher.statistics = false;
+                PageSwitcher.score = -1;
+            }
+            else
+            {
+                showScore();
+            } 
         }
 
-        public void addScore()
+
+        private void cancel(object sender, TappedRoutedEventArgs e)
         {
-           
-
-            // Get the name.
-            stats.writeToFile("Danny", 2000);
-            stats.readFile();
+            popup.IsOpen = false;
         }
+
+        private void save(object sender, TappedRoutedEventArgs e)
+        {
+            
+            System.Diagnostics.Debug.WriteLine("Name: " + name_tb.Text);
+            //name_tb.Text + ":"+PageSwitcher.score+";"
+            Task write = this.stats.write("hoi");
+            write.Wait();
+            System.Diagnostics.Debug.WriteLine("writing done");
+            //showScore();
+           // popup.IsOpen = false;
+        }
+
 
         public void showScore()
         {
             // Get the strings.
-            Task getScores = stats.readFile();
-            getScores.Wait();
+            System.Diagnostics.Debug.WriteLine("start reading");
+            Task read = stats.read();
+            read.Wait();
+            System.Diagnostics.Debug.WriteLine("read done");
+            System.Diagnostics.Debug.WriteLine("scores"+stats.scores.Length);
+            
 
             String[] scores = stats.scores;
             if (scores.Length > 0)
@@ -89,7 +119,7 @@ namespace Word_search_game.Pages
                 {
                     if (String.IsNullOrWhiteSpace(s).Equals(false))
                     {
-                        String[] split = s.Split(':');
+                        /*String[] split = s.Split(':');
                         System.Diagnostics.Debug.WriteLine(split[0] + " : " + split[1]);
                         // Name.
                         Grid background = getBackground(split[0], pos);
@@ -101,11 +131,11 @@ namespace Word_search_game.Pages
                         TextBlock textS = getText(background, split[1], pos);
                         scoreGrid.Children.Add(backgroundS);
                         scoreGrid.Children.Add(textS);
-                        pos++;
+                        pos++;*/
                     }
                 }
-                namePanel.Children.Add(nameGrid);
-                scorePanel.Children.Add(scoreGrid);
+                //namePanel.Children.Add(nameGrid);
+                //scorePanel.Children.Add(scoreGrid);
             }
         }
 
@@ -210,5 +240,7 @@ namespace Word_search_game.Pages
         }
 
         #endregion
+
+        
     }
 }

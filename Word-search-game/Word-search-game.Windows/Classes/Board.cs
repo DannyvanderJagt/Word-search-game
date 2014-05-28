@@ -51,6 +51,7 @@ namespace Word_search_game.Classes
                 this.tiles = new Tile[rows, columns];
                 // Create the tiles.
                 this.createTiles();
+                this.checkCompleted();
             }
         }
         #endregion
@@ -333,17 +334,18 @@ namespace Word_search_game.Classes
         {
             Word[] words = this.boggle.words;
             // Loop through the words.
-            foreach (Word word in words)
+           /* foreach (Word word in words)
             {
                 if (word.founded.Equals(false))
                 {
                     return false;
                 }
-            }
+            }*/
    
-            int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
+            //int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
+            int score = 10;
             MessageDialog msgDialog = new MessageDialog("You have completed this level! Your socre is: "+score, "Completed!");
-
+            PageSwitcher.score = score;
             //OK Button
             UICommand okBtn = new UICommand("OK");
             okBtn.Invoked = OkBtnClick;
@@ -359,6 +361,7 @@ namespace Word_search_game.Classes
 
             //Page page = new Pages.LevelsPage(); // Bug, but i can fixed it at this moment.        
             //Window.Current.Content = page;
+
             redirect.call();
         }
 
