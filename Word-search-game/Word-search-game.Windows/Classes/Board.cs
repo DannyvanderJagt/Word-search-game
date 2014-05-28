@@ -356,8 +356,10 @@ namespace Word_search_game.Classes
 
         public void OkBtnClick(IUICommand command)
         {
-            Page page = new Pages.LevelsPage(); // Bug, but i can fixed it at this moment.
-            Window.Current.Content = page;
+
+            //Page page = new Pages.LevelsPage(); // Bug, but i can fixed it at this moment.        
+            //Window.Current.Content = page;
+            redirect.call();
         }
 
         #endregion
@@ -405,5 +407,17 @@ namespace Word_search_game.Classes
             return possibilities;
         }
         #endregion
+    }
+
+
+    static class redirect
+    {
+
+        static public Action someFunc { get; set; }
+        static public void call(){
+            someFunc();
+        }
+
+
     }
 }

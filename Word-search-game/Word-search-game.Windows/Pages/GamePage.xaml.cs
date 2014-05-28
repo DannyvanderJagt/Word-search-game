@@ -29,24 +29,26 @@ namespace Word_search_game.Pages
             this.InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Fire up! Level: "+ Classes.PageSwitcher.level);
 
-            
+            // Pass to method.
+            redirect.someFunc = goToStatistics;
 
             // Difficulty, Level, grid for the tiles Element, grid for the words element.
             Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList, timerPanel);
-
+            
 
         }
 
-
-
-        
-
-        public void pageHome_SomethingHappened(object sender, EventArgs e){
-            System.Diagnostics.Debug.WriteLine("A");
-        }
-        public void completed()
-        {
-
+        public void goToStatistics(){
+            while (Frame.BackStackDepth > 0)
+            {
+                if (Frame.CanGoBack)
+                {
+                    Frame.GoBack();
+                }
+            }
+            Frame.CacheSize = 0;
+           
+            Frame.Navigate(typeof(Pages.StatisticsPage));
         }
 
     }
