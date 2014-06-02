@@ -343,7 +343,7 @@ namespace Word_search_game.Classes
             }*/
    
             //int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
-            int score = 10;
+            int score = 20;
 
             
             Windows.Storage.ApplicationData.Current.LocalSettings.Values["Score"] = score;

@@ -18,6 +18,8 @@ namespace Word_search_game.Classes
         public String data = "";
         private StorageFolder localFolder = null;
         const string filename = "sampleFile.txt";
+        public Dictionary<String, int> scores = new Dictionary<String, int>();
+        public Dictionary<String, int> sortedScores = new Dictionary<String, int>();
 
         public Statistics()
         {
@@ -26,76 +28,53 @@ namespace Word_search_game.Classes
 
         public async Task add(String name, int score)
         {
-            System.Diagnostics.Debug.WriteLine("before data!" + this.data);
+            await this.read();
             this.data = this.data + name + "," + score + ":";
-
-            System.Diagnostics.Debug.WriteLine("new data!" + this.data);
-
             StorageFile file = await localFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, this.data);
-            System.Diagnostics.Debug.WriteLine("Added!"+this.data);
-            await read();
+            //await read();
         }
 
-        public String result = "";
         async public Task read()
         {
             try
             {
                 StorageFile file = await localFolder.GetFileAsync(filename);
                 string text = await FileIO.ReadTextAsync(file);
-
-                result = text;
-                System.Diagnostics.Debug.WriteLine("text"+text);
                 this.data = text;
+                await this.convertStringToArray(text);
             }
             catch (Exception)
             {
                 System.Diagnostics.Debug.WriteLine("Not found!");
-                //LocalOutputTextBlock.Text = "Local Counter: <not found>";
             }
         }
 
-        /*static public Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        static public Dictionary<String, int> scores = new Dictionary<String, int>();
-
-        public static Dictionary<String, int> get()
+       async public Task convertStringToArray(String text)
         {
-            scores = (Dictionary<String, int>) localSettings.Values["scores"];
-
-            int count = (int) localSettings.Values["count"];
-            for (int i = 0; i < count; i++)
+            this.scores = new Dictionary<String, int>();
+            // Split the string.
+            System.Diagnostics.Debug.WriteLine("text"+text);
+            String[] parts = text.Split(':');
+            System.Diagnostics.Debug.WriteLine("parts"+parts.Length);
+            foreach (String part in parts)
             {
-                scores.Add((String)localSettings.Values[("name" + i)], (int)localSettings.Values[("score" + i)]);
+                System.Diagnostics.Debug.WriteLine("p" + part);
+                if (String.IsNullOrEmpty(part) == false && String.IsNullOrWhiteSpace(part) == false)
+                {
+                    String[] args = part.Split(',');
+                    this.scores.Add(args[0], Int32.Parse(args[1]));
+                }
+
             }
-            return scores;
-        }
-
-        public static void add(String name, int score){
-            scores.Add(name, score);
-            System.Diagnostics.Debug.WriteLine("added length:"+scores.Count);
-            Statistics.save();
-        }
-
-        public static void save()
-        {
-            System.Diagnostics.Debug.WriteLine("save length:" + scores.Count);
-            int count = 0;
-            foreach (KeyValuePair<string, int> entry in scores)
+            
+            // Sort..
+            foreach (KeyValuePair<string, int> score in this.scores.OrderByDescending(key => key.Value))
             {
-                localSettings.Values[("name"+count)] = entry.Key;
-                localSettings.Values[("score"+count)] = entry.Value;
-                count++;
+                System.Diagnostics.Debug.WriteLine(score.Key + " : " + score.Value);
+                this.sortedScores.Add(score.Key, score.Value);
             }
-            System.Diagnostics.Debug.WriteLine("save count:" + count);
-            localSettings.Values["count"] = count;
-        }*/
 
-
-
-
-
-
-
+        }   
     }
 }

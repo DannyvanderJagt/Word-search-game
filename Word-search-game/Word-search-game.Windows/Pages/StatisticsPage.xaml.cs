@@ -58,18 +58,14 @@ namespace Word_search_game.Pages
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
-             stats.read();
-            
-
             if (PageSwitcher.statistics.Equals(true))
             {
                 popup.IsOpen = true;
                 scoreTextBlock.Text = PageSwitcher.score.ToString();
             }
-            else
-            {
-                showScore();
-            } 
+           
+            showScore();
+            
         }
 
 
@@ -82,25 +78,22 @@ namespace Word_search_game.Pages
 
         async private void save(object sender, TappedRoutedEventArgs e)
         {
-           // Statistics.add(name_tb.Text, PageSwitcher.score);
             await stats.add(name_tb.Text, PageSwitcher.score);
             showScore();
+            popup.IsOpen = false;
             PageSwitcher.statistics = false;
             PageSwitcher.score = -1;
         }
 
 
-        public void showScore()
+        async public void showScore()
         {
-           // Task read = stats.read();
-            //read.Wait();
-            System.Diagnostics.Debug.WriteLine("showScore:"+stats.data);
-            /*
+            await stats.read();
+            Dictionary<String, int> scores = stats.sortedScores;
             
-           /// Dictionary<String, int> scores = Statistics.get();
-            int count = Statistics.scores.Count;
+            int count = scores.Count;
             System.Diagnostics.Debug.WriteLine("length"+count);
-           /* if (scores.Count > 0)
+            if (scores.Count > 0)
             {
                 System.Diagnostics.Debug.WriteLine(scores.Count());
                 int pos = 0;
@@ -109,9 +102,6 @@ namespace Word_search_game.Pages
                 Grid scoreGrid = this.createScoreGrid(scores.Count(), 200);
                 foreach(KeyValuePair<string, int> entry in scores)
                 {
-
-                    
-                    
                         // Name.
                         Grid background = getBackground(entry.Key, pos);
                         TextBlock text = getText(background, entry.Key, pos);
@@ -125,9 +115,11 @@ namespace Word_search_game.Pages
                         pos++;
                     
                 }
+                namePanel.Children.Clear();
+                scorePanel.Children.Clear();
                 namePanel.Children.Add(nameGrid);
                 scorePanel.Children.Add(scoreGrid);
-            }*/
+            }
         }
 
         public Grid getBackground(String value, int pos)

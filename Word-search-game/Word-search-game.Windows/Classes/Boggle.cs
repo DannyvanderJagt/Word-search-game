@@ -196,7 +196,6 @@ namespace Word_search_game.Classes
             {
                 int randomPos = random.Next(0, WordList.words.Length - 1);
                 String value = WordList.words[randomPos];
-                System.Diagnostics.Debug.WriteLine(randomPos);
                 words[i] = new Word(value);
             }
 
