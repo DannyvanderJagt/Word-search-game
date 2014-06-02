@@ -31,8 +31,8 @@ namespace Word_search_game.Pages
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
         private Statistics stats = new Statistics();
+
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -51,8 +51,6 @@ namespace Word_search_game.Pages
             get { return this.navigationHelper; }
         }
 
-        private Boolean openend = false;
-
         public StatisticsPage()
         {
             this.InitializeComponent();
@@ -60,17 +58,13 @@ namespace Word_search_game.Pages
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
-            if (openend.Equals(false))
-            {
-                this.stats.open();
-            }
+             stats.read();
+            
 
             if (PageSwitcher.statistics.Equals(true))
             {
                 popup.IsOpen = true;
                 scoreTextBlock.Text = PageSwitcher.score.ToString();
-                PageSwitcher.statistics = false;
-                PageSwitcher.score = -1;
             }
             else
             {
@@ -82,61 +76,58 @@ namespace Word_search_game.Pages
         private void cancel(object sender, TappedRoutedEventArgs e)
         {
             popup.IsOpen = false;
+            PageSwitcher.statistics = false;
+            PageSwitcher.score = -1;
         }
 
-        private void save(object sender, TappedRoutedEventArgs e)
+        async private void save(object sender, TappedRoutedEventArgs e)
         {
-            
-            System.Diagnostics.Debug.WriteLine("Name: " + name_tb.Text);
-            //name_tb.Text + ":"+PageSwitcher.score+";"
-            Task write = this.stats.write("hoi");
-            write.Wait();
-            System.Diagnostics.Debug.WriteLine("writing done");
-            //showScore();
-           // popup.IsOpen = false;
+           // Statistics.add(name_tb.Text, PageSwitcher.score);
+            await stats.add(name_tb.Text, PageSwitcher.score);
+            showScore();
+            PageSwitcher.statistics = false;
+            PageSwitcher.score = -1;
         }
 
 
         public void showScore()
         {
-            // Get the strings.
-            System.Diagnostics.Debug.WriteLine("start reading");
-            Task read = stats.read();
-            read.Wait();
-            System.Diagnostics.Debug.WriteLine("read done");
-            System.Diagnostics.Debug.WriteLine("scores"+stats.scores.Length);
+           // Task read = stats.read();
+            //read.Wait();
+            System.Diagnostics.Debug.WriteLine("showScore:"+stats.data);
+            /*
             
-
-            String[] scores = stats.scores;
-            if (scores.Length > 0)
+           /// Dictionary<String, int> scores = Statistics.get();
+            int count = Statistics.scores.Count;
+            System.Diagnostics.Debug.WriteLine("length"+count);
+           /* if (scores.Count > 0)
             {
-                System.Diagnostics.Debug.WriteLine(scores.Length);
+                System.Diagnostics.Debug.WriteLine(scores.Count());
                 int pos = 0;
                 // Loop and fill the grid.
-                Grid nameGrid = this.createScoreGrid(scores, 800);
-                Grid scoreGrid = this.createScoreGrid(scores, 200);
-                foreach (String s in scores)
+                Grid nameGrid = this.createScoreGrid(scores.Count(), 800);
+                Grid scoreGrid = this.createScoreGrid(scores.Count(), 200);
+                foreach(KeyValuePair<string, int> entry in scores)
                 {
-                    if (String.IsNullOrWhiteSpace(s).Equals(false))
-                    {
-                        /*String[] split = s.Split(':');
-                        System.Diagnostics.Debug.WriteLine(split[0] + " : " + split[1]);
+
+                    
+                    
                         // Name.
-                        Grid background = getBackground(split[0], pos);
-                        TextBlock text = getText(background, split[0], pos);
+                        Grid background = getBackground(entry.Key, pos);
+                        TextBlock text = getText(background, entry.Key, pos);
                         nameGrid.Children.Add(background);
                         nameGrid.Children.Add(text);
                         // Score
-                        Grid backgroundS = getBackground(split[1], pos);
-                        TextBlock textS = getText(background, split[1], pos);
+                        Grid backgroundS = getBackground(entry.Value.ToString(), pos);
+                        TextBlock textS = getText(background,entry.Value.ToString(), pos);
                         scoreGrid.Children.Add(backgroundS);
                         scoreGrid.Children.Add(textS);
-                        pos++;*/
-                    }
+                        pos++;
+                    
                 }
-                //namePanel.Children.Add(nameGrid);
-                //scorePanel.Children.Add(scoreGrid);
-            }
+                namePanel.Children.Add(nameGrid);
+                scorePanel.Children.Add(scoreGrid);
+            }*/
         }
 
         public Grid getBackground(String value, int pos)
@@ -168,12 +159,12 @@ namespace Word_search_game.Pages
             return textBlock;
         }
 
-        private Grid createScoreGrid(String[] scores, int width)
+        private Grid createScoreGrid(int length, int width)
         {
 
             Grid grid = new Grid();
 
-            for (int i = 0; i < scores.Length; i++)
+            for (int i = 0; i < length; i++)
             {
                 RowDefinition rowDefinition = new RowDefinition();
                 rowDefinition.MinHeight = 50;

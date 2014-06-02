@@ -344,6 +344,9 @@ namespace Word_search_game.Classes
    
             //int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
             int score = 10;
+
+            
+            Windows.Storage.ApplicationData.Current.LocalSettings.Values["Score"] = score;
             MessageDialog msgDialog = new MessageDialog("You have completed this level! Your socre is: "+score, "Completed!");
             PageSwitcher.score = score;
             //OK Button
