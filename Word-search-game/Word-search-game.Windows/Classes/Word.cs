@@ -205,7 +205,7 @@ namespace Word_search_game.Classes
         // Only for development!
         private void clicked(object sender, TappedRoutedEventArgs e)
         {
-            if (this.chars[0].tile.background.Background == Colors.green)
+          /*  if (this.chars[0].tile.background.Background == Colors.green)
             {
                 this.background.Background = background.Background = new SolidColorBrush(Color.FromArgb(100, 100, 100, 100));
                 foreach (Char c in this.chars)
@@ -226,7 +226,7 @@ namespace Word_search_game.Classes
                         c.tile.background.Background = Colors.green;
                     }
                 }
-            }
+            }*/
         }
 
         /*

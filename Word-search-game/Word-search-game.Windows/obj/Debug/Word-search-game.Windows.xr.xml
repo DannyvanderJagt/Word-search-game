@@ -51,6 +51,9 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="UseLayoutRounding" />
+      <RootProperty Name="RenderTransform" />
       <RootProperty Name="Name" />
       <RootEvent Name="Tapped" />
     </RootType>
@@ -137,11 +140,28 @@
       <RootProperty Name="IsSwipeEnabled" />
       <RootProperty Name="Margin" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Children" />
+      <RootMethod Name="GetLeft" />
+      <RootMethod Name="SetLeft" />
+      <RootMethod Name="GetTop" />
+      <RootMethod Name="SetTop" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform">
+      <RootProperty Name="Rotation" />
+      <RootProperty Name="TranslateX" />
+      <RootProperty Name="TranslateY" />
+    </RootType>
     <RootType FullName="Word_search_game.Pages.LevelsPage" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelBeginnerPage" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelExpertPage" />
     <RootType FullName="Word_search_game.Pages.Levels.LevelImmediatePage" />
     <RootType FullName="Word_search_game.Pages.PlayersPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />

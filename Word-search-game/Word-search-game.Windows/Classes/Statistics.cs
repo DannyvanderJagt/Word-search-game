@@ -86,18 +86,7 @@ namespace Word_search_game.Classes
             // Sort..
             this.scores.Sort(delegate(KeyValuePair<String, int> x, KeyValuePair<String, int> y)
             {
-                if (x.Value == y.Value)
-                {
-                    return 1;
-                }
-                else if(x.Value < y.Value)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return 0;
-                }
+                return -1*x.Value.CompareTo(y.Value);
             });
         }   
     }

@@ -116,6 +116,7 @@ namespace Word_search_game.Pages
                 Grid scoreGrid = this.createScoreGrid(scores.Count(), 200);
                 foreach(KeyValuePair<string, int> entry in scores)
                 {
+                    System.Diagnostics.Debug.WriteLine(entry.Key+":"+ entry.Value.ToString());
                         // Name.
                         Grid background = getBackground(pos);
                         TextBlock text = getText(background, entry.Key, pos);
@@ -131,6 +132,10 @@ namespace Word_search_game.Pages
                 }
                 namePanel.Children.Clear();
                 scorePanel.Children.Clear();
+                nameGrid.Height = (50 * scores.Count());
+                scoreGrid.Height = (50 * scores.Count());
+                namePanel.Height = (50 * scores.Count());
+                scorePanel.Height = (50 * scores.Count());
                 namePanel.Children.Add(nameGrid);
                 scorePanel.Children.Add(scoreGrid);
             }

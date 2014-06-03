@@ -49,24 +49,32 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
         		IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" RequestedTheme="Light"/>
         </Grid>
-        <Popup/>
-        <StackPanel x:Name="namePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="733" Margin="188,57,0,0" Grid.Row="1">
-            <StackPanel.Transitions>
-                <TransitionCollection>
-                    <ContentThemeTransition HorizontalOffset="80"/>
-                </TransitionCollection>
-            </StackPanel.Transitions>
-        </StackPanel>
-        <StackPanel x:Name="scorePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="323" Margin="926,57,0,0" Grid.Row="1">
-            <StackPanel.Transitions>
-                <TransitionCollection>
-                    <ContentThemeTransition HorizontalOffset="80"/>
-                </TransitionCollection>
-            </StackPanel.Transitions>
-        </StackPanel>
+
+        <ScrollViewer Margin="72,4,61,33" Grid.Row="1">
+
+            <Grid>
+                <StackPanel x:Name="namePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="733" Margin="188,57,0,0" Grid.Row="1">
+                    <StackPanel.Transitions>
+                        <TransitionCollection>
+                            <ContentThemeTransition HorizontalOffset="80"/>
+                        </TransitionCollection>
+                    </StackPanel.Transitions>
+                </StackPanel>
+                <StackPanel x:Name="scorePanel" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="323" Margin="926,57,0,0" Grid.Row="1">
+                    <StackPanel.Transitions>
+                        <TransitionCollection>
+                            <ContentThemeTransition HorizontalOffset="80"/>
+                        </TransitionCollection>
+                    </StackPanel.Transitions>
+                </StackPanel>
+
+            </Grid>
+        </ScrollViewer>
+
+
 
         <Popup Name="popup" MinWidth="Infinity" MinHeight="Infinity">
-            <Grid Background="#D9D059" MinHeight="150" MinWidth="Infinity">
+            <Grid Background="#D9D059" MinHeight="180" MinWidth="Infinity">
 
                 <TextBox HorizontalAlignment="Left" Name="name_tb" Margin="562,52,0,0" TextWrapping="Wrap" Text="Your name!" VerticalAlignment="Top" Width="294" Height="50" FontFamily="Global User Interface" FontSize="24" Foreground="White" BorderBrush="{x:Null}" Background="#FFB9B140"/>
                 <Button x:ConnectionId='1' Content="Save!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1182,58,0,0" FontFamily="Global User Interface"              />
@@ -76,6 +84,8 @@
                 <TextBlock HorizontalAlignment="Left" Name="scoreTextBlock" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="32" Width="218" Margin="918,61,0,0" FontSize="24" Foreground="White"/>
             </Grid>
         </Popup>
+
+
 
     </Grid>
 </Page>

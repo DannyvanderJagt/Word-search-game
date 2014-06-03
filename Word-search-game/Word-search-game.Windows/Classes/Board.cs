@@ -251,20 +251,53 @@ namespace Word_search_game.Classes
          */
         private Boolean canBeClicked(int x, int y)
         {
+            System.Diagnostics.Debug.WriteLine(Boggle.settings.directions);
             if (lastX == -1 && lastY == -1)
             {
-                // First time
+                // First time.
                 lastX = x;
                 lastY = y;
                 return true;
             }
-            else 
-            { 
-                if((x == lastX || x == lastX - 1 || x == lastX +1) && (y == lastY || y == lastY -1 || y == lastY+1)){
-                    lastX = x;
-                    lastY = y;
-                    return true;
+            else
+            {
+                if ((x == lastX || x == lastX - 1 || x == lastX + 1) && (y == lastY || y == lastY - 1 || y == lastY + 1))
+                {
+                    if (x == lastX && y == lastY)
+                    {
+                        return true;
+                    }
+                    int[][] directions = new int[][]{
+                        new int[]{lastX+1,lastY}, // Right.
+                        new int[]{lastX-1,lastY}, // Left.
+                        new int[]{lastX,lastY-1}, // Top.
+                        new int[]{lastX,lastY+1}, // Bottom.
+                        new int[]{lastX-1,lastY-1}, // Topleft.
+                        new int[]{lastX+1,lastY-1}, // Topright.
+                        new int[]{lastX-1,lastY+1}, // Bottomleft.
+                        new int[]{lastX+1,lastY+1}  // Bottomright.
+                    };
+                    System.Diagnostics.Debug.WriteLine("Start looping!");
+                    foreach (int i in Boggle.settings.directions)
+                    {
+                        // Check if this tile is a fit.
+        
+                        int[] dir = directions[i];
+                        System.Diagnostics.Debug.WriteLine(x + ":" + dir[0] + ":" + y + ":" + dir[1]);
+                        if (x == dir[0] && y == dir[1])
+                        {
+                            lastX = x;
+                            lastY = y;
+                            return true;
+                        }
+                    }
+                    
                 }
+                else
+                {
+                    return false;
+                }
+                return false;
             }
             return false;
         }
