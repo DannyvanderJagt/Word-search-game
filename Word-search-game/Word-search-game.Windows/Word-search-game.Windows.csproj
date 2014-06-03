@@ -191,6 +191,9 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Images\background.jpg" />
+    <Content Include="Images\easy.png" />
+    <Content Include="Images\expert.png" />
+    <Content Include="Images\imme.png" />
     <Content Include="Images\levels.png" />
     <Content Include="Images\players.png" />
     <Content Include="Images\settings.png" />

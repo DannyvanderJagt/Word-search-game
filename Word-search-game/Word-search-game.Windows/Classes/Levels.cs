@@ -30,6 +30,69 @@ namespace Word_search_game.Classes
                     12,
                     new int[]{0,1,2,3},
                     60
+                ),
+                new Level(
+                    8, // width - columns
+                    8, // height - rows
+                    20, // number of words.
+                    new int[]{0,1,2,3}, // Directions
+                    60 // Time
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3},
+                    60
+                ),
+                new Level(
+                    8, // width - columns
+                    8, // height - rows
+                    20, // number of words.
+                    new int[]{0,1,2,3}, // Directions
+                    60 // Time
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3},
+                    60
+                ),
+                new Level(
+                    8, // width - columns
+                    8, // height - rows
+                    20, // number of words.
+                    new int[]{0,1,2,3}, // Directions
+                    60 // Time
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3},
+                    60
+                ),
+                new Level(
+                    8, // width - columns
+                    8, // height - rows
+                    20, // number of words.
+                    new int[]{0,1,2,3}, // Directions
+                    60 // Time
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3},
+                    60
+                ),
+                 new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3},
+                    60
                 )
                 }// End of Level[].
             },// End of easy.
@@ -47,6 +110,69 @@ namespace Word_search_game.Classes
                     12,
                     new int[]{4,5,6,7},
                     60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{4,5,6,7},
+                    60
                 )
             }}, // End of immediate.
             {"expert", new Level[]{
@@ -54,6 +180,69 @@ namespace Word_search_game.Classes
                     8,
                     8,
                     20,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                 new Level(
+                    8,
+                    8,
+                    20,
+                    new int[]{0,1,2,3,4,5,6,7},
+                    60
+                ),
+                new Level(
+                    6,
+                    6,
+                    12,
                     new int[]{0,1,2,3,4,5,6,7},
                     60
                 ),

@@ -48,7 +48,7 @@
             Grid.RowSpan="2"
             Padding="116,136,116,46"
             SelectionMode="None"
-            IsSwipeEnabled="false"/>
+            IsSwipeEnabled="false" Margin="-24,1,24,-1"/>
 
         <!-- Back button and page title -->
         <Grid>
@@ -68,6 +68,49 @@
         <Rectangle x:ConnectionId='1' Fill="#FFD9D059" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="196,26,0,0" Grid.Row="1"                         />
         <Rectangle x:ConnectionId='2' Fill="#FFF8CB4D" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="552,26,0,0" Grid.Row="1"                          />
         <Rectangle x:ConnectionId='3' Fill="#FFF18241" HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="315" Margin="913,26,0,0" Grid.Row="1"                       />
+        <TextBlock HorizontalAlignment="Left" Margin="302,448,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Easy" VerticalAlignment="Top" FontSize="50" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="593,443,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Immediate" VerticalAlignment="Top" FontSize="50" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="999,449,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Expert" VerticalAlignment="Top" FontSize="50" Foreground="White" SelectionHighlightColor="{x:Null}"/>
+        <Canvas Margin="253,207,912,385" Grid.Row="1">
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="163" Canvas.Left="19" Canvas.Top="4"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="29.05" VerticalAlignment="Top" Width="162.194" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="3.729" Canvas.Left="19.403">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+        <Canvas Margin="603,208,561,383" Grid.Row="1">
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="28.948" VerticalAlignment="Top" Width="161.621" RenderTransformOrigin="0.5,0.5" Canvas.Left="20.305" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="3.528">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="45" TranslateX="0.528" TranslateY="0.219"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="28.948" VerticalAlignment="Top" Width="161.621" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="4.271" Canvas.Left="19.791">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="135" TranslateX="0.21" TranslateY="-0.507"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+        <Canvas Margin="969,214,195,377" Grid.Row="1">
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="169" Canvas.Left="17" Canvas.Top="9"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="18.178" VerticalAlignment="Top" Width="168.164" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="9.628" Canvas.Left="16.581">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="19.567" VerticalAlignment="Top" Width="168.164" RenderTransformOrigin="0.5,0.5" Canvas.Left="17.373" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="8.299">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="45" TranslateX="0.507" TranslateY="0.21"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="19.565" VerticalAlignment="Top" Width="168.164" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Top="9.055" Canvas.Left="16.531">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="135" TranslateX="0.306" TranslateY="-0.739"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+        </Canvas>
+
     </Grid>
 </Page>
 
