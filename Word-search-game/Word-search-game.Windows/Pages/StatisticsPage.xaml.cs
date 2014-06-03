@@ -31,7 +31,7 @@ namespace Word_search_game.Pages
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private Statistics stats = new Statistics();
+        private Statistics stats = new Statistics(); // Stats.
 
 
         /// <summary>
@@ -51,6 +51,9 @@ namespace Word_search_game.Pages
             get { return this.navigationHelper; }
         }
 
+        /*
+         * Constructor.
+         */
         public StatisticsPage()
         {
             this.InitializeComponent();
@@ -58,24 +61,30 @@ namespace Word_search_game.Pages
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
+            // Check if a new score needs to be added.
             if (PageSwitcher.statistics.Equals(true))
             {
                 popup.IsOpen = true;
                 scoreTextBlock.Text = PageSwitcher.score.ToString();
             }
-           
+            // Show the scores.
             showScore();
-            
         }
 
 
+        /*
+         * Popup: The cancel button.
+         */
         private void cancel(object sender, TappedRoutedEventArgs e)
         {
             popup.IsOpen = false;
             PageSwitcher.statistics = false;
             PageSwitcher.score = -1;
         }
-
+        
+        /*
+         * Popup: The save button - Save the score and display the new scores.
+         */
         async private void save(object sender, TappedRoutedEventArgs e)
         {
             await stats.add(name_tb.Text, PageSwitcher.score);
@@ -86,10 +95,15 @@ namespace Word_search_game.Pages
         }
 
 
+        /*
+         * Display the scores in a list.
+         */
         async public void showScore()
         {
             await stats.read();
-            Dictionary<String, int> scores = stats.sortedScores;
+        
+           // Dictionary<String, int> scores = stats.sortedScores;
+            List<KeyValuePair<string, int>> scores = stats.scores;
             
             int count = scores.Count;
             System.Diagnostics.Debug.WriteLine("length"+count);
@@ -103,12 +117,12 @@ namespace Word_search_game.Pages
                 foreach(KeyValuePair<string, int> entry in scores)
                 {
                         // Name.
-                        Grid background = getBackground(entry.Key, pos);
+                        Grid background = getBackground(pos);
                         TextBlock text = getText(background, entry.Key, pos);
                         nameGrid.Children.Add(background);
                         nameGrid.Children.Add(text);
                         // Score
-                        Grid backgroundS = getBackground(entry.Value.ToString(), pos);
+                        Grid backgroundS = getBackground(pos);
                         TextBlock textS = getText(background,entry.Value.ToString(), pos);
                         scoreGrid.Children.Add(backgroundS);
                         scoreGrid.Children.Add(textS);
@@ -122,7 +136,11 @@ namespace Word_search_game.Pages
             }
         }
 
-        public Grid getBackground(String value, int pos)
+        /*
+         * Create a background.
+         * @param The positions of this background in the list.
+         */
+        public Grid getBackground(int pos)
         {
             Grid background = new Grid();
             background.Background = Colors.green;
@@ -151,6 +169,11 @@ namespace Word_search_game.Pages
             return textBlock;
         }
 
+        /*
+         * Create the score grid.
+         * @param the width of the grid.
+         * @param the height of the grid.
+         */
         private Grid createScoreGrid(int length, int width)
         {
 

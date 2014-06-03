@@ -22,11 +22,8 @@ namespace Word_search_game.Classes
 
             // Calculate some stuff.
             int cal1 = ((settings.columns * settings.rows) / settings.words);
-            System.Diagnostics.Debug.WriteLine("cal1" + cal1);
             int cal2 = (cal1 * cal1) * settings.directions.Length;
-            System.Diagnostics.Debug.WriteLine("call2" + cal2);
             int cal3 = (cal2*settings.time) / time;
-            System.Diagnostics.Debug.WriteLine("call3" + cal3);
 
             return cal3 *100;
         }

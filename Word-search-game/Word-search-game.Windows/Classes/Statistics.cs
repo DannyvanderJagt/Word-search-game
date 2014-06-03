@@ -15,26 +15,38 @@ namespace Word_search_game.Classes
 {
     class Statistics
     {
-        public String data = "";
-        private StorageFolder localFolder = null;
-        const string filename = "sampleFile.txt";
-        public Dictionary<String, int> scores = new Dictionary<String, int>();
-        public Dictionary<String, int> sortedScores = new Dictionary<String, int>();
+        public String data = ""; // The data string that will be stored in the local storage.
+        private StorageFolder localFolder = null; // The storage folder.
+        const string filename = "sampleFile.txt"; // The file name.
 
+        // Store all the scores is a list for easy processing.
+        public List<KeyValuePair<String, int>> scores= new List<KeyValuePair<String, int>>();
+
+        /*
+         * Constructor.
+         */
         public Statistics()
         {
             localFolder = ApplicationData.Current.LocalFolder;
         }
 
+        /*
+         * Add some data to the local storage.
+         * @param String name - The name of the user.
+         * @param int score - The score of the user.
+         */
         public async Task add(String name, int score)
         {
             await this.read();
             this.data = this.data + name + "," + score + ":";
             StorageFile file = await localFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, this.data);
-            //await read();
+            await this.convertStringToArray();
         }
 
+        /*
+         * Read the local storage.
+         */
         async public Task read()
         {
             try
@@ -42,7 +54,7 @@ namespace Word_search_game.Classes
                 StorageFile file = await localFolder.GetFileAsync(filename);
                 string text = await FileIO.ReadTextAsync(file);
                 this.data = text;
-                await this.convertStringToArray(text);
+                await this.convertStringToArray();
             }
             catch (Exception)
             {
@@ -50,31 +62,43 @@ namespace Word_search_game.Classes
             }
         }
 
-       async public Task convertStringToArray(String text)
+       /*
+        * Convert the data string from the storage to an List and sort the list bij value/score.
+        */
+       async public Task convertStringToArray()
         {
-            this.scores = new Dictionary<String, int>();
+            String text = this.data;
+            this.scores = new List<KeyValuePair<string, int>>();
             // Split the string.
-            System.Diagnostics.Debug.WriteLine("text"+text);
             String[] parts = text.Split(':');
-            System.Diagnostics.Debug.WriteLine("parts"+parts.Length);
+
+            // Looping.
             foreach (String part in parts)
             {
-                System.Diagnostics.Debug.WriteLine("p" + part);
                 if (String.IsNullOrEmpty(part) == false && String.IsNullOrWhiteSpace(part) == false)
                 {
                     String[] args = part.Split(',');
-                    this.scores.Add(args[0], Int32.Parse(args[1]));
+                    KeyValuePair<string, int> kv = new KeyValuePair<string,int>(args[0], Int32.Parse(args[1]));
+                    this.scores.Add(kv);
                 }
-
             }
             
             // Sort..
-            foreach (KeyValuePair<string, int> score in this.scores.OrderByDescending(key => key.Value))
+            this.scores.Sort(delegate(KeyValuePair<String, int> x, KeyValuePair<String, int> y)
             {
-                System.Diagnostics.Debug.WriteLine(score.Key + " : " + score.Value);
-                this.sortedScores.Add(score.Key, score.Value);
-            }
-
+                if (x.Value == y.Value)
+                {
+                    return 1;
+                }
+                else if(x.Value < y.Value)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            });
         }   
     }
 }

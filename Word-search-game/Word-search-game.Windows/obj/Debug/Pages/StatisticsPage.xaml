@@ -64,10 +64,10 @@
                 </TransitionCollection>
             </StackPanel.Transitions>
         </StackPanel>
-       
+
         <Popup Name="popup" MinWidth="Infinity" MinHeight="Infinity">
             <Grid Background="#D9D059" MinHeight="150" MinWidth="Infinity">
-                
+
                 <TextBox HorizontalAlignment="Left" Name="name_tb" Margin="562,52,0,0" TextWrapping="Wrap" Text="Your name!" VerticalAlignment="Top" Width="294" Height="50" FontFamily="Global User Interface" FontSize="24" Foreground="White" BorderBrush="{x:Null}" Background="#FFB9B140"/>
                 <Button x:ConnectionId='1' Content="Save!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1182,58,0,0" FontFamily="Global User Interface"              />
                 <Button x:ConnectionId='2' Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1275,58,0,0" FontFamily="Global User Interface"                />

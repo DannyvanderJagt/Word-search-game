@@ -334,18 +334,17 @@ namespace Word_search_game.Classes
         {
             Word[] words = this.boggle.words;
             // Loop through the words.
-           /* foreach (Word word in words)
+            foreach (Word word in words)
             {
                 if (word.founded.Equals(false))
                 {
                     return false;
                 }
-            }*/
-   
-            //int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
-            int score = 20;
-
-            
+            }
+            // Calculate the score.
+            int score = Score.calculate(Boggle.board.boggle.difficulty, Boggle.board.boggle.level, Boggle.board.boggle.timer_ticks);
+        
+            // Let the user know what there score is.
             Windows.Storage.ApplicationData.Current.LocalSettings.Values["Score"] = score;
             MessageDialog msgDialog = new MessageDialog("You have completed this level! Your socre is: "+score, "Completed!");
             PageSwitcher.score = score;
@@ -359,12 +358,11 @@ namespace Word_search_game.Classes
             return true;
         }
 
+        /*
+         * The ok button.
+         */
         public void OkBtnClick(IUICommand command)
         {
-
-            //Page page = new Pages.LevelsPage(); // Bug, but i can fixed it at this moment.        
-            //Window.Current.Content = page;
-
             redirect.call();
         }
 
@@ -415,7 +413,10 @@ namespace Word_search_game.Classes
         #endregion
     }
 
-
+    #region redirect
+    /*
+     * Use this to redirect to the statistics page.
+     */
     static class redirect
     {
 
@@ -426,4 +427,6 @@ namespace Word_search_game.Classes
 
 
     }
+
+    #endregion
 }
