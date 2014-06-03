@@ -219,7 +219,10 @@ namespace Word_search_game.Classes
                 {
                     if (this.words[i] != null)
                     {
-                        placedWords[count] = this.words[i];
+                        if (this.words[i] != null)
+                        {
+                            placedWords[count] = this.words[i];
+                        }
                         count++;
                     }
                 }

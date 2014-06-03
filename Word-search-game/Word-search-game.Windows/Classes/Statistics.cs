@@ -8,8 +8,6 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using System;
-using Windows.Storage;
 
 namespace Word_search_game.Classes
 {
