@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WIN-VIQKFE478SP</Machine>
+    <WindowsUser>Danny van der Jagt</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>bc9463f7-bb36-4b8c-8d40-7b7a5748d9f3</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Word-search-game.Windows.exe">
+      <PackagePath>Word-search-game.Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\easy.png">
+      <PackagePath>Images\easy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\expert.png">
+      <PackagePath>Images\expert.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\imme.png">
+      <PackagePath>Images\imme.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\levels.png">
+      <PackagePath>Images\levels.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\players.png">
+      <PackagePath>Images\players.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\settings.png">
+      <PackagePath>Images\settings.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\stats.png">
+      <PackagePath>Images\stats.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Images\background.jpg">
+      <PackagePath>Images\background.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\GamePage.xbf">
+      <PackagePath>Pages\GamePage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\LevelsPage.xbf">
+      <PackagePath>Pages\LevelsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\Levels\LevelBeginnerPage.xbf">
+      <PackagePath>Pages\Levels\LevelBeginnerPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\Levels\LevelExpertPage.xbf">
+      <PackagePath>Pages\Levels\LevelExpertPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\Levels\LevelImmediatePage.xbf">
+      <PackagePath>Pages\Levels\LevelImmediatePage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\PlayersPage.xbf">
+      <PackagePath>Pages\PlayersPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\StatisticsPage.xbf">
+      <PackagePath>Pages\StatisticsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Word-search-game.Windows.xr.xml">
+      <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
