@@ -169,6 +169,7 @@ namespace Word_search_game.Pages
             textBlock.MinWidth = background.ActualWidth;
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 20;
+            textBlock.Foreground = Colors.white;
             Grid.SetColumn(textBlock, 0);
             Grid.SetRow(textBlock, pos);
             return textBlock;

@@ -180,6 +180,8 @@ namespace Word_search_game.Classes
             {
                 if (tile.active.Equals(true))
                 {
+                    lastX = x;
+                    lastY = y;
                     this.totalActive--;
                 }
                 else if(tile.active.Equals(false))
