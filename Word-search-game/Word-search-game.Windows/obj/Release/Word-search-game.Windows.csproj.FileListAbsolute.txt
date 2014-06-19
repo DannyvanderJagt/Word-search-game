@@ -65,3 +65,8 @@ C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\W
 C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\qualifiers.txt.intermediate
 C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\ProjectArchitectures.txt
+C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\GamePage2.xbf
+C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\Pages\GamePage2.g.i.cs
+C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\Pages\GamePage2.g.cs
+C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\Pages\GamePage2.xaml
+C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\obj\Release\Pages\GamePage2.xbf

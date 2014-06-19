@@ -68,6 +68,9 @@
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\GamePage.xbf">
       <PackagePath>Pages\GamePage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\GamePage2.xbf">
+      <PackagePath>Pages\GamePage2.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\LevelsPage.xbf">
       <PackagePath>Pages\LevelsPage.xbf</PackagePath>
     </AppxPackagedFile>

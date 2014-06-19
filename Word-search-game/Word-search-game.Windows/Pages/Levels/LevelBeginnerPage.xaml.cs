@@ -103,7 +103,7 @@ namespace Word_search_game.Pages.Levels
                 // A workaround but it works.
                 Classes.PageSwitcher.Difficulty = "easy";
                 Classes.PageSwitcher.level = Int32.Parse(thunks[1]);
-                Frame.Navigate(typeof(Pages.GamePage));
+                Frame.Navigate(typeof(Pages.GamePage2));
             }
         }
 

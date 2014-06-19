@@ -77,6 +77,7 @@ namespace Word_search_game.Classes
             textBlock.MinWidth = background.ActualWidth;
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 24;
+            textBlock.Foreground = Colors.white;
             Grid.SetColumn(textBlock, this.x);
             Grid.SetRow(textBlock, this.y);
             this.text = textBlock;

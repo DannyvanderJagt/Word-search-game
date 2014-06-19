@@ -13,15 +13,17 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Shapes;
+using Word_search_game.Classes;
+using Windows.UI.Popups;
+
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Word_search_game.Pages.Levels
+namespace Word_search_game.Pages
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class LevelImmediatePage : Page
+    public sealed partial class GamePage2 : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -45,14 +47,37 @@ namespace Word_search_game.Pages.Levels
         }
 
 
-        public LevelImmediatePage()
+        public GamePage2()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+
+            System.Diagnostics.Debug.WriteLine("Fire up! Level: " + Classes.PageSwitcher.level);
+
+            // Pass to method.
+            redirect.someFunc = goToStatistics;
+
+            // Difficulty, Level, grid for the tiles Element, grid for the words element.
+            Boggle boggle = new Boggle(Classes.PageSwitcher.Difficulty, Classes.PageSwitcher.level, tileGrid, wordList, timerPanel);
         }
 
+        public void goToStatistics()
+        {
+            while (Frame.BackStackDepth > 0)
+            {
+                if (Frame.CanGoBack)
+                {
+                    Frame.GoBack();
+                }
+            }
+
+            //  Frame.CacheSize = 0;
+
+            PageSwitcher.statistics = true;
+            Frame.Navigate(typeof(Pages.StatisticsPage));
+        }
         /// <summary>
         /// Populates the page with content passed during navigation. Any saved state is also
         /// provided when recreating a page from a prior session.
@@ -102,21 +127,5 @@ namespace Word_search_game.Pages.Levels
         }
 
         #endregion
-        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Rectangle rec = new Rectangle();
-            if (sender as Rectangle != null)
-            {
-                Rectangle elem = (Rectangle)sender;
-                System.Diagnostics.Debug.WriteLine("Clicked" + elem.Name);
-                // Split the name and get the level number.
-                string[] thunks = elem.Name.Split('_');
-                // Load the right level.
-                // A workaround but it works.
-                Classes.PageSwitcher.Difficulty = "immediate";
-                Classes.PageSwitcher.level = Int32.Parse(thunks[1]);
-                Frame.Navigate(typeof(Pages.GamePage2));
-            }
-        }
     }
 }

@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-12T11:01:05.584</Modified>
+      <Modified>2014-06-18T19:04:01.920</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Word-search-game.Windows.exe">
       <PackagePath>Word-search-game.Windows.exe</PackagePath>
-      <Modified>2014-06-12T11:01:05.273</Modified>
+      <Modified>2014-06-19T07:57:50.767</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -92,6 +92,10 @@
       <PackagePath>Pages\GamePage.xbf</PackagePath>
       <Modified>2014-06-12T11:01:04.830</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\GamePage2.xbf">
+      <PackagePath>Pages\GamePage2.xbf</PackagePath>
+      <Modified>2014-06-19T07:57:50.333</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Pages\LevelsPage.xbf">
       <PackagePath>Pages\LevelsPage.xbf</PackagePath>
       <Modified>2014-06-12T11:01:04.830</Modified>
@@ -118,11 +122,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\Word-search-game.Windows.xr.xml">
       <PackagePath>Word-search-game.Windows.xr.xml</PackagePath>
-      <Modified>2014-06-12T11:01:04.754</Modified>
+      <Modified>2014-06-18T19:04:01.022</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Danny van der Jagt\Documents\GitHub\Word-search-game\Word-search-game\Word-search-game.Windows\bin\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-06-12T11:01:05.424</Modified>
+      <Modified>2014-06-18T19:04:01.724</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

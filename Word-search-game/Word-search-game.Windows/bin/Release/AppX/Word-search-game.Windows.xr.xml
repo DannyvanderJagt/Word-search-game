@@ -130,6 +130,7 @@
       <RootProperty Name="HorizontalOffset" />
     </RootType>
     <RootType FullName="Word_search_game.Pages.GamePage" />
+    <RootType FullName="Word_search_game.Pages.GamePage2" />
     <RootType FullName="Windows.UI.Xaml.Data.CollectionViewSource">
       <RootProperty Name="Source" />
     </RootType>

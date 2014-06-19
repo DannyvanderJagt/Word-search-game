@@ -112,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\GamePage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LevelsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +162,9 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GamePage2.xaml.cs">
+      <DependentUpon>GamePage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LevelsPage.xaml.cs">
       <DependentUpon>LevelsPage.xaml</DependentUpon>

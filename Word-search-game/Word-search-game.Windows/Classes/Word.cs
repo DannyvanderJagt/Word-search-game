@@ -191,6 +191,7 @@ namespace Word_search_game.Classes
             textBlock.MinWidth = background.ActualWidth;
             textBlock.MinHeight = background.ActualHeight;
             textBlock.FontSize = 20;
+            textBlock.Foreground = Colors.white;
             textBlock.Tapped += clicked;
             Grid.SetColumn(textBlock, 0);
             Grid.SetRow(textBlock, number);
